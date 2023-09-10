@@ -1,0 +1,952 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2022 5:24:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{245226B1-F1C9-456C-A289-F5D409143EE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="STAGING_LISTE"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="1"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{F8C3466C-16B5-4C92-BB09-E4BC624DDD49}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2ECA0D97-50E6-40B2-8469-B6787CF90B77}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Administrateur\Desktop\marche.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{7699F75D-2C07-4931-BB69-3B4BD158CEB6}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-DGMP-{7699F75D-2C07-4931-BB69-3B4BD158CEB6}WIN-RJGOPBCJ87D.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{EC2476C3-1B28-4033-9E41-D93390D40A90}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package-{EC2476C3-1B28-4033-9E41-D93390D40A90}WIN-RJGOPBCJ87D.SOURCE_CAISEF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\STAGING_LISTE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{C1F3ADE1-BA90-4217-ADBF-AD34EE63B588}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STAGING_LISTE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STAGING_LISTE\Liste"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Liste"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/****** Script de la commande SelectTopNRows à partir de SSMS  ******/
+SELECT [Autorité],[Numéro de Marché],
+      [Service]       ,[Nature de marché]       ,[Financement]
+      ,[Mode de Passation]       ,[Titulaire du marché et NIF]       ,[Nationalité du Titulaire]
+      ,[Montant Minimum FCFA]       ,[Montant Maximum FCFA]
+      ,[Régime Fiscal]       ,[Date de numérotation]
+      ,[Délai d'execution ]       ,[F15]
+      ,[F16]
+      ,[F17]
+      ,
+
+                 
+   CASE WHEN [Autorité] LIKE '%Finances%' THEN 'Ministère  de l Economie et des Finances' 
+   WHEN [Autorité] LIKE '%Communication%' THEN 'Ministère de la Communication et de l Economie Numérique' 
+   WHEN [Autorité] LIKE '%Jeuness%' THEN  'Ministère de la Jeunesse et des Sports' 
+   WHEN [Autorité] LIKE '%Justice%' THEN 'Ministère de la Justice' 
+   WHEN [Autorité] LIKE '%Ministère de la Réconciliation%' THEN 'Ministère de la Réconciliation Nationale' 
+   WHEN [Autorité] LIKE '%fondation de%'   THEN 'Ministère de la Réfondation de l Etat' 
+   WHEN [Autorité] LIKE '%Santé%' THEN 'Ministère de la Santé et de Développement Social' 
+   WHEN [Autorité] LIKE '%Agriculture%'  THEN 'Ministère de l Agriculture de l Elévage et de la Pêche' 
+   WHEN [Autorité] LIKE '%Durable%'   THEN 'Ministère de l Environnement de l Assainissement et du développement Durable' 
+   WHEN [Autorité] LIKE '%Industrie%'   THEN 'Ministère de l Industrie et du Commerce' 
+   WHEN [Autorité] LIKE '%Etrangères%'   THEN 'Ministère des Affaires Etrangères et de la Coopération Internationale' 
+   WHEN [Autorité] LIKE '%Transpor%'   THEN 'Ministère des Transport et  des Infrastructures' 
+   WHEN [Autorité] LIKE '%Rural%'   THEN 'Ministère du Développement Rural' 
+   WHEN [Autorité] LIKE '%sidence de la République%'     THEN 'Présidence de la République' 
+   WHEN [Autorité] LIKE '%Foncière%'  THEN 'Minsitère des Affaires Foncières de l Urbanisme et de l Habitat' 
+   WHEN [Autorité] LIKE '%Patrimoine%'   THEN 'Société Patrimoine Ferroviaire du mali' ELSE [Autorité] END AS Autorite_name
+FROM     LISTE</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_LISTE\Liste.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorité]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorité]"
+                      name="Autorité"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Numéro de Marché]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]"
+                      name="Numéro de Marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Service]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Service]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Service]"
+                      name="Service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Nature de marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Nature de marché]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Nature de marché]"
+                      name="Nature de marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Financement]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Financement]"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Financement]"
+                      name="Financement"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Mode de Passation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Mode de Passation]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Mode de Passation]"
+                      name="Mode de Passation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      name="Titulaire du marché et NIF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Nationalité du Titulaire]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Nationalité du Titulaire]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Nationalité du Titulaire]"
+                      name="Nationalité du Titulaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Montant Minimum FCFA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Montant Minimum FCFA]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Montant Minimum FCFA]"
+                      name="Montant Minimum FCFA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Montant Maximum FCFA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Montant Maximum FCFA]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Montant Maximum FCFA]"
+                      name="Montant Maximum FCFA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Régime Fiscal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Régime Fiscal]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Régime Fiscal]"
+                      name="Régime Fiscal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Date de numérotation]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Date de numérotation]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Date de numérotation]"
+                      name="Date de numérotation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Délai d'execution ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Délai d'execution ]"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Délai d'execution ]"
+                      name="Délai d'execution "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F15]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[F15]"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F15]"
+                      name="F15"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F16]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[F16]"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F16]"
+                      name="F16"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F17]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[F17]"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F17]"
+                      name="F17"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorite_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Autorite_name]"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorite_name]"
+                      name="Autorite_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Autorité" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Service]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Financement]"
+                      dataType="wstr"
+                      length="255"
+                      name="Financement" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Mode de Passation]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Mode de Passation" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Titulaire du marché et NIF" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Nationalité du Titulaire]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Nationalité du Titulaire" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Montant Minimum FCFA]"
+                      dataType="r8"
+                      name="Montant Minimum FCFA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Montant Maximum FCFA]"
+                      dataType="r8"
+                      name="Montant Maximum FCFA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Régime Fiscal]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Régime Fiscal" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Date de numérotation]"
+                      dataType="dbDate"
+                      name="Date de numérotation" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Délai d'execution ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Délai d'execution " />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[F15]"
+                      dataType="wstr"
+                      length="255"
+                      name="F15" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[F16]"
+                      dataType="wstr"
+                      length="255"
+                      name="F16" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[F17]"
+                      dataType="wstr"
+                      length="255"
+                      name="F17" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Autorite_name]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Autorite_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité]"
+                      name="Autorité" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Numéro de Marché]"
+                      name="Numéro de Marché" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Service]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Service]"
+                      name="Service" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Nature de marché]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Nature de marché]"
+                      name="Nature de marché" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Financement]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Financement]"
+                      name="Financement" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Mode de Passation]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Mode de Passation]"
+                      name="Mode de Passation" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      name="Titulaire du marché et NIF" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Nationalité du Titulaire]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Nationalité du Titulaire]"
+                      name="Nationalité du Titulaire" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Montant Minimum FCFA]"
+                      dataType="r8"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Montant Minimum FCFA]"
+                      name="Montant Minimum FCFA" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Montant Maximum FCFA]"
+                      dataType="r8"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Montant Maximum FCFA]"
+                      name="Montant Maximum FCFA" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Régime Fiscal]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Régime Fiscal]"
+                      name="Régime Fiscal" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Date de numérotation]"
+                      dataType="dbDate"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Date de numérotation]"
+                      name="Date de numérotation" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Délai d'execution ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Délai d'execution ]"
+                      name="Délai d'execution " />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[F15]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[F15]"
+                      name="F15" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[F16]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[F16]"
+                      name="F16" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[F17]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[F17]"
+                      name="F17" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorite_name]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorite_name]"
+                      name="Autorite_name" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STAGING_LISTE\STAGING_LISTE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="STAGING_LISTE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"STAGING_LISTE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_LISTE\STAGING_LISTE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Autorité]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Autorité"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorité]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Numéro de Marché]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Numéro de Marché"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Service]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Service"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Service]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Service]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Nature de marché]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Nature de marché"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Nature de marché]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Financement]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Financement"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Financement]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Financement]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Mode de Passation]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Mode de Passation"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Mode de Passation]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Mode de Passation]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Titulaire du marché et NIF]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Titulaire du marché et NIF"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché et NIF]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Nationalité du Titulaire]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Nationalité du Titulaire"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nationalité du Titulaire]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Nationalité du Titulaire]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Montant Minimum FCFA]"
+                      cachedDataType="r8"
+                      cachedName="Montant Minimum FCFA"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant Minimum FCFA]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Montant Minimum FCFA]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Montant Maximum FCFA]"
+                      cachedDataType="r8"
+                      cachedName="Montant Maximum FCFA"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant Maximum FCFA]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Montant Maximum FCFA]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Régime Fiscal]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Régime Fiscal"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Régime Fiscal]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Régime Fiscal]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Date de numérotation]"
+                      cachedDataType="dbDate"
+                      cachedName="Date de numérotation"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Date de numérotation]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Date de numérotation]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Délai d'execution ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Délai d'execution "
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Délai d'execution ]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Délai d'execution ]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[F15]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="F15"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[F15]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F15]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[F16]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="F16"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[F16]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F16]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[F17]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="F17"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[F17]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[F17]" />
+                    <inputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].Columns[Autorite_name]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Autorite_name"
+                      externalMetadataColumnId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorite_name]"
+                      lineageId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorite_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Autorité" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Service]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Financement]"
+                      dataType="wstr"
+                      length="255"
+                      name="Financement" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Mode de Passation]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Mode de Passation" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Titulaire du marché et NIF" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nationalité du Titulaire]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Nationalité du Titulaire" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant Minimum FCFA]"
+                      dataType="r8"
+                      name="Montant Minimum FCFA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant Maximum FCFA]"
+                      dataType="r8"
+                      name="Montant Maximum FCFA" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Régime Fiscal]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Régime Fiscal" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      name="Date de numérotation" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Délai d'execution ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Délai d'execution " />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[F15]"
+                      dataType="wstr"
+                      length="255"
+                      name="F15" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[F16]"
+                      dataType="wstr"
+                      length="255"
+                      name="F16" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[F17]"
+                      dataType="wstr"
+                      length="255"
+                      name="F17" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorite_name]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Autorite_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STAGING_LISTE\STAGING_LISTE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_LISTE\STAGING_LISTE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_LISTE\STAGING_LISTE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_LISTE\STAGING_LISTE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STAGING_LISTE.Paths[Sortie de source ADO NET]"
+              endId="Package\STAGING_LISTE\STAGING_LISTE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\STAGING_LISTE\Liste.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{E4CC0916-5BFE-4A20-BBD0-5BCC3B3F2E2A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EC2476C3-1B28-4033-9E41-D93390D40A90}"
+          SQLTask:SqlStatementSource="truncate table STAGING_LISTE&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC7C1434-17A8-4E51-A770-89DAFC354D16}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\STAGING_LISTE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\STAGING_LISTE"
+          TopLeft="213.333316014873,130.300000681877" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="35.5,35.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="157,77.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.333316014873,52.8000006818771"
+              Start="0,0"
+              End="147.333316014873,45.3000006818771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4000003409385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4000003409385"
+                    Point2="0,26.4000003409385"
+                    Point3="4,26.4000003409385" />
+                  <mssgle:LineSegment
+                    End="143.333316014873,26.4000003409385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.333316014873,26.4000003409385"
+                    Point2="147.333316014873,26.4000003409385"
+                    Point3="147.333316014873,30.4000003409385" />
+                  <mssgle:LineSegment
+                    End="147.333316014873,45.3000006818771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\STAGING_LISTE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\STAGING_LISTE\STAGING_LISTE"
+          TopLeft="515.166646434202,26.4666670041617" />
+        <NodeLayout
+          Size="109,42"
+          Id="Package\STAGING_LISTE\Liste"
+          TopLeft="108.166660540634,32.6000004339219" />
+        <EdgeLayout
+          Id="Package\STAGING_LISTE.Paths[Sortie de source ADO NET]"
+          TopLeft="217.166660540634,50.5333337190418">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="297.999985893568,0"
+              Start="0,0"
+              End="290.499985893568,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="290.499985893568,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_LISTE\Liste">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_LISTE\STAGING_LISTE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

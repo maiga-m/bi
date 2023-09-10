@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{972B93A2-71BA-4CAB-BCC1-E494FF8FA36A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_DELAI_PASS_MARCHE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{8353D637-C859-4A45-A544-6BE721CE0354}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{B7FD5CE9-405A-4812-9EA4-E8D9FBEC5295}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-DIM_DELAI_PASS_MARCHE-{B7FD5CE9-405A-4812-9EA4-E8D9FBEC5295}WIN-RJGOPBCJ87D.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAARP+wnkI9/LDd2Jgp+GQSxAAAAAASAAACgAAAAEAAAACoK5zPTZJkN4zl4bb+7YEYgAAAAyBfp1xnQCnCBJMnmUkml0dMC6gjFbZy3p6Ib3FZ5iQUUAAAAK9ezNOlopdEtMFHULTb4MTBLA7k</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.OracleClient.OracleConnection, System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{1F54BE75-AF8E-4DB8-8895-3ED3D010CD65}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.10.6.56:1521/dbsigmap;User ID=bimef;Persist Security Info=True;Unicode=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAd8nlZM3OCTYbn955/MMAuAAAAAASAAACgAAAAEAAAAGf/03zOFSJtMIrY6VjJly4QAAAAijU/L+tiCAyyeML87nJwBxQAAACaNW2msp0TyizFBYbgQduk4x2raA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_DELAI_PASS_MARCHE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{E4550087-78AC-4760-9CA3-7163BAE557B5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_DELAI_PASS_MARCHE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="DIM_DELAI_PASS_MARCHE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DIM_DELAI_PASS_MARCHE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET].Columns[ANNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="ANNEE"
+                      externalMetadataColumnId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].Columns[ANNEE]" />
+                    <inputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET].Columns[DELAIS_MOY]"
+                      cachedDataType="numeric"
+                      cachedName="DELAIS_MOY"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[DELAIS_MOY]"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].Columns[DELAIS_MOY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      dataType="wstr"
+                      length="4"
+                      name="ANNEE" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[DELAIS_MOY]"
+                      dataType="numeric"
+                      name="DELAIS_MOY"
+                      precision="38"
+                      scale="4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Staging_marche"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from v_delais_moyen</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_MARCHE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].Columns[ANNEE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].ExternalColumns[ANNEE]"
+                      length="4"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].Columns[ANNEE]"
+                      name="ANNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].Columns[DELAIS_MOY]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].ExternalColumns[DELAIS_MOY]"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].Columns[DELAIS_MOY]"
+                      name="DELAIS_MOY"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].ExternalColumns[ANNEE]"
+                      dataType="wstr"
+                      length="4"
+                      name="ANNEE" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET].ExternalColumns[DELAIS_MOY]"
+                      dataType="numeric"
+                      name="DELAIS_MOY"
+                      precision="38"
+                      scale="4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[ANNEE]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[ANNEE]"
+                      name="ANNEE" />
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[DELAIS_MOY]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[DELAIS_MOY]"
+                      name="DELAIS_MOY"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_DELAI_PASS_MARCHE.Paths[Sortie de source ADO NET]"
+              endId="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\DIM_DELAI_PASS_MARCHE\Staging_marche.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{49649D03-6F19-4FBD-B6FD-DEF4F175CC5B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B7FD5CE9-405A-4812-9EA4-E8D9FBEC5295}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  DIM_MARCHE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0B148F5-142A-4C6D-B825-3E3612F1850A}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DIM_DELAI_PASS_MARCHE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DIM_DELAI_PASS_MARCHE"
+          TopLeft="277.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.666657560402,129.533334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.166663222843,25.6000005372362"
+              Start="0,0"
+              End="32.166663222843,18.1000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.80000026861811" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.80000026861811"
+                    Point2="0,12.8000002686181"
+                    Point3="4,12.8000002686181" />
+                  <mssgle:LineSegment
+                    End="28.166663222843,12.8000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.166663222843,12.8000002686181"
+                    Point2="32.166663222843,12.8000002686181"
+                    Point3="32.166663222843,16.8000002686181" />
+                  <mssgle:LineSegment
+                    End="32.166663222843,18.1000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_DELAI_PASS_MARCHE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\DIM_DELAI_PASS_MARCHE\Staging_marche"
+          TopLeft="69.8333348896768,62.1999992148081" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE"
+          TopLeft="319.166653984124,116.133334256278" />
+        <EdgeLayout
+          Id="Package\DIM_DELAI_PASS_MARCHE.Paths[Sortie de source ADO NET]"
+          TopLeft="223.833334889677,83.1999992148081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.3333190944472,53.9333350414699"
+              Start="0,0"
+              End="87.8333190944472,53.9333350414699">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.6666595472236,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.6666595472236,0"
+                    Point2="47.6666595472236,0"
+                    Point3="47.6666595472236,4" />
+                  <mssgle:LineSegment
+                    End="47.6666595472236,49.9333350414699" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.6666595472236,49.9333350414699"
+                    Point2="47.6666595472236,53.9333350414699"
+                    Point3="51.6666595472236,53.9333350414699" />
+                  <mssgle:LineSegment
+                    End="87.8333190944472,53.9333350414699" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_DELAI_PASS_MARCHE\DIM_DELAI_PASS_MARCHE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_DELAI_PASS_MARCHE\Staging_marche">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

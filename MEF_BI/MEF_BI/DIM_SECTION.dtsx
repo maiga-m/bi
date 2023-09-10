@@ -1,0 +1,452 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/8/2023 2:34:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{35CA0AA9-D2D6-4085-9C13-D9EBB8F6023F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_SECTION"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{DC9CF1C3-D4ED-48F3-B2B5-33D0B2CA06C7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.40.5.250.PGT.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{F20EDAF9-6C4D-4000-BCC8-5CE656C8FC93}"
+      DTS:ObjectName="10.40.5.250.PGT.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.40.5.250;User ID=BI;Initial Catalog=PGT;Persist Security Info=True;Application Name=SSIS-DIM_SECTION-{F20EDAF9-6C4D-4000-BCC8-5CE656C8FC93}10.40.5.250.PGT.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADrsY96WysmVq1Px98zau7gAAAAAASAAACgAAAAEAAAAIHIey9+N7fh50441V7IIKsYAAAACvxd1FN0c4zfxHS6zssUe7UPK6xfSIPYFAAAAB+vpdTi2XFz3q3E5sqqZgdpdbe4</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{87E0FAC0-6F53-4632-A7D0-B07C9453C246}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-Package2-{87E0FAC0-6F53-4632-A7D0-B07C9453C246}ARUI-02.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABaRSh1XWkEwoLs/SAQSrlPAAAAAASAAACgAAAAEAAAAJAIt6emZsqMNJHvznFdQk0gAAAAImQWAlMml0L4uOUYRfv9T+QKR4Po3CDlX+h3xAcNtjwUAAAAaE2DAsykuKCjOhjhNfkuBssa5FE</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{60FB8AFE-6473-4ADB-9D20-4E4F063817F1}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DIM_SECTION-{60FB8AFE-6473-4ADB-9D20-4E4F063817F1}ARUI-02.BI1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_SECTION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{260653C1-A62B-4A73-9C88-F137D0D85BCD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_SECTION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_SECTION\DIM_SECTION_"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="DIM_SECTION_"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from BI_SECTION</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_SECTION\DIM_SECTION_.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.40.5.250.PGT.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.40.5.250.PGT.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].Columns[Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].ExternalColumns[Code]"
+                      length="20"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[Code]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SECTION\DIM_SECTION_DNTCP"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="DIM_SECTION_DNTCP"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DIM_SECTION_DNTCP"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET].ExternalColumns[Code]"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET].ExternalColumns[Name]"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_SECTION.Paths[Sortie de source ADO NET]"
+              endId="Package\DIM_SECTION\DIM_SECTION_DNTCP.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\DIM_SECTION\DIM_SECTION_.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{6501D82C-46C1-4B0C-B0B2-664779968799}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{60FB8AFE-6473-4ADB-9D20-4E4F063817F1}"
+          SQLTask:SqlStatementSource="delete from DIM_SECTION_DNTCP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1DE2F583-9F7F-41C6-93E3-259B95A7D01C}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DIM_SECTION" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DIM_SECTION"
+          TopLeft="145.714288195785,113.176472175493" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="127.9,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.414288195785,66.076472175493"
+              Start="0,0"
+              End="91.414288195785,58.576472175493">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0382360877465" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.0382360877465"
+                    Point2="0,33.0382360877465"
+                    Point3="4,33.0382360877465" />
+                  <mssgle:LineSegment
+                    End="87.414288195785,33.0382360877465" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.414288195785,33.0382360877465"
+                    Point2="91.414288195785,33.0382360877465"
+                    Point3="91.414288195785,37.0382360877465" />
+                  <mssgle:LineSegment
+                    End="91.414288195785,58.576472175493" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_SECTION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DIM_SECTION\DIM_SECTION_DNTCP"
+          TopLeft="414.285721340958,76.4705893077653" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\DIM_SECTION\DIM_SECTION_"
+          TopLeft="72.8571440978926,84.1176482385418" />
+        <EdgeLayout
+          Id="Package\DIM_SECTION.Paths[Sortie de source ADO NET]"
+          TopLeft="225.657144097893,101.094118773154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="188.628577243065,0"
+              Start="0,0"
+              End="181.128577243065,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="181.128577243065,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_SECTION\DIM_SECTION_">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_SECTION\DIM_SECTION_DNTCP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

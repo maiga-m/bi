@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2022 5:24:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{C78CFC23-E51F-4AC7-955E-A518B71F3FA1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="STAGING_MARCHE"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="1"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{BB7BAAEF-C507-44BF-8F96-E05305478812}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CA166ED5-1F15-4678-B7C2-E6A4900D247B}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Administrateur\Desktop\marche.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{CE73BE2D-E18B-4B11-A5C4-6BCFCDB69C08}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-DGMP-{CE73BE2D-E18B-4B11-A5C4-6BCFCDB69C08}WIN-RJGOPBCJ87D.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{29ABDB9D-4E60-4355-884B-5D9B7B5ADF86}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package-{29ABDB9D-4E60-4355-884B-5D9B7B5ADF86}WIN-RJGOPBCJ87D.SOURCE_CAISEF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\STAGING_MARCHE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{A620C55C-9317-4C7C-BED4-DB7CC56D3315}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STAGING_MARCHE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STAGING_MARCHE\Liste"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Liste"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT distinct [Numéro de Marché]
+      
+      ,[Nature de marché]
+    
+      ,[Titulaire du marché et NIF]
+   
+  FROM  [LISTE]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_MARCHE\Liste.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Numéro de Marché]"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]"
+                      name="Numéro de Marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Nature de marché]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Nature de marché]"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Nature de marché]"
+                      name="Nature de marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      name="Titulaire du marché et NIF"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="nText"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="nText"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      dataType="nText"
+                      name="Titulaire du marché et NIF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Numéro de Marché]"
+                      dataType="nText"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Numéro de Marché]"
+                      name="Numéro de Marché" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Nature de marché]"
+                      dataType="nText"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Nature de marché]"
+                      name="Nature de marché" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      dataType="nText"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Titulaire du marché et NIF]"
+                      name="Titulaire du marché et NIF" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STAGING_MARCHE\STAGING_MARCHE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="STAGING_MARCHE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"STAGING_MARCHE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_MARCHE\STAGING_MARCHE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Numéro de Marché]"
+                      cachedDataType="nText"
+                      cachedName="Numéro de Marché"
+                      externalMetadataColumnId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]" />
+                    <inputColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Nature de marché]"
+                      cachedDataType="nText"
+                      cachedName="Nature de marché"
+                      externalMetadataColumnId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Nature de marché]" />
+                    <inputColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Titulaire du marché et NIF]"
+                      cachedDataType="nText"
+                      cachedName="Titulaire du marché et NIF"
+                      externalMetadataColumnId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      lineageId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché et NIF]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_MARCHE]"
+                      dataType="i4"
+                      name="ID_MARCHE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Titulaire du marché et NIF]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Titulaire du marché et NIF" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité_]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Autorité_" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STAGING_MARCHE\STAGING_MARCHE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MARCHE\STAGING_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_MARCHE\STAGING_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MARCHE\STAGING_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STAGING_MARCHE.Paths[Sortie de source ADO NET]"
+              endId="Package\STAGING_MARCHE\STAGING_MARCHE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\STAGING_MARCHE\Liste.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{C3F19200-6CA1-4F17-8BBA-65BE81E44889}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{29ABDB9D-4E60-4355-884B-5D9B7B5ADF86}"
+          SQLTask:SqlStatementSource="truncate table STAGING_MARCHE;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{58F244B0-6FB9-4777-8EDA-48BEA7BCBFD2}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\STAGING_MARCHE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192.8,47.2"
+          Id="Package\STAGING_MARCHE"
+          TopLeft="189.666652990712,135.633334049649" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="59.6666657063696,34.6333333264457" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="181.26666570637,76.2333333264457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.799987284343,59.4000007232029"
+              Start="0,0"
+              End="104.799987284343,51.9000007232029">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7000003616014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7000003616014"
+                    Point2="0,29.7000003616014"
+                    Point3="4,29.7000003616014" />
+                  <mssgle:LineSegment
+                    End="100.799987284343,29.7000003616014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.799987284343,29.7000003616014"
+                    Point2="104.799987284343,29.7000003616014"
+                    Point3="104.799987284343,33.7000003616014" />
+                  <mssgle:LineSegment
+                    End="104.799987284343,51.9000007232029" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\STAGING_MARCHE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\STAGING_MARCHE\STAGING_MARCHE"
+          TopLeft="374.16665179862,106.600000847181" />
+        <NodeLayout
+          Size="100.8,41.6"
+          Id="Package\STAGING_MARCHE\Liste"
+          TopLeft="149.999994039536,35.5333336157269" />
+        <EdgeLayout
+          Id="Package\STAGING_MARCHE.Paths[Sortie de source ADO NET]"
+          TopLeft="200.399994039536,77.1333336157269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="261.766657759084,29.466667231454"
+              Start="0,0"
+              End="261.766657759084,21.966667231454">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.733333615727" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.733333615727"
+                    Point2="0,14.733333615727"
+                    Point3="4,14.733333615727" />
+                  <mssgle:LineSegment
+                    End="257.766657759084,14.733333615727" />
+                  <mssgle:CubicBezierSegment
+                    Point1="257.766657759084,14.733333615727"
+                    Point2="261.766657759084,14.733333615727"
+                    Point3="261.766657759084,18.733333615727" />
+                  <mssgle:LineSegment
+                    End="261.766657759084,21.966667231454" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_MARCHE\Liste">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_MARCHE\STAGING_MARCHE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

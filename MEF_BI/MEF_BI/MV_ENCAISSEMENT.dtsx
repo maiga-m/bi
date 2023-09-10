@@ -1,0 +1,603 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/21/2023 1:26:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{2FFFDD91-E686-4417-A129-65B0259CE423}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="MV_ENCAISSEMENT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{0164A876-3E33-41B3-B92C-AE1E1FC4B8A0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{A315420C-4E23-4072-9302-0B04A994FCBB}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-Package2-{A315420C-4E23-4072-9302-0B04A994FCBB}ARUI-02.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9A50CFF9-2CE8-48DF-971A-F1853DFD6FAC}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{9A50CFF9-2CE8-48DF-971A-F1853DFD6FAC}ARUI-02.BI1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGI.externe]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C3D341A0-840D-4033-8716-15A94BA5CBCD}"
+      DTS:ObjectName="DGI.externe">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DGI;User ID=externe;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABRuqAz0i0HsHoZHPU4WsEMAAAAAASAAACgAAAAEAAAAHhwwILUcdLCK7AvXuELTw4QAAAAV5Uh1e7teFcLq8Odkhx+oBQAAACSnbFLdZTWYudNniArmDz6EPNRUw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FACT_EMI_REC_DGI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{DDF3A697-D087-44AB-901D-418B70C0488E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_EMI_REC_DGI"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9A50CFF9-2CE8-48DF-971A-F1853DFD6FAC}"
+          SQLTask:SqlStatementSource="delete from  FACT_EMI_REC_DGI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\MV_ENCAISSEMENT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{78CA2B28-2AB0-468A-B090-92F806362DA3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MV_ENCAISSEMENT"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="FACT_EMI_REC"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"FACT_EMI_REC_DGI"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].Columns[STRUCTURE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="STRUCTURE"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[STRUCTURE]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[STRUCTURE]" />
+                    <inputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].Columns[PERIODE_IMPOSITION]"
+                      cachedDataType="numeric"
+                      cachedName="PERIODE_IMPOSITION"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[PERIODE_IMPOSITION]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[PERIODE_IMPOSITION]" />
+                    <inputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].Columns[TYPE_IMPOT]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="TYPE_IMPOT"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[TYPE_IMPOT]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[TYPE_IMPOT]" />
+                    <inputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].Columns[BUDGET]"
+                      cachedDataType="wstr"
+                      cachedLength="90"
+                      cachedName="BUDGET"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[BUDGET]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BUDGET]" />
+                    <inputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].Columns[ACTIVITE]"
+                      cachedDataType="wstr"
+                      cachedLength="190"
+                      cachedName="ACTIVITE"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[ACTIVITE]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ACTIVITE]" />
+                    <inputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].Columns[MONTANT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="MONTANT"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[MONTANT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[STRUCTURE]"
+                      dataType="wstr"
+                      length="100"
+                      name="STRUCTURE" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      name="PERIODE_IMPOSITION"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      length="100"
+                      name="TYPE_IMPOT" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[BUDGET]"
+                      dataType="wstr"
+                      length="90"
+                      name="BUDGET" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[ACTIVITE]"
+                      dataType="wstr"
+                      length="190"
+                      name="ACTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MV_ENCAISSEMENT\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from MV_ENCAISSEMENT</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MV_ENCAISSEMENT\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGI.externe]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGI.externe]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[STRUCTURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[STRUCTURE]"
+                      length="100"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[STRUCTURE]"
+                      name="STRUCTURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[PERIODE_IMPOSITION]"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[PERIODE_IMPOSITION]"
+                      name="PERIODE_IMPOSITION"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[TYPE_IMPOT]"
+                      length="100"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[TYPE_IMPOT]"
+                      name="TYPE_IMPOT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BUDGET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BUDGET]"
+                      length="90"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BUDGET]"
+                      name="BUDGET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ACTIVITE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ACTIVITE]"
+                      length="190"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ACTIVITE]"
+                      name="ACTIVITE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[MONTANT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[MONTANT]"
+                      length="38"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[MONTANT]"
+                      name="MONTANT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[STRUCTURE]"
+                      dataType="wstr"
+                      length="100"
+                      name="STRUCTURE" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      name="PERIODE_IMPOSITION"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      length="100"
+                      name="TYPE_IMPOT" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BUDGET]"
+                      dataType="wstr"
+                      length="90"
+                      name="BUDGET" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ACTIVITE]"
+                      dataType="wstr"
+                      length="190"
+                      name="ACTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[MONTANT]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[STRUCTURE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[STRUCTURE]"
+                      name="STRUCTURE" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[PERIODE_IMPOSITION]"
+                      name="PERIODE_IMPOSITION"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[TYPE_IMPOT]"
+                      name="TYPE_IMPOT" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BUDGET]"
+                      dataType="wstr"
+                      length="90"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BUDGET]"
+                      name="BUDGET" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ACTIVITE]"
+                      dataType="wstr"
+                      length="190"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ACTIVITE]"
+                      name="ACTIVITE" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[MONTANT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[MONTANT]"
+                      name="MONTANT" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\MV_ENCAISSEMENT.Paths[Sortie de source OLE DB]"
+              endId="Package\MV_ENCAISSEMENT\FACT_EMI_REC.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\MV_ENCAISSEMENT\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B372AD67-83B1-46AC-9294-111540BBE1E3}"
+      DTS:From="Package\FACT_EMI_REC_DGI"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\MV_ENCAISSEMENT" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\FACT_EMI_REC_DGI"
+          TopLeft="143,26" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\MV_ENCAISSEMENT"
+          TopLeft="81.5,116.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="231.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62.5,48.5"
+              Start="0,0"
+              End="-62.5,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.25"
+                    Point2="0,24.25"
+                    Point3="-4,24.25" />
+                  <mssgle:LineSegment
+                    End="-58.5,24.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.5,24.25"
+                    Point2="-62.5,24.25"
+                    Point3="-62.5,28.25" />
+                  <mssgle:LineSegment
+                    End="-62.5,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\MV_ENCAISSEMENT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\MV_ENCAISSEMENT\Source OLE DB"
+          TopLeft="140,137" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\MV_ENCAISSEMENT\FACT_EMI_REC"
+          TopLeft="646,129" />
+        <EdgeLayout
+          Id="Package\MV_ENCAISSEMENT.Paths[Sortie de source OLE DB]"
+          TopLeft="290,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="356,-8"
+              Start="0,0"
+              End="348.5,-8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="174,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="174,0"
+                    Point2="178,0"
+                    Point3="178,-4" />
+                  <mssgle:LineSegment
+                    End="178,-4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="178,-4"
+                    Point2="178,-8"
+                    Point3="182,-8" />
+                  <mssgle:LineSegment
+                    End="348.5,-8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\MV_ENCAISSEMENT\FACT_EMI_REC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MV_ENCAISSEMENT\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

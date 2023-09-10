@@ -1,0 +1,1222 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/24/2022 1:46:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{0B9E55A8-8525-42D8-92FA-26DE5039D696}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_DEBT_EXT_VIABILITY_BI"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{9EF8448F-8778-440E-BE30-1BD91407DEB6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7A998170-E1C5-43A2-BB02-48350603C7E0}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{E295AC63-AF93-4BF5-B202-63F6B31C74E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_STOCK"
+              DTS:DTSID="{7AB6621A-A966-492A-9557-E39F37C2DB9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VAN"
+              DTS:DTSID="{FD6CA4C6-3CE4-45FA-8F57-B73C4BE5B4F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_AMNT"
+              DTS:DTSID="{2E34E119-3BD4-4504-B09D-D7AF4E3E7B52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SRV_AMNT"
+              DTS:DTSID="{B68C69DF-B0B8-4879-8EF1-190EB23D4FD0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F2BBBEF4-331A-4A6E-B1E1-971AD5279B87}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{B0596E2D-4413-4DD8-98EA-C24B91AF480E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_STOCK"
+              DTS:DTSID="{CF855F37-E027-4925-BE3F-CD14FEFB9405}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VAN"
+              DTS:DTSID="{75076AB2-DEA6-4E43-934C-99149289BAF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_AMNT"
+              DTS:DTSID="{89895139-89A7-41F1-9DC4-2AA0634C14CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SRV_AMNT"
+              DTS:DTSID="{DECFAAE2-02C7-4DA8-8964-AEE5CAAEB564}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE_ADM"
+              DTS:DTSID="{6569E58A-DEFA-4C97-B155-7DBABB3E8E88}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DETTE_PUB"
+              DTS:DTSID="{81020B70-E90A-4A73-BB9E-B8AED352CB66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PIB"
+              DTS:DTSID="{3C5AACF6-DA7D-4F87-8E57-033EDA7B7BB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXPORT"
+              DTS:DTSID="{EB2D9422-6AF5-48A9-B124-FEDBE92BB18F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RECETTE_BUD"
+              DTS:DTSID="{D36A414E-43FF-43C1-9BF6-AA2120C99C59}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{341E832A-8780-42DC-B4A1-85C0A3C3381D}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{10EA3122-ADD0-483F-BFF3-C5CA3B3050DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_STOCK"
+              DTS:DTSID="{C0C22E86-3AC3-4357-8D37-D7E38F367C70}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VAN"
+              DTS:DTSID="{78754221-479A-419E-AEAE-43399432A1E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_AMNT"
+              DTS:DTSID="{EBABBE9B-8E8B-4F91-BA44-A060488E59E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SRV_AMNT"
+              DTS:DTSID="{B2AB571B-C994-4AC2-B492-4B0260CBF691}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE_ADM"
+              DTS:DTSID="{18E61F6E-8679-4638-9C1E-B40E6BE45513}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DETTE_PUB"
+              DTS:DTSID="{EBA9EECF-7CAA-4513-86E0-C188DDD6BAA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PIB"
+              DTS:DTSID="{4CF80F46-6E0E-48DD-886D-E046CB4DDD71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXPORT"
+              DTS:DTSID="{5BB1794F-FEB1-4454-AF97-F26B431B6856}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RECETTE_BUD"
+              DTS:DTSID="{57877ED9-222F-4263-BBCE-A5EAC962B0F6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BBAB1F11-0135-4DC8-9E1E-1C9D0BE66D13}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{2C53902D-2596-442A-9925-D2A0177FC34C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_STOCK"
+              DTS:DTSID="{44CA6F41-9892-4734-AFD7-EE5B4B971EFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VAN"
+              DTS:DTSID="{8DD223CB-354A-4549-A4FB-868F1851F0B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_AMNT"
+              DTS:DTSID="{1F48F330-7528-42D1-AAC9-57988109979E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SRV_AMNT"
+              DTS:DTSID="{7E90A66A-1DDF-428B-9EB7-1FFEF320F77E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE_ADM"
+              DTS:DTSID="{5CA8728D-6A82-4BDC-B4B6-95967FB444B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DETTE_PUB"
+              DTS:DTSID="{110483C6-94E0-402E-B5CC-2C969B5AA9BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PIB"
+              DTS:DTSID="{FE7739BA-AB5F-4075-846B-1059FC079590}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXPORT"
+              DTS:DTSID="{B350ADC6-59AF-4494-B215-8D4E01DAC33D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RECETTE_BUD"
+              DTS:DTSID="{EFD69E66-0D80-4BF3-AC11-295CA3F117A2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 4]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{56B786A7-9A2E-48E0-BABA-7883A153D1E3}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{B96C29E7-9F78-4025-84DC-862623810E72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_STOCK"
+              DTS:DTSID="{3FCBEFA8-62E4-4255-9FF4-52917EB5FDA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VAN"
+              DTS:DTSID="{B54F8D82-E7D6-4C46-8B7B-18EC89DC82CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_AMNT"
+              DTS:DTSID="{E3CDF830-3C32-413D-8B50-DD9EC5D359FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SRV_AMNT"
+              DTS:DTSID="{62FC4093-F283-4901-98AC-04E7452662FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE_ADM"
+              DTS:DTSID="{A2E63FAE-3D2F-4979-BAC4-9A18A8E7304B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DETTE_PUB"
+              DTS:DTSID="{8E8B965C-4ABC-4D86-9A5D-3E931E3B8866}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PIB"
+              DTS:DTSID="{5FFE7B8F-9727-4DF0-96AE-671DE754002F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EXPORT"
+              DTS:DTSID="{A9063EE9-D03B-4DB6-B503-4E69A86E4ACF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RECETTE_BUD"
+              DTS:DTSID="{17E1D8DD-3664-4601-B22D-A0E46A77412C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{289C4E4D-9FF0-4F01-BFBE-E6047CC0B58A}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY_BI.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4F755D28-1DAC-44BE-8843-9D11FB5BB858}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Administrateur\Desktop\V_DEBT_EXT_VIABILITY_BI.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7D86566F-CBF1-46B6-880F-F7F64F4BF3F8}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4D215E55-7C97-4828-863A-5B5C74B4B2FA}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{CFFE9C29-D3E5-46D3-B66A-EEB29505D4ED}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7D86566F-CBF1-46B6-880F-F7F64F4BF3F8}"
+          SQLTask:SqlStatementSource="truncate table V_DEBT_EXT_VIABILITY_BI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{33916A90-45EB-4150-AB5F-C25E972E1DB8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Source Oracle"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Source Oracle"
+              name="Source Oracle"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table à extraire."
+                  expressionType="Notify"
+                  name="TableName">"BI"."V_DEBT_EXT_VIABILITY_BI"</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes extraites par lot."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Détermine l'allocation de taille de segment pour les colonnes LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Int32"
+                  description="Page de codes à utiliser quand les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de lignes préextraites."
+                  expressionType="Notify"
+                  name="PrefetchCount">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source Oracle.Connections[ORACLEConnection]"
+                  connectionManagerID="{61280D31-7C41-4329-B92C-0C6C873CF16B}:invalid"
+                  connectionManagerRefId="{61280D31-7C41-4329-B92C-0C6C873CF16B}:invalid"
+                  description="Connexion ORACLE en cours d'exécution utilisée pour accéder à la base de données."
+                  name="ORACLEConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle]"
+                  errorRowDisposition="FailComponent"
+                  name="Sortie de la source Oracle"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_STOCK]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_STOCK]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_STOCK]"
+                      name="INST_STOCK" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[VAN]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[VAN]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[VAN]"
+                      name="VAN" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_AMNT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_AMNT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_AMNT]"
+                      name="INT_AMNT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[SRV_AMNT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[SRV_AMNT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[SRV_AMNT]"
+                      name="SRV_AMNT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[TYPE_ADM]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[TYPE_ADM]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[TYPE_ADM]"
+                      name="TYPE_ADM" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DETTE_PUB]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DETTE_PUB]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DETTE_PUB]"
+                      name="DETTE_PUB" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[PIB]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[PIB]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[PIB]"
+                      name="PIB" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[EXPORT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[EXPORT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[EXPORT]"
+                      name="EXPORT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[RECETTE_BUD]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[RECETTE_BUD]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[RECETTE_BUD]"
+                      name="RECETTE_BUD" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_STOCK]"
+                      dataType="r8"
+                      name="INST_STOCK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[VAN]"
+                      dataType="r8"
+                      name="VAN" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_AMNT]"
+                      dataType="r8"
+                      name="INT_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[SRV_AMNT]"
+                      dataType="r8"
+                      name="SRV_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[TYPE_ADM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="TYPE_ADM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DETTE_PUB]"
+                      dataType="r8"
+                      name="DETTE_PUB" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[PIB]"
+                      dataType="r8"
+                      name="PIB" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[EXPORT]"
+                      dataType="r8"
+                      name="EXPORT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[RECETTE_BUD]"
+                      dataType="r8"
+                      name="RECETTE_BUD" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de la source Oracle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_STOCK]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_STOCK]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_STOCK]"
+                      name="INST_STOCK" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[VAN]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[VAN]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[VAN]"
+                      name="VAN" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INT_AMNT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_AMNT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INT_AMNT]"
+                      name="INT_AMNT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[SRV_AMNT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[SRV_AMNT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[SRV_AMNT]"
+                      name="SRV_AMNT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[TYPE_ADM]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[TYPE_ADM]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[TYPE_ADM]"
+                      name="TYPE_ADM" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DETTE_PUB]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DETTE_PUB]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DETTE_PUB]"
+                      name="DETTE_PUB" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[PIB]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[PIB]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[PIB]"
+                      name="PIB" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[EXPORT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[EXPORT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[EXPORT]"
+                      name="EXPORT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[RECETTE_BUD]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[RECETTE_BUD]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[RECETTE_BUD]"
+                      name="RECETTE_BUD" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="V_DEBT_EXT_VIABILITY_BI"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[V_DEBT_EXT_VIABILITY_BI]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1 1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[DATE_REF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_REF"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_REF]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[INST_STOCK]"
+                      cachedDataType="r8"
+                      cachedName="INST_STOCK"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_STOCK]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_STOCK]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[VAN]"
+                      cachedDataType="r8"
+                      cachedName="VAN"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[VAN]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[VAN]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[INT_AMNT]"
+                      cachedDataType="r8"
+                      cachedName="INT_AMNT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_AMNT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[SRV_AMNT]"
+                      cachedDataType="r8"
+                      cachedName="SRV_AMNT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[SRV_AMNT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[SRV_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[TYPE_ADM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="TYPE_ADM"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE_ADM]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[TYPE_ADM]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[DETTE_PUB]"
+                      cachedDataType="r8"
+                      cachedName="DETTE_PUB"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DETTE_PUB]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DETTE_PUB]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[PIB]"
+                      cachedDataType="r8"
+                      cachedName="PIB"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[PIB]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[PIB]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[EXPORT]"
+                      cachedDataType="r8"
+                      cachedName="EXPORT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[EXPORT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[EXPORT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].Columns[RECETTE_BUD]"
+                      cachedDataType="r8"
+                      cachedName="RECETTE_BUD"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[RECETTE_BUD]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[RECETTE_BUD]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_STOCK]"
+                      dataType="r8"
+                      name="INST_STOCK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[VAN]"
+                      dataType="r8"
+                      name="VAN" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_AMNT]"
+                      dataType="r8"
+                      name="INT_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[SRV_AMNT]"
+                      dataType="r8"
+                      name="SRV_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE_ADM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="TYPE_ADM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DETTE_PUB]"
+                      dataType="r8"
+                      name="DETTE_PUB" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[PIB]"
+                      dataType="r8"
+                      name="PIB" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[EXPORT]"
+                      dataType="r8"
+                      name="EXPORT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[RECETTE_BUD]"
+                      dataType="r8"
+                      name="RECETTE_BUD" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de la source Oracle]"
+              endId="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de la source Oracle"
+              startId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{31796E45-FA20-48E8-9A25-0DAD4E6B39E2}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="212,107" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="128,23" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="255,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.5,42"
+              Start="0,0"
+              End="59.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="55.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.5,21"
+                    Point2="59.5,21"
+                    Point3="59.5,25" />
+                  <mssgle:LineSegment
+                    End="59.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI"
+          TopLeft="226,164" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Tâche de flux de données\Source Oracle"
+          TopLeft="42.3333347903357,56.7333316734102" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de la source Oracle]"
+          TopLeft="114.733334790336,98.3333316734102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="222.866665209664,65.6666683265898"
+              Start="0,0"
+              End="222.866665209664,58.1666683265898">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8333341632949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8333341632949"
+                    Point2="0,32.8333341632949"
+                    Point3="4,32.8333341632949" />
+                  <mssgle:LineSegment
+                    End="218.866665209664,32.8333341632949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="218.866665209664,32.8333341632949"
+                    Point2="222.866665209664,32.8333341632949"
+                    Point3="222.866665209664,36.8333341632949" />
+                  <mssgle:LineSegment
+                    End="222.866665209664,58.1666683265898" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source Oracle">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\V_DEBT_EXT_VIABILITY_BI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

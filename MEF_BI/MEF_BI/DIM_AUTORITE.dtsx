@@ -1,0 +1,448 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{784AAF46-49E2-4454-94F2-2CF95E13B233}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_AUTORITE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{60C5204E-6A09-4839-82F8-7C5844247D0D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{2535CEC0-C33B-4911-9EAC-671F09D8B93A}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-Package1-{2535CEC0-C33B-4911-9EAC-671F09D8B93A}WIN-RJGOPBCJ87D.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADLMUyggMYYSU3pYtk8I41QAAAAAASAAACgAAAAEAAAAAZ49pLfEEtXoOYMJJ0egtIgAAAABT3NHjC9c6fum6CC851W7S9TylyLGpgpRiO7IciMuHIUAAAAxRVu51vnM0qiSNnHLf/4+e7ycBc</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{79E2777E-4718-465C-8090-D1229368F205}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Persist Security Info=True;Application Name=SSIS-Package1-{79E2777E-4718-465C-8090-D1229368F205}WIN-RJGOPBCJ87D.SOURCE_CAISEF;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAChddnmQ/LxStHp0Mdd1S3KAAAAAASAAACgAAAAEAAAABDtuI/0+DKpJLASFw8aHAwgAAAAAkyCFTa/+8/CyVzu1jjJxmqUtyOiXpK8eb0cPMUi2SsUAAAAlUb77sUe1FKmh8gEl5jphJZa+Pc</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_AUTORITE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{5DF93910-BDAF-4749-A851-2F61BA0AAB9D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_AUTORITE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_AUTORITE\DIM_AUTORITE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="DIM_AUTORITE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DIM_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_AUTORITE\DIM_AUTORITE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET].Columns[Autorité_]"
+                      cachedDataType="nText"
+                      cachedName="Autorité_"
+                      externalMetadataColumnId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].Columns[Autorité_]" />
+                    <inputColumn
+                      refId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET].Columns[ID_AUTO]"
+                      cachedDataType="i4"
+                      cachedName="ID_AUTO"
+                      externalMetadataColumnId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_AUTORITE]"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].Columns[ID_AUTO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_AUTORITE]"
+                      dataType="i4"
+                      name="ID_AUTORITE" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Autorité" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_AUTORITE\DIM_AUTORITE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\DIM_AUTORITE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AUTORITE\DIM_AUTORITE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\DIM_AUTORITE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AUTORITE\DIM_AUTORITE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_AUTORITE\Staging_autorite"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Staging_autorite"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        distinct [Autorité]
+      
+  FROM [SOURCE_CAISEF].[dbo].[LISTE]
+  Where  [Autorité] is not null 
+AND [Autorité] &lt;&gt;''</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_AUTORITE\Staging_autorite.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].Columns[ID_AUTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].ExternalColumns[ID_AUTO]"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].Columns[ID_AUTO]"
+                      name="ID_AUTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].Columns[Autorité_]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité_]"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].Columns[Autorité_]"
+                      name="Autorité_"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].ExternalColumns[ID_AUTO]"
+                      dataType="i4"
+                      name="ID_AUTO" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité_]"
+                      dataType="nText"
+                      name="Autorité_" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_AUTO]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_AUTO]"
+                      name="ID_AUTO" />
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité_]"
+                      dataType="nText"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité_]"
+                      name="Autorité_" />
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_AUTORITE.Paths[Sortie de source ADO NET]"
+              endId="Package\DIM_AUTORITE\DIM_AUTORITE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\DIM_AUTORITE\Staging_autorite.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{ADA71FF3-D328-4121-9017-A7856F944B9A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2535CEC0-C33B-4911-9EAC-671F09D8B93A}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  DIM_AUTORITE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{642AB70E-406A-4F2F-850C-3344CA5E357E}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DIM_AUTORITE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DIM_AUTORITE"
+          TopLeft="315.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.766657560402,129.133334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.066663222843,26.0000005372362"
+              Start="0,0"
+              End="43.066663222843,18.5000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.00000026861809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.00000026861809"
+                    Point2="0,13.0000002686181"
+                    Point3="4,13.0000002686181" />
+                  <mssgle:LineSegment
+                    End="39.066663222843,13.0000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.066663222843,13.0000002686181"
+                    Point2="43.066663222843,13.0000002686181"
+                    Point3="43.066663222843,17.0000002686181" />
+                  <mssgle:LineSegment
+                    End="43.066663222843,18.5000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_AUTORITE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DIM_AUTORITE\Staging_autorite"
+          TopLeft="177.690479583616,53.7882343909539" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DIM_AUTORITE\DIM_AUTORITE"
+          TopLeft="514.99997953574,45.0666670248244" />
+        <EdgeLayout
+          Id="Package\DIM_AUTORITE.Paths[Sortie de source ADO NET]"
+          TopLeft="333.690479583616,74.5882343909539">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.309499952124,-8.72156736612955"
+              Start="0,0"
+              End="173.809499952124,-8.72156736612955">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="86.6547499760621,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.6547499760621,0"
+                    Point2="90.6547499760621,0"
+                    Point3="90.6547499760621,-4" />
+                  <mssgle:LineSegment
+                    End="90.6547499760621,-4.72156736612955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90.6547499760621,-4.72156736612955"
+                    Point2="90.6547499760621,-8.72156736612955"
+                    Point3="94.6547499760621,-8.72156736612955" />
+                  <mssgle:LineSegment
+                    End="173.809499952124,-8.72156736612955" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_AUTORITE\DIM_AUTORITE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_AUTORITE\Staging_autorite">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

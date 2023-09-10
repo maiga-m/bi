@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{4B7855FF-0478-46A9-8F30-485BF5D00409}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="STAGING_MODE_PASSATION"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="1"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{9AE4C9B4-1C8A-416E-8643-DADE88240AAE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{B54FD765-E50B-44C5-9FAA-BA07AB50C653}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-Package1-{B54FD765-E50B-44C5-9FAA-BA07AB50C653}WIN-RJGOPBCJ87D.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{3090C1DD-8679-4A52-BF5B-E25E2650E02B}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package1-{3090C1DD-8679-4A52-BF5B-E25E2650E02B}WIN-RJGOPBCJ87D.SOURCE_CAISEF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\STAGING_MODE_PASS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{2200D121-AEBB-4D24-B037-324A5A26A689}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STAGING_MODE_PASS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STAGING_MODE_PASS\Liste"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Liste"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT TRIM([Mode de Passation]) AS MODE_PASS
+FROM     LISTE
+WHERE  ([Mode de Passation] IS NOT NULL)
+AND [Mode de Passation] &lt;&gt;''</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_MODE_PASS\Liste.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET].Columns[MODE_PASS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[MODE_PASS]"
+                      length="2000"
+                      lineageId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET].Columns[MODE_PASS]"
+                      name="MODE_PASS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[MODE_PASS]"
+                      dataType="wstr"
+                      length="2000"
+                      name="MODE_PASS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[MODE_PASS]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[MODE_PASS]"
+                      name="MODE_PASS" />
+                    <outputColumn
+                      refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STAGING_MODE_PASS\staging_MODE_PASS"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="staging_MODE_PASS"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"staging_MODE_PASS"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET].Columns[MODE_PASS]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="MODE_PASS"
+                      externalMetadataColumnId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET].ExternalColumns[MODE_PASS]"
+                      lineageId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET].Columns[MODE_PASS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_MODE]"
+                      dataType="i4"
+                      name="ID_MODE" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET].ExternalColumns[MODE_PASS]"
+                      dataType="wstr"
+                      length="2000"
+                      name="MODE_PASS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STAGING_MODE_PASS.Paths[Sortie de source ADO NET]"
+              endId="Package\STAGING_MODE_PASS\staging_MODE_PASS.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\STAGING_MODE_PASS\Liste.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{D10978A1-E5B0-4BF2-89BB-AD39E96CEF02}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3090C1DD-8679-4A52-BF5B-E25E2650E02B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  STAGING_MODE_PASS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F75A83C-4E2F-4C1B-8231-F0515B92F4BD}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\STAGING_MODE_PASS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\STAGING_MODE_PASS"
+          TopLeft="315.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.666657560402,129.533334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.666663222843,25.6000005372362"
+              Start="0,0"
+              End="66.666663222843,18.1000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.80000026861811" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.80000026861811"
+                    Point2="0,12.8000002686181"
+                    Point3="4,12.8000002686181" />
+                  <mssgle:LineSegment
+                    End="62.666663222843,12.8000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.666663222843,12.8000002686181"
+                    Point2="66.666663222843,12.8000002686181"
+                    Point3="66.666663222843,16.8000002686181" />
+                  <mssgle:LineSegment
+                    End="66.666663222843,18.1000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\STAGING_MODE_PASS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\STAGING_MODE_PASS\staging_MODE_PASS"
+          TopLeft="367.333345519171,49.5999992974599" />
+        <NodeLayout
+          Size="100.8,41.6"
+          Id="Package\STAGING_MODE_PASS\Liste"
+          TopLeft="69.8333348896768,62.1999992148081" />
+        <EdgeLayout
+          Id="Package\STAGING_MODE_PASS.Paths[Sortie de source ADO NET]"
+          TopLeft="170.633334889677,82.9999992148081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="196.700010629494,-12.5999999173482"
+              Start="0,0"
+              End="189.200010629494,-12.5999999173482">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="94.3500053147471,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.3500053147471,0"
+                    Point2="98.3500053147471,0"
+                    Point3="98.3500053147471,-4" />
+                  <mssgle:LineSegment
+                    End="98.3500053147471,-8.5999999173482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.3500053147471,-8.5999999173482"
+                    Point2="98.3500053147471,-12.5999999173482"
+                    Point3="102.350005314747,-12.5999999173482" />
+                  <mssgle:LineSegment
+                    End="189.200010629494,-12.5999999173482" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_MODE_PASS\Liste">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_MODE_PASS\staging_MODE_PASS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

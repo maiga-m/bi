@@ -1,0 +1,749 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/15/2022 4:42:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{00744835-0454-4974-BCED-B9062C14FDCF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{244171B2-1116-4B92-A5F6-8A6E8D7C977E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.OracleClient.OracleConnection, System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{40DD033D-0C1C-4C56-9692-BBA6FB03C18F}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.10.6.56:1521/DBSIGMAP;User ID=bimef;Persist Security Info=True;Unicode=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACT0TnX1H7NCveyg6IZCGzYAAAAAASAAACgAAAAEAAAANM0ASp4B/bNZ2m8ur7eIkoQAAAALif8qC0oi0RouCgFpKVXXRQAAAAWmxPYEd+5aTceczk7iwRDImGN/A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{8643291C-41FA-4C2A-B4F5-2C6CAD44BFF6}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-Package1-{8643291C-41FA-4C2A-B4F5-2C6CAD44BFF6}WIN-RJGOPBCJ87D.SOURCE_CAISEF;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAT8QN0Vru5CSF2cNalvwZvAAAAAASAAACgAAAAEAAAAJf6LKhs1N/6ROaageoGKA4gAAAAmGblJMgyxEDPA2b+iotEtuHoAaQkWPk1hQcd2gth1hQUAAAA6FKZHNoA8LUzh77EHv90jNb2bNA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FACT_STAT_MARCHE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{555649D3-59F5-4BFF-9288-6F63F483B0B0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_STAT_MARCHE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="FACT_STAT_MARCHE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"FACT_STAT_MARCHE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Numéro de Marché]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Numéro de Marché"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Objet]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="Objet"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Objet]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Objet]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Autorité]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="Autorité"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Autorité]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Service]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="Service"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Service]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Service]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Nature de marché]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Nature de marché"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Nature de marché]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Financement]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Financement"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Financement]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Financement]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Mode de Passation]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Mode de Passation"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Mode de Passation]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Mode de Passation]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Titulaire du marché ]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Titulaire du marché "
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Titulaire du marché ]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché ]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[NIF du Titulaire du marché]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="NIF du Titulaire du marché"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[NIF du Titulaire du marché]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[NIF du Titulaire du marché]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Montant du Marché]"
+                      cachedDataType="numeric"
+                      cachedName="Montant du Marché"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant du Marché]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Montant du Marché]" />
+                    <inputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].Columns[Date de numérotation]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date de numérotation"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Date de numérotation]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Date de numérotation]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="80"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Objet]"
+                      dataType="wstr"
+                      length="2048"
+                      name="Objet" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="512"
+                      name="Autorité" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Service]"
+                      dataType="wstr"
+                      length="512"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="80"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Financement]"
+                      dataType="wstr"
+                      length="80"
+                      name="Financement" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Mode de Passation]"
+                      dataType="wstr"
+                      length="80"
+                      name="Mode de Passation" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Titulaire du marché ]"
+                      dataType="wstr"
+                      length="80"
+                      name="Titulaire du marché " />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[NIF du Titulaire du marché]"
+                      dataType="wstr"
+                      length="512"
+                      name="NIF du Titulaire du marché" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant du Marché]"
+                      dataType="numeric"
+                      name="Montant du Marché"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET].ExternalColumns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      name="Date de numérotation" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_STAT_MARCHE\STAGING"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="STAGING"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * from v_liste_marches</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_STAT_MARCHE\STAGING.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Numéro de Marché]"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Numéro de Marché]"
+                      name="Numéro de Marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Objet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Objet]"
+                      length="2048"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Objet]"
+                      name="Objet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Autorité]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité]"
+                      length="512"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Autorité]"
+                      name="Autorité"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Service]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Service]"
+                      length="512"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Service]"
+                      name="Service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Nature de marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Nature de marché]"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Nature de marché]"
+                      name="Nature de marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Financement]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Financement]"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Financement]"
+                      name="Financement"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Mode de Passation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Mode de Passation]"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Mode de Passation]"
+                      name="Mode de Passation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Titulaire du marché ]"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Titulaire du marché ]"
+                      name="Titulaire du marché "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[NIF du Titulaire du marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[NIF du Titulaire du marché]"
+                      length="512"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[NIF du Titulaire du marché]"
+                      name="NIF du Titulaire du marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Montant du Marché]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Montant du Marché]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Montant du Marché]"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Date de numérotation]"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].Columns[Date de numérotation]"
+                      name="Date de numérotation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="80"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Objet]"
+                      dataType="wstr"
+                      length="2048"
+                      name="Objet" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="512"
+                      name="Autorité" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Service]"
+                      dataType="wstr"
+                      length="512"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="80"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Financement]"
+                      dataType="wstr"
+                      length="80"
+                      name="Financement" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Mode de Passation]"
+                      dataType="wstr"
+                      length="80"
+                      name="Mode de Passation" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Titulaire du marché ]"
+                      dataType="wstr"
+                      length="80"
+                      name="Titulaire du marché " />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[NIF du Titulaire du marché]"
+                      dataType="wstr"
+                      length="512"
+                      name="NIF du Titulaire du marché" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Montant du Marché]"
+                      dataType="numeric"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET].ExternalColumns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      name="Date de numérotation" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Numéro de Marché]"
+                      name="Numéro de Marché" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Objet]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Objet]"
+                      name="Objet" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité]"
+                      name="Autorité" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Service]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Service]"
+                      name="Service" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Nature de marché]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Nature de marché]"
+                      name="Nature de marché" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Financement]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Financement]"
+                      name="Financement" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Mode de Passation]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Mode de Passation]"
+                      name="Mode de Passation" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Titulaire du marché ]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Titulaire du marché ]"
+                      name="Titulaire du marché " />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[NIF du Titulaire du marché]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[NIF du Titulaire du marché]"
+                      name="NIF du Titulaire du marché" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Montant du Marché]"
+                      dataType="numeric"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Montant du Marché]"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[Date de numérotation]"
+                      name="Date de numérotation" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_STAT_MARCHE.Paths[Sortie de source ADO NET]"
+              endId="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\FACT_STAT_MARCHE\STAGING.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{007776BA-D253-432E-958C-AC3485CD940D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{40DD033D-0C1C-4C56-9692-BBA6FB03C18F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FACT_STAT_MARCHE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{5EE61B42-CAC8-4200-BA4F-165C0A1C8EEF}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\FACT_STAT_MARCHE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\FACT_STAT_MARCHE"
+          TopLeft="448.333315518168,103.133334152963" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="152.499993940195,28.6000002272924" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="274.099993940195,70.2000002272924">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="268.633321577973,32.9333339256711"
+              Start="0,0"
+              End="268.633321577973,25.4333339256711">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.4666669628355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.4666669628355"
+                    Point2="0,16.4666669628355"
+                    Point3="4,16.4666669628355" />
+                  <mssgle:LineSegment
+                    End="264.633321577973,16.4666669628355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="264.633321577973,16.4666669628355"
+                    Point2="268.633321577973,16.4666669628355"
+                    Point3="268.633321577973,20.4666669628355" />
+                  <mssgle:LineSegment
+                    End="268.633321577973,25.4333339256711" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FACT_STAT_MARCHE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE"
+          TopLeft="358.333319094447,84.9333340083228" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\FACT_STAT_MARCHE\STAGING"
+          TopLeft="111.666662229432,39.8666669834985" />
+        <EdgeLayout
+          Id="Package\FACT_STAT_MARCHE.Paths[Sortie de source ADO NET]"
+          TopLeft="237.666662229432,60.8666669834985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.666656865015,45.0666670248243"
+              Start="0,0"
+              End="113.166656865015,45.0666670248243">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.3333284325075,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.3333284325075,0"
+                    Point2="60.3333284325075,0"
+                    Point3="60.3333284325075,4" />
+                  <mssgle:LineSegment
+                    End="60.3333284325075,41.0666670248243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.3333284325075,41.0666670248243"
+                    Point2="60.3333284325075,45.0666670248243"
+                    Point3="64.3333284325075,45.0666670248243" />
+                  <mssgle:LineSegment
+                    End="113.166656865015,45.0666670248243" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_STAT_MARCHE\FACT_STAT_MARCHE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_STAT_MARCHE\STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

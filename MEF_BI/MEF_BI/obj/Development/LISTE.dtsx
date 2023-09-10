@@ -1,0 +1,735 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2022 5:24:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{08FAF8F5-6D30-4125-AD64-F6107100C996}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DGMP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{5BD3A3AA-9502-4EF8-9819-219E8531089C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.56:1521/DBSIGMAP.bimef]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DB92A2E5-629E-4041-A196-2CF2097100B8}"
+      DTS:ObjectName="10.10.6.56:1521/DBSIGMAP.bimef">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.56:1521/DBSIGMAP;User ID=bimef;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAXZ7MqhNW6punJDZ8N8QUAAAAAAASAAACgAAAAEAAAAATYCOs5slqHU6ErTneQh8gQAAAAJAk7ieza4S7aW0Lauh/Q9RQAAACNXsOHaZ/voa0h/ZLpLMi8lO9B5Q</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{5CDB337E-818C-484F-9654-48F6669B1D78}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-DGMP-{5CDB337E-818C-484F-9654-48F6669B1D78}ARUI-02.SOURCE_CAISEF1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2EC24F15-6CFA-4405-A98F-9B245A063038}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Administrateur\Desktop\marche.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{02F110BB-8A05-4C11-951E-F1097EF81721}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Administrateur\Desktop\marche.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{882CAFFD-779D-4D19-808A-9677B7007EB5}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-DGMP-{882CAFFD-779D-4D19-808A-9677B7007EB5}WIN-RJGOPBCJ87D.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D06D3B3B-3D6C-4F20-A12F-F4CA9791FB4E}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package-{D06D3B3B-3D6C-4F20-A12F-F4CA9791FB4E}WIN-RJGOPBCJ87D.SOURCE_CAISEF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DGMP_Liste_marchées"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{EA23272F-C9CA-4130-A5DC-D25125F5563B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DGMP_Liste_marchées"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DGMP_Liste_marchées\Destination ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"LISTE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DGMP_Liste_marchées\Destination ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Numéro de Marché]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Numéro de Marché"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Numéro de Marché]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Date de numérotation]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date de numérotation"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date de numérotation]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date de numérotation]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Objet]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="Objet"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Objet]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Objet]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Autorité]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Autorité"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Autorité]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Service]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Service"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Service]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Service]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Nature de marché]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nature de marché"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nature de marché]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Financement]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Financement"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Financement]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Financement]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Mode de Passation]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Mode de Passation"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Mode de Passation]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Mode de Passation]" />
+                    <inputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[Montant du Marché]"
+                      cachedDataType="numeric"
+                      cachedName="Montant du Marché"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant du Marché]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Montant du Marché]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="20"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      name="Date de numérotation" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Objet]"
+                      dataType="wstr"
+                      length="512"
+                      name="Objet" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="128"
+                      name="Autorité" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Service]"
+                      dataType="wstr"
+                      length="128"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Financement]"
+                      dataType="wstr"
+                      length="20"
+                      name="Financement" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Mode de Passation]"
+                      dataType="wstr"
+                      length="20"
+                      name="Mode de Passation" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[Montant du Marché]"
+                      dataType="numeric"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DGMP_Liste_marchées\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DGMP_Liste_marchées\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DGMP_Liste_marchées\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DGMP_Liste_marchées\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from V_LISTE_MARCHES</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DGMP_Liste_marchées\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.10.6.56:1521/DBSIGMAP.bimef]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.10.6.56:1521/DBSIGMAP.bimef]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Numéro de Marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Numéro de Marché]"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Numéro de Marché]"
+                      name="Numéro de Marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Date de numérotation]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Date de numérotation]"
+                      name="Date de numérotation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Objet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Objet]"
+                      length="512"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Objet]"
+                      name="Objet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Autorité]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Autorité]"
+                      length="128"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Autorité]"
+                      name="Autorité"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Service]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Service]"
+                      length="128"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Service]"
+                      name="Service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nature de marché]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Nature de marché]"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Nature de marché]"
+                      name="Nature de marché"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Financement]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Financement]"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Financement]"
+                      name="Financement"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Mode de Passation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Mode de Passation]"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Mode de Passation]"
+                      name="Mode de Passation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Montant du Marché]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Montant du Marché]"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Montant du Marché]"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="20"
+                      name="Numéro de Marché" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      name="Date de numérotation" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Objet]"
+                      dataType="wstr"
+                      length="512"
+                      name="Objet" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Autorité]"
+                      dataType="wstr"
+                      length="128"
+                      name="Autorité" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Service]"
+                      dataType="wstr"
+                      length="128"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Nature de marché]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nature de marché" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Financement]"
+                      dataType="wstr"
+                      length="20"
+                      name="Financement" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Mode de Passation]"
+                      dataType="wstr"
+                      length="20"
+                      name="Mode de Passation" />
+                    <externalMetadataColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Montant du Marché]"
+                      dataType="numeric"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Numéro de Marché]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Numéro de Marché]"
+                      name="Numéro de Marché" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Date de numérotation]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Date de numérotation]"
+                      name="Date de numérotation" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Objet]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Objet]"
+                      name="Objet" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Autorité]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Autorité]"
+                      name="Autorité" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Service]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Service]"
+                      name="Service" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Nature de marché]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Nature de marché]"
+                      name="Nature de marché" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Financement]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Financement]"
+                      name="Financement" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Mode de Passation]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Mode de Passation]"
+                      name="Mode de Passation" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Montant du Marché]"
+                      dataType="numeric"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Montant du Marché]"
+                      name="Montant du Marché"
+                      precision="18"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DGMP_Liste_marchées.Paths[Sortie de source OLE DB]"
+              endId="Package\DGMP_Liste_marchées\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\DGMP_Liste_marchées\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{0B055C55-5E7A-40FE-AAEC-72DD0227B815}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5CDB337E-818C-484F-9654-48F6669B1D78}"
+          SQLTask:SqlStatementSource="delete from liste;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{0AD34357-FFE4-49EA-9481-050AC98E6505}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DGMP_Liste_marchées" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\DGMP_Liste_marchées"
+          TopLeft="315.499987681707,88.7000006612142" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="35.5,35.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="278.7,56.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.7999876817073,53.2000006612142"
+              Start="0,0"
+              End="29.2999876817073,53.2000006612142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="14.3999938408536,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.3999938408536,0"
+                    Point2="18.3999938408536,0"
+                    Point3="18.3999938408536,4" />
+                  <mssgle:LineSegment
+                    End="18.3999938408536,49.2000006612142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.3999938408536,49.2000006612142"
+                    Point2="18.3999938408536,53.2000006612142"
+                    Point3="22.3999938408536,53.2000006612142" />
+                  <mssgle:LineSegment
+                    End="29.2999876817073,53.2000006612142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DGMP_Liste_marchées">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DGMP_Liste_marchées\Source OLE DB"
+          TopLeft="114.285716231988,85.6470600246971" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\DGMP_Liste_marchées\Destination ADO NET"
+          TopLeft="372.857149206862,172.823531835549" />
+        <EdgeLayout
+          Id="Package\DGMP_Liste_marchées.Paths[Sortie de source OLE DB]"
+          TopLeft="189.085716231988,127.247060024697">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="272.971432974874,45.5764718108524"
+              Start="0,0"
+              End="272.971432974874,38.0764718108524">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7882359054262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7882359054262"
+                    Point2="0,22.7882359054262"
+                    Point3="4,22.7882359054262" />
+                  <mssgle:LineSegment
+                    End="268.971432974874,22.7882359054262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="268.971432974874,22.7882359054262"
+                    Point2="272.971432974874,22.7882359054262"
+                    Point3="272.971432974874,26.7882359054262" />
+                  <mssgle:LineSegment
+                    End="272.971432974874,38.0764718108524" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DGMP_Liste_marchées\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DGMP_Liste_marchées\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

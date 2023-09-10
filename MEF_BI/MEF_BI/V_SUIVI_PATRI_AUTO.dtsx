@@ -1,0 +1,1112 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/1/2022 12:04:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{752134FB-BFFC-4CF6-A775-E3CEEF753EAF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_SUIVI_PATRI_AUTO"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="1"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{DD23E2D7-4D94-445D-A9E9-2D1BFADEDB42}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ABFA411E-EA5A-4F5C-A59C-DB53725DE1C3}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\ProjetCAISFF\Direction_DGABE\V_SUIVI_PATRI_AUTO.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Service"
+              DTS:DTSID="{670B8EC6-9B79-4B94-A826-EEA8CC97DA20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Compte"
+              DTS:DTSID="{AC6844B9-9081-4AB5-A9BC-2EEB9E711635}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Marque"
+              DTS:DTSID="{486860DE-8C6B-4427-AF66-57B08076C273}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{E1DAD8D1-E05A-49FF-81C1-318DE0EB02F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Imma_precedente"
+              DTS:DTSID="{8026B9BB-9B12-4836-B65A-F2DE5D3B4E8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Imma_actuelle"
+              DTS:DTSID="{ACBAB137-5D50-4BB5-84F2-6B90B3307959}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ref_affectation"
+              DTS:DTSID="{2498C22F-3B73-408F-A71E-C8BF5801DE7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vehicule"
+              DTS:DTSID="{8293F652-4D4F-4FBA-8B46-9E2DBAB23C85}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Action"
+              DTS:DTSID="{4D67FB24-30B5-4589-A1D7-05090F217BEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="num_Serie"
+              DTS:DTSID="{3C627081-5B74-402E-BB33-9E0DF12717C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date_M_Circulation"
+              DTS:DTSID="{A69FD653-E60B-43C0-A264-1EA3769DF4B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Etat"
+              DTS:DTSID="{FB1AEBE2-4332-4904-A568-359C8A394803}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{0C67A1D5-02D8-4EC7-9349-1E453AAAD0BD}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\ProjetCAISFF\Direction_DGABE\V_SUIVI_PATRI_AUTO.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Service"
+              DTS:DTSID="{36D07DF9-810D-4399-A16F-0E3A62896C8B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Compte"
+              DTS:DTSID="{085448B7-8BDF-4098-80BE-1F65229F3525}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Marque"
+              DTS:DTSID="{1DBB362E-E415-4C28-BF0C-33DEDB60B36A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{1CB03606-9E84-42F8-9B4D-9A7A14EE9D7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Imma_precedente"
+              DTS:DTSID="{1DBECAF3-885D-4030-A616-1A1C9EEAEBC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Imma_actuelle"
+              DTS:DTSID="{A9BDE17A-8954-4CE7-9A24-57AEE3D074C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ref_affectation"
+              DTS:DTSID="{1B0D8DF6-BDED-4EEC-8075-6DA0CA746E8B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vehicule"
+              DTS:DTSID="{85F265BD-73A3-4A45-ADDF-4E7F1973E465}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Action"
+              DTS:DTSID="{027A2201-2FB0-4453-B043-8B4CDA4EAE27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="num_Serie"
+              DTS:DTSID="{6329A1BA-D6D1-4D82-B4B3-81CDC94B7849}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date_M_Circulation"
+              DTS:DTSID="{E1CA5EB4-FDE4-4FC4-B25F-20D017D6998E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Etat"
+              DTS:DTSID="{3FAD3612-CFB8-49FB-B89D-7C3F61C42456}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Oracle Connection Manager]"
+      DTS:CreationName="ORACLE"
+      DTS:DTSID="{61280D31-7C41-4329-B92C-0C6C873CF16B}"
+      DTS:ObjectName="Oracle Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager>
+          <OraConnectionString>SERVER=//localhost:1521/orcl;USERNAME=BI;WINAUTH=0;</OraConnectionString>
+          <OraPassword
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7v1QI6MJX0yxyV5bcK1t5wAAAAACAAAAAAAQZgAAAAEAACAAAABuR60APwugja4qQDrD7OcoUg3JoJVLX5eMKnE6EvPSrwAAAAAOgAAAAAIAACAAAAA6pX1sMvlMHXuhsmEgnOBG++VbLniZCkA+7NRhpNktjSAAAABxXL//j13yn2CnzWMHBgdKM4bJtnwiVrnQab20UR++UEAAAAAryIxHP62klsz/LaxZaVdJGAhoEc/Oc6hWIhteDRzZQCup4QODVmHHk5p22XgszkYxwmwJ1D6e6BM8q3ewjpCy</OraPassword>
+          <OraRetain>False</OraRetain>
+          <OraInitialCatalog></OraInitialCatalog>
+          <OraServerName>//localhost:1521/orcl</OraServerName>
+          <OraUserName>BI</OraUserName>
+          <OraOracleHome></OraOracleHome>
+          <OraOracleHome64></OraOracleHome64>
+          <OraWinAuthentication>False</OraWinAuthentication>
+          <OraEnableDetailedTracing>False</OraEnableDetailedTracing>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{11FD4F78-7B7B-47FD-A61E-73F55E152592}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{E88E110E-CD81-4319-8803-8C4E97A173FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{11FD4F78-7B7B-47FD-A61E-73F55E152592}"
+          SQLTask:SqlStatementSource=" truncate table V_SUIVI_PATRI_AUTO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{EAFB69D6-DF65-472D-AE14-F42BC8A62EFA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Source Oracle"
+              componentClassID="Microsoft.SSISOracleSrc"
+              description="Source Oracle"
+              name="Source Oracle"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table à extraire."
+                  expressionType="Notify"
+                  name="TableName">"BI"."V_SUIVI_PATRI_AUTO"</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes extraites par lot."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Détermine l'allocation de taille de segment pour les colonnes LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Int32"
+                  description="Page de codes à utiliser quand les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de lignes préextraites."
+                  expressionType="Notify"
+                  name="PrefetchCount">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source Oracle.Connections[ORACLEConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Oracle Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Oracle Connection Manager]"
+                  description="Connexion ORACLE en cours d'exécution utilisée pour accéder à la base de données."
+                  name="ORACLEConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle]"
+                  errorRowDisposition="FailComponent"
+                  name="Sortie de la source Oracle"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[SERVICE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[SERVICE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[SERVICE]"
+                      name="SERVICE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[COMPTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[COMPTE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[COMPTE]"
+                      name="COMPTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[MARQUE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[MARQUE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[MARQUE]"
+                      name="MARQUE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[TYPE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[TYPE]"
+                      name="TYPE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[IMMA_PRECEDENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[IMMA_PRECEDENTE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[IMMA_PRECEDENTE]"
+                      name="IMMA_PRECEDENTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[IMMA_ACTUELLE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[IMMA_ACTUELLE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[IMMA_ACTUELLE]"
+                      name="IMMA_ACTUELLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[REF_AFFECTATION]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[REF_AFFECTATION]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[REF_AFFECTATION]"
+                      name="REF_AFFECTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[VEHICULE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[VEHICULE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[VEHICULE]"
+                      name="VEHICULE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[NUM_SERIE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[NUM_SERIE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[NUM_SERIE]"
+                      name="NUM_SERIE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[ACTION]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[ACTION]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[ACTION]"
+                      name="ACTION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_M_CIRCULATION]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_M_CIRCULATION]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_M_CIRCULATION]"
+                      name="DATE_M_CIRCULATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[ETAT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[ETAT]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[ETAT]"
+                      name="ETAT" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[SERVICE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SERVICE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[COMPTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="COMPTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[MARQUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MARQUE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[IMMA_PRECEDENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IMMA_PRECEDENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[IMMA_ACTUELLE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IMMA_ACTUELLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[REF_AFFECTATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REF_AFFECTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[VEHICULE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="VEHICULE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[NUM_SERIE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NUM_SERIE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[ACTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ACTION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_M_CIRCULATION]"
+                      dataType="dbTimeStamp"
+                      name="DATE_M_CIRCULATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[ETAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETAT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de la source Oracle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[SERVICE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[SERVICE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[SERVICE]"
+                      name="SERVICE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[COMPTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[COMPTE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[COMPTE]"
+                      name="COMPTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[MARQUE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[MARQUE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[MARQUE]"
+                      name="MARQUE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[TYPE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[TYPE]"
+                      name="TYPE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[IMMA_PRECEDENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[IMMA_PRECEDENTE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[IMMA_PRECEDENTE]"
+                      name="IMMA_PRECEDENTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[IMMA_ACTUELLE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[IMMA_ACTUELLE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[IMMA_ACTUELLE]"
+                      name="IMMA_ACTUELLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[REF_AFFECTATION]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[REF_AFFECTATION]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[REF_AFFECTATION]"
+                      name="REF_AFFECTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[VEHICULE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[VEHICULE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[VEHICULE]"
+                      name="VEHICULE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[NUM_SERIE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[NUM_SERIE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[NUM_SERIE]"
+                      name="NUM_SERIE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ACTION]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[ACTION]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ACTION]"
+                      name="ACTION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DATE_M_CIRCULATION]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_M_CIRCULATION]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DATE_M_CIRCULATION]"
+                      name="DATE_M_CIRCULATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ETAT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[ETAT]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ETAT]"
+                      name="ETAT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="V_SUIVI_PATRI_AUTO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[V_SUIVI_PATRI_AUTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[SERVICE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SERVICE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[SERVICE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[SERVICE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[COMPTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="COMPTE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[COMPTE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[COMPTE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[MARQUE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MARQUE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[MARQUE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[MARQUE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TYPE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[TYPE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[IMMA_PRECEDENTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IMMA_PRECEDENTE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[IMMA_PRECEDENTE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[IMMA_PRECEDENTE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[IMMA_ACTUELLE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IMMA_ACTUELLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[IMMA_ACTUELLE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[IMMA_ACTUELLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[REF_AFFECTATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="REF_AFFECTATION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[REF_AFFECTATION]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[REF_AFFECTATION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[VEHICULE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="VEHICULE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[VEHICULE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[VEHICULE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[NUM_SERIE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NUM_SERIE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[NUM_SERIE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[NUM_SERIE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[ACTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ACTION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTION]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[ACTION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[DATE_M_CIRCULATION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_M_CIRCULATION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_M_CIRCULATION]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_M_CIRCULATION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].Columns[ETAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ETAT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[ETAT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[ETAT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[SERVICE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SERVICE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[COMPTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="COMPTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[MARQUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MARQUE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[IMMA_PRECEDENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IMMA_PRECEDENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[IMMA_ACTUELLE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IMMA_ACTUELLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[REF_AFFECTATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REF_AFFECTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[VEHICULE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="VEHICULE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[NUM_SERIE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NUM_SERIE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ACTION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_M_CIRCULATION]"
+                      dataType="dbTimeStamp"
+                      name="DATE_M_CIRCULATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB].ExternalColumns[ETAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETAT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de la source Oracle]"
+              endId="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de la source Oracle"
+              startId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{0D3E414F-8D74-465C-ACDC-6629C193ABE7}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="88,90" />
+        <NodeLayout
+          Size="254.4,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="142,15" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="269,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.5,33"
+              Start="0,0"
+              End="-78.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-74.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.5,16.5"
+                    Point2="-78.5,16.5"
+                    Point3="-78.5,20.5" />
+                  <mssgle:LineSegment
+                    End="-78.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO"
+          TopLeft="225,150" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Tâche de flux de données\Source Oracle"
+          TopLeft="69.5000020861625,81.7333319833543" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de la source Oracle]"
+          TopLeft="141.900002086162,123.333331983354">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.099997913838,26.6666680166457"
+              Start="0,0"
+              End="181.099997913838,19.1666680166457">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.33333400832286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.33333400832286"
+                    Point2="0,13.3333340083229"
+                    Point3="4,13.3333340083229" />
+                  <mssgle:LineSegment
+                    End="177.099997913838,13.3333340083229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177.099997913838,13.3333340083229"
+                    Point2="181.099997913838,13.3333340083229"
+                    Point3="181.099997913838,17.3333340083229" />
+                  <mssgle:LineSegment
+                    End="181.099997913838,19.1666680166457" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\V_SUIVI_PATRI_AUTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source Oracle">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,725 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{6725A46C-6E1E-4C30-B038-455D42BA00B5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_ENCOURS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{86844D1D-07B7-409D-98B8-05B16AE85845}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{39CC09B8-D070-41F2-BF39-69502AFA7CF5}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-Package1-{39CC09B8-D070-41F2-BF39-69502AFA7CF5}WIN-RJGOPBCJ87D.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADx+/frRvelj2lByPqrDckDAAAAAASAAACgAAAAEAAAAO1BCDpwQDIRuCHXszkXLekgAAAAN3aA6lGTDXTizKf4dM7qjEc/rKIiTttYysPsIxO334kUAAAAeLbUBhE5aA+aNCmtlou5kxh94BU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F22A73C5-CBC7-4A92-9302-05C2DDFB04B7}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_ENCOURS-{F22A73C5-CBC7-4A92-9302-05C2DDFB04B7}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAApitJy5ASXj8O2/Ige9/cqAAAAAASAAACgAAAAEAAAABFPQGW/B+nWPF2WxgrbLrggAAAAgKSX7NahCB20HULi+zU6iNWP56sGZHnxo9z3NZDhI9AUAAAATBJreHdqJme8dObl9Boz0FruwjA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{8407A891-1F46-4693-8BBC-95DE60C74E24}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Persist Security Info=True;Application Name=SSIS-Package1-{8407A891-1F46-4693-8BBC-95DE60C74E24}WIN-RJGOPBCJ87D.SOURCE_CAISEF;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB1Y/q+soBvtRPMplnJR+wsAAAAAASAAACgAAAAEAAAAA2hHIzhBziHFZFrvhYEVgkgAAAA02vaPJBr7M9Ctj16no+OvmETvlrBCkAr9EGNtR08DH0UAAAAcjFe8uQROs4RbFzBt/iR9kNo+aE</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tache de flux de donnees"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B91A20DF-3EA1-4F82-A90A-2A3956C206A7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tache de flux de donnees"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_BANQUES_FINANCES"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_BANQUES_FINANCES]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[ACTUAL_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ACTUAL_AMNT"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTUAL_AMNT]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[ACTUAL_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[PREV_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="PREV_AMNT"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[PREV_AMNT]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[PREV_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[STOCK_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="STOCK_AMNT"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_AMNT]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[STOCK_PRET_PROG_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="STOCK_PRET_PROG_AMNT"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_PRET_PROG_AMNT]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_PRET_PROG_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[STOCK_PRET_PROJ_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="STOCK_PRET_PROJ_AMNT"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_PRET_PROJ_AMNT]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_PRET_PROJ_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[STOCK_OTHER_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="STOCK_OTHER_AMNT"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_OTHER_AMNT]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_OTHER_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[SCOPE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="SCOPE"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[SCOPE]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[SCOPE]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[INST_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="INST_TYPE"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_TYPE]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[INST_TYPE]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].Columns[DATE_REF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_REF"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[DATE_REF]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTUAL_AMNT]"
+                      dataType="numeric"
+                      name="ACTUAL_AMNT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[PREV_AMNT]"
+                      dataType="numeric"
+                      name="PREV_AMNT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_AMNT]"
+                      dataType="numeric"
+                      name="STOCK_AMNT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_PRET_PROG_AMNT]"
+                      dataType="numeric"
+                      name="STOCK_PRET_PROG_AMNT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_PRET_PROJ_AMNT]"
+                      dataType="numeric"
+                      name="STOCK_PRET_PROJ_AMNT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[STOCK_OTHER_AMNT]"
+                      dataType="numeric"
+                      name="STOCK_OTHER_AMNT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[SCOPE]"
+                      dataType="wstr"
+                      length="38"
+                      name="SCOPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_TYPE]"
+                      dataType="wstr"
+                      length="5"
+                      name="INST_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tache de flux de donnees\Staging_SITAUATION"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Staging_SITAUATION"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DATE_REF, ACTUAL_AMNT, PREV_AMNT, STOCK_AMNT, STOCK_PRET_PROG_AMNT, STOCK_PRET_PROJ_AMNT, STOCK_OTHER_AMNT, SCOPE, INST_TYPE
+FROM            V_DEBT_SITUATION_BI</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tache de flux de donnees\Staging_SITAUATION.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[DATE_REF]"
+                      name="DATE_REF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[ACTUAL_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[ACTUAL_AMNT]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[ACTUAL_AMNT]"
+                      name="ACTUAL_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[PREV_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[PREV_AMNT]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[PREV_AMNT]"
+                      name="PREV_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_AMNT]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_AMNT]"
+                      name="STOCK_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_PRET_PROG_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_PRET_PROG_AMNT]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_PRET_PROG_AMNT]"
+                      name="STOCK_PRET_PROG_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_PRET_PROJ_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_PRET_PROJ_AMNT]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_PRET_PROJ_AMNT]"
+                      name="STOCK_PRET_PROJ_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_OTHER_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_OTHER_AMNT]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[STOCK_OTHER_AMNT]"
+                      name="STOCK_OTHER_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[SCOPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[SCOPE]"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[SCOPE]"
+                      name="SCOPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[INST_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[INST_TYPE]"
+                      length="5"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].Columns[INST_TYPE]"
+                      name="INST_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[ACTUAL_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="ACTUAL_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[PREV_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="PREV_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="STOCK_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_PRET_PROG_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="STOCK_PRET_PROG_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_PRET_PROJ_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="STOCK_PRET_PROJ_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[STOCK_OTHER_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="STOCK_OTHER_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[SCOPE]"
+                      dataType="wstr"
+                      length="38"
+                      name="SCOPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET].ExternalColumns[INST_TYPE]"
+                      dataType="wstr"
+                      length="5"
+                      name="INST_TYPE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTUAL_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTUAL_AMNT]"
+                      name="ACTUAL_AMNT" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[PREV_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[PREV_AMNT]"
+                      name="PREV_AMNT" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_AMNT]"
+                      name="STOCK_AMNT" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_PRET_PROG_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_PRET_PROG_AMNT]"
+                      name="STOCK_PRET_PROG_AMNT" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_PRET_PROJ_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_PRET_PROJ_AMNT]"
+                      name="STOCK_PRET_PROJ_AMNT" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_OTHER_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[STOCK_OTHER_AMNT]"
+                      name="STOCK_OTHER_AMNT" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[SCOPE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[SCOPE]"
+                      name="SCOPE" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_TYPE]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_TYPE]"
+                      name="INST_TYPE" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tache de flux de donnees.Paths[Sortie de source ADO NET]"
+              endId="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tache de flux de donnees\Staging_SITAUATION.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{0D7DFCF7-3578-4D89-83D2-C769CDA3F8B8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{39CC09B8-D070-41F2-BF39-69502AFA7CF5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  FACT_BANQUES_FINANCES" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{8DAC321F-5757-431B-9512-E3753DE07337}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Tache de flux de donnees" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tache de flux de donnees"
+          TopLeft="315.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.666657560402,129.533334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.166663222843,25.6000005372362"
+              Start="0,0"
+              End="65.166663222843,18.1000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.80000026861811" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.80000026861811"
+                    Point2="0,12.8000002686181"
+                    Point3="4,12.8000002686181" />
+                  <mssgle:LineSegment
+                    End="61.166663222843,12.8000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.166663222843,12.8000002686181"
+                    Point2="65.166663222843,12.8000002686181"
+                    Point3="65.166663222843,16.8000002686181" />
+                  <mssgle:LineSegment
+                    End="65.166663222843,18.1000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tache de flux de donnees">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Tache de flux de donnees\Staging_SITAUATION"
+          TopLeft="69.8333348896768,62.1999992148081" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES"
+          TopLeft="546,87" />
+        <EdgeLayout
+          Id="Package\Tache de flux de donnees.Paths[Sortie de source ADO NET]"
+          TopLeft="257.833334889677,83.1999992148081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="288.166665110323,24.8000007851919"
+              Start="0,0"
+              End="280.666665110323,24.8000007851919">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="140.083332555162,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="140.083332555162,0"
+                    Point2="144.083332555162,0"
+                    Point3="144.083332555162,4" />
+                  <mssgle:LineSegment
+                    End="144.083332555162,20.8000007851919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.083332555162,20.8000007851919"
+                    Point2="144.083332555162,24.8000007851919"
+                    Point3="148.083332555162,24.8000007851919" />
+                  <mssgle:LineSegment
+                    End="280.666665110323,24.8000007851919" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tache de flux de donnees\FACT_BANQUES_FINANCES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tache de flux de donnees\Staging_SITAUATION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

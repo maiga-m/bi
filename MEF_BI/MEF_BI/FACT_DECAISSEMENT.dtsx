@@ -1,0 +1,691 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{8C6BEC67-1EA9-4A38-9E2F-150FA8DAD043}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_DECAISSEMENT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{13D3D7BE-089D-416D-AF6E-165FD89CC26D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{77822723-75A6-4490-9191-6A755011D3B4}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-Package1-{77822723-75A6-4490-9191-6A755011D3B4}WIN-RJGOPBCJ87D.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADIHUFFLUuCM4jTlORUCYz3AAAAAASAAACgAAAAEAAAALIeJ0pZPKFW77e1I+DreCcgAAAA8u0minVSrf/ZW1BRrnxKaWNxPBc/PMt4RsB0TPFoSBIUAAAA9jTXaohuR+lrnt5MKr3jMr2SmGo</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9836C7A6-3E6E-400A-A1D0-618BB551911E}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_DECAISSEMENT-{9836C7A6-3E6E-400A-A1D0-618BB551911E}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAARn/OFZ2w2tpT2lFPa81PIAAAAAASAAACgAAAAEAAAAFTwuot5MMLkRvDSmpaJ1RIgAAAAdjBhLNlxpx25G9SUXYCYG+GXNbLTL+l0inmbb2XFh7AUAAAAGy0Pci1pRVE52fsB65UMLMzkywM</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{07373AED-3036-48B5-82EC-8F0D5C458A91}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Persist Security Info=True;Application Name=SSIS-Package1-{07373AED-3036-48B5-82EC-8F0D5C458A91}WIN-RJGOPBCJ87D.SOURCE_CAISEF;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC4NSlkVHQndUf2GHNPChQEAAAAAASAAACgAAAAEAAAALRR52Afgm1L5N6za/Nh9zQgAAAAdq+VX2Rbnijh8I+3KosAnII5B1ZWDR9RVUfLEhkR+vMUAAAAQanhQfoeyXM4JSAyt95VNNYDSTI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FACT_DECAISSEMENT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{11D2ACA7-D0BD-4DC3-8224-50336B5F2E51}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_DECAISSEMENT"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_DECAISSEMENT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_DECAISSEMENT]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[DATE_REF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_REF"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DATE_REF]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[INST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="INST_NAME"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_NAME]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[BLR_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BLR_CODE"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[BLR_CODE]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[INST_AMNT_LC]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INST_AMNT_LC"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_LC]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_AMNT_LC]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[INST_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INST_AMNT"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_AMNT]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[DIS_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DIS_AMNT"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_AMNT]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[DIS_AMNT_LC]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DIS_AMNT_LC"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT_LC]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_AMNT_LC]" />
+                    <inputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].Columns[DIS_RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DIS_RATE"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_RATE]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_RATE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      dataType="wstr"
+                      length="20"
+                      name="BLR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_RATE]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_RATE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Staging_DISBURSEMENT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from STAGING_V_DEBT_EXT_DISBURMENT_BI</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DATE_REF]"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DATE_REF]"
+                      name="DATE_REF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[INST_NAME]"
+                      length="512"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_NAME]"
+                      name="INST_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[BLR_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[BLR_CODE]"
+                      length="20"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[BLR_CODE]"
+                      name="BLR_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[INST_AMNT_LC]"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_AMNT_LC]"
+                      name="INST_AMNT_LC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[INST_AMNT]"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[INST_AMNT]"
+                      name="INST_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DIS_AMNT]"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_AMNT]"
+                      name="DIS_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DIS_AMNT_LC]"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_AMNT_LC]"
+                      name="DIS_AMNT_LC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_RATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DIS_RATE]"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].Columns[DIS_RATE]"
+                      name="DIS_RATE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[INST_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[BLR_CODE]"
+                      dataType="wstr"
+                      length="20"
+                      name="BLR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[INST_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DIS_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[DIS_RATE]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_RATE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_NAME]"
+                      name="INST_NAME" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[BLR_CODE]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[BLR_CODE]"
+                      name="BLR_CODE" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_AMNT_LC]"
+                      name="INST_AMNT_LC" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[INST_AMNT]"
+                      name="INST_AMNT" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DIS_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DIS_AMNT]"
+                      name="DIS_AMNT" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DIS_AMNT_LC]"
+                      name="DIS_AMNT_LC" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DIS_RATE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[DIS_RATE]"
+                      name="DIS_RATE" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_DECAISSEMENT.Paths[Sortie de source ADO NET]"
+              endId="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source ADO NET"
+              startId="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{A788AA44-D9A1-4CC0-B7BF-EE86BF4EAB50}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{77822723-75A6-4490-9191-6A755011D3B4}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  FACT_DECAISSEMENT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{D32EA761-4197-492C-92B2-E739F97B9036}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\FACT_DECAISSEMENT" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\FACT_DECAISSEMENT"
+          TopLeft="315.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.666657560402,129.533334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.666663222843,25.6000005372362"
+              Start="0,0"
+              End="57.666663222843,18.1000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.80000026861811" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.80000026861811"
+                    Point2="0,12.8000002686181"
+                    Point3="4,12.8000002686181" />
+                  <mssgle:LineSegment
+                    End="53.666663222843,12.8000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.666663222843,12.8000002686181"
+                    Point2="57.666663222843,12.8000002686181"
+                    Point3="57.666663222843,16.8000002686181" />
+                  <mssgle:LineSegment
+                    End="57.666663222843,18.1000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FACT_DECAISSEMENT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT"
+          TopLeft="546,87" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT"
+          TopLeft="69.8333348896768,62.1999992148081" />
+        <EdgeLayout
+          Id="Package\FACT_DECAISSEMENT.Paths[Sortie de source ADO NET]"
+          TopLeft="272.233334889677,82.9999992148081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="273.766665110323,24.8000007851919"
+              Start="0,0"
+              End="266.266665110323,24.8000007851919">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.883332555162,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="132.883332555162,0"
+                    Point2="136.883332555162,0"
+                    Point3="136.883332555162,4" />
+                  <mssgle:LineSegment
+                    End="136.883332555162,20.8000007851919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.883332555162,20.8000007851919"
+                    Point2="136.883332555162,24.8000007851919"
+                    Point3="140.883332555162,24.8000007851919" />
+                  <mssgle:LineSegment
+                    End="266.266665110323,24.8000007851919" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_DECAISSEMENT\FACT_DECAISSEMENT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_DECAISSEMENT\Staging_DISBURSEMENT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

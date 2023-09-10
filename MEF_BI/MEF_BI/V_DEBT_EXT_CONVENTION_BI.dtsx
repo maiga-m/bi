@@ -1,0 +1,2705 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/24/2022 2:48:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{2562BA5A-98CD-4B89-BBDD-828F492CC7DC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_DEBT_EXT_CONVENTION_BI"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="1"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{C2DCA4E0-6B48-4C07-9413-089A8A767BF0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CBF6D071-F5A8-437F-B0E7-8EFE2C27B7A1}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{E7F9DFA4-DCA7-4E69-99B4-53FED3D319D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{A35BE497-F20B-487D-B29F-84BC0C774429}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{AE5D1FCB-2D51-4DFA-933D-BE6CBCFF2EDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{A6A7D186-4D01-436D-BDCB-A230C4C1A04A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{B2BC6CE9-EE48-47FE-BF66-60908037740C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{8D3DA5B1-4975-46B7-9FA5-6B2B19185EFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{DC796AC9-D554-4A4A-A530-CAAF3A97DFE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{86A348C3-5689-4DE7-BAD6-2508B51681D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{D36D2A13-6B9A-47FC-B083-18E12F10D981}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{91673D78-D754-4276-8E84-BAA0D9D99CC6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{50260F20-687D-4671-A6B2-51ACA7204D2F}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{B8A207ED-462E-4C0C-B955-2D3C6F34204B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{19A171BD-31F4-40F9-85A8-0E639CA6A407}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{FB309B0A-98BB-430E-93FA-C6D226657703}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{BDC43FA2-A34A-4B9E-9A01-A75B1D76FE97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{236C32DC-180E-4965-A5D7-F0B2E5ACEA2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{4AC359A1-1E82-477E-81B0-2B1656DB48B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{4C36F9AC-2EE0-4352-A2A3-C6E383227682}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{FEB107CD-9B87-4BC2-9714-94880926ED9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{7B01CFF5-A464-4D8F-B90B-9B89D882E5C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{BCB565DD-C5B9-4DE1-8F60-9B9512DF03A3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 10]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E2F6F596-8B99-448B-B675-F4BDF980E161}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 10">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_SUIV_BAT_BAUX.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" ID_BATIMENT"
+              DTS:DTSID="{575233AB-F465-4496-8BFE-66D1B614C4D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REFERENCE"
+              DTS:DTSID="{FCA2939E-A288-4E0E-92DD-1B54ABAFE44E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INFORMATIONS_COMPLEMENTAIRE"
+              DTS:DTSID="{5A4B72E2-E4EA-4632-BC8B-A38A1516B478}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STRUCTURE_BENEFICIAIRE"
+              DTS:DTSID="{9BEBDD32-EFE7-42F6-A265-D3E65D814EDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BAILLEUR"
+              DTS:DTSID="{27D8C31B-7EA5-429C-89F1-4D180B106DC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ANNEE"
+              DTS:DTSID="{9549707A-0CDD-4147-847F-0256D4D0E953}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MONTANT"
+              DTS:DTSID="{12F69A4F-56A0-4C91-A70D-C39C665F5C02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CHARGES"
+              DTS:DTSID="{777F7753-C5B2-4E53-A65D-F1897B3D2CBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CPTE_BANCAIRE"
+              DTS:DTSID="{F6FF3D29-B119-4D67-A87A-06C9AAF40D3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATA_APPROBATION"
+              DTS:DTSID="{3DC344AF-9A2E-4E3E-A0F5-8737DC1D872C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FIN_VALIDITE"
+              DTS:DTSID="{BD0D91A8-3BB3-4B1D-93B0-377A7716BC0F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 11]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{23A0005A-8541-4BF8-873C-8232AA85616B}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 11">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{574E12D2-0F05-4FBF-AEEC-F126DA0A7BD4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{A4B31270-12C2-47DD-9D9D-0C19C17A3D95}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{93C1D3BD-76C3-4695-9860-AACA972BBC0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{E9ECD948-DDB5-418B-A038-450A66D6849C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{8419553E-0621-4DEB-94B2-1897E9E92E04}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{A29A1B3D-949E-4279-9090-B7094C0D67EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{829BDFA8-292D-48CA-89CF-28A3E74AED93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{1F2679E7-6DBC-49AC-8572-183229AD9BB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{6EA1DE56-7277-42E7-A922-AE0CD40EA204}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 12]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{647D343B-DE04-48D6-A736-CB51809A5469}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 12">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\Nouveau dossier\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{2C990626-FEE5-448A-949A-8D029AE5A907}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{C15A14D6-B830-46A0-8004-35DE25BF7EDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{2A347E57-1F00-49BE-8444-A3F89286D34B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{485C5385-0E97-450C-B0F3-B64F83E300FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{204085B5-3D46-4991-89DC-ED1513D1BA5A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{802769CF-7BD1-4CC8-9346-BEC11E98B7D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{8ADDE357-31BD-4568-926F-C9DE79401F6E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{68FCD4B7-CE9D-4363-88DD-CE4DE0333772}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{E1EEEAD7-B3D5-40CA-8CB7-9F98651F4C8A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{C2B691B2-F856-4D9D-B5D3-38FB55CCABE9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 13]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BB5A3F5C-24D9-4F55-957D-D1B8E79CE948}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 13">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\Nouveau dossier\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{AEB63237-A8A7-42BD-B605-5B8AA3ADAFED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{B0F7F1A2-536F-45CD-B710-2216DA6B4780}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{59AD8DA0-3969-479D-9B8D-36F7ABD515C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{18BEA73D-9B99-4F0C-8ED0-D22D66509110}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{1BB07EE2-E741-475B-872B-DF39E9B569A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{BE3082D5-4324-4DB9-A838-B7C0B95EDC90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{BEA6DA68-E7D5-4F56-8010-C63DC8521D72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{80CF7912-1073-4C02-A551-AA8944476A7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{B003A88D-1B43-461A-AD0A-28624A89400B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{B8CA8031-E1AF-4154-845C-BBCC1B2117A4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 14]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6D858B52-CCFE-4680-9D4E-EF4011CDD05F}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 14">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\Nouveau dossier\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{2C816BA4-67A9-400E-B59A-CAA880CA5D36}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{9D68F77B-2E7C-45EB-9B30-0E97B02298A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{93D080CD-55B3-42D6-B0AA-72FA682BE2E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{D88A6F1C-1DB2-4FD0-8BD4-81CBA11B3B6E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{C1865F3A-6810-4CAE-9CB5-34A3CC607ED1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{EC0B82AB-025F-47F5-9956-A6B087575ADF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{498EC51B-DEC2-4460-BCBC-9C370B5C9554}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{E208B047-8EFD-4390-A475-761809967922}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{0E94A16D-6BC6-418E-8146-F371D091C1A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{00480C4A-D9FE-4A2E-808F-66DB85B43A85}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 15]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{33027F1E-807B-44CD-987D-EB438366E676}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 15">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\Nouveau dossier\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{53F101F9-1C00-4F25-ADCD-FBD885003506}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{57C27EFB-F582-4633-B4F1-068786C38214}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{F8536F7C-47F8-495F-B463-B52E55E70026}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{AB86E952-AF3B-49A6-AA63-001B97BF1AC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{2282E33A-AF21-440B-A2C5-FE2873757EA7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{D67B8F59-2F7C-48A0-8B53-BCF840733080}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{94AAB6A2-8F53-4F83-9A31-278DF09C3CA6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{BC02D315-BF66-410C-8B8B-A984AA949B77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{C267F408-9259-432D-A3B5-3A8C6A223FD9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{6A0AA53D-328D-4653-AC41-3A355400A9B5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 16]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A6DAB64E-4512-4F13-A63A-28F47C948045}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 16">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\Nouveau dossier\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{8DD2018B-FAA6-4C1D-AF7B-C3B47D6175E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{100C81CF-2606-4C6F-8459-DA70CAC34422}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{ED9A06BF-1939-46BC-B90F-BC7805017114}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{667389D9-4A43-4175-9C9D-BD3313823CAE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{9EC402E8-CB3A-4E64-8F54-BC63F6ACEFD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{220D8963-0D7C-486A-BA03-45C5A9F9FF12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{806A3386-ECCB-46A9-A282-D6A1006D15CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{E2105845-B8A2-4303-850D-C05BAC4E737C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{5B9D0CB8-E7D0-42DA-8492-EBBB5D56B7E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{E18DC0A9-3A93-4717-AB9F-13E791C4C863}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 17]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D037A4B2-3570-4BDF-B2EE-5695EFB7FD6A}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 17">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\Nouveau dossier\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{B493202B-B05F-452E-8A33-A4623EED6F4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{AABD69EC-81DC-4669-827D-C56E3B351ECC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{F7802171-CB8E-41D7-90F8-EE323DB7B7BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{40D361C9-AFE9-4FFD-8A45-C57C7ABB4272}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{BAAE5975-2DAC-4369-B839-660152FCF1E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{2D129DCD-0358-4498-8D4B-1BA26DEC137A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{8C7EEDFE-D2CF-4924-AE5C-35DBC1A06C2D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{E980F08D-AE38-4A93-A37B-FEC2C0ABA94F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{818B62C6-4604-4954-A116-26521A30855A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{CD2B520C-277B-454B-9857-57AA68BB5387}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D161186B-CAAA-4CC8-85C0-85C15B018E51}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\ProjetCAISFF\Direction_DGDP\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{C4F2DA6D-5894-4699-8831-FE7D99B6AAAC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{4C0BDBD7-CD2A-4577-97EA-29F57532E43F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{FBB0B537-C9D5-457C-99AA-355DBD2F30F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{E6199662-34B9-487C-AA63-232BA479CA5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{A07E92EF-DD2B-4464-ACF9-DD598214E667}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{8157B33A-98A2-4778-BA0D-91C30BBD544F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{9D1463D1-EC37-45DD-86E1-A04AF27A9CE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{BCF85E81-3237-4ACF-A39B-A64D3C1768B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{92DCE887-8116-438A-98F9-1E1368380AD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{B12A569E-FEF3-4184-B4EB-97711EDC3C0F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{206EFEC5-9448-41DB-B516-B4EFFB4146F7}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\ProjetCAISFF\Direction_DGDP\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{821F738B-B2D2-4639-8146-0037202A9087}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{19BD142B-085C-4298-A6B9-9E471C02EDEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{7169C666-5175-498C-9259-FA11137708AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{A6FA4189-AF34-48CF-8E91-3B8A542DF56D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{EAE77503-30DE-48AB-8589-E9F42182F6EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{60D825C9-16AC-452B-A527-FD7BE8E0EF18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{E1ACAF4B-8336-4AA7-81F5-1799E42245BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{D407940B-C0E6-41AC-B727-804ED002EC1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{198AB357-3414-4EB5-A1CC-74D2BF83D7F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{19544276-7C96-4844-B571-2A6678FBC57A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 4]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5880817C-A961-47EF-8B95-AAEDDB0AF5A4}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\ProjetCAISFF\Direction_DGDP\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{C1E09B88-7B18-449D-9719-98FAE3931DD6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{7B76EE80-A325-4466-8260-5C633B5F1948}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{E28C4DD1-0867-46B8-90AA-7A4B88A57CB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{C4AD8ADE-8B85-44FF-899F-0452986742B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{CB9DCBB4-7757-4534-9931-9E2243A3F810}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{80F82AB6-1530-418B-B1AF-A09AA0D08E1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{0CBE72B6-C69C-4E3F-A4F5-1331FB2ACAB9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{8D6A83C3-52A4-4C86-B370-095C2C8698FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{764582ED-A760-4926-B5B9-CB997BC94FA8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{E816163D-5AED-42DE-8A53-31B0421BB7D5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 5]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{997F5D9E-C3AE-4C1E-BBEB-3CE84271EF22}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\ProjetCAISFF\Direction_DGDP\V_DEBT_EXT_CONVENTION_BI.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{39BC4D17-4089-46AD-A723-8334A3894697}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{8216BDC9-69CE-49DB-856C-2F0D8C17B603}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{F0651528-7CBE-4421-9B9C-9798C7FE15B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{EE074B35-5176-46AF-A399-AECF0D53206E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{8963C2F9-F344-4998-AA74-C80733F65821}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{520A8C8A-1D3D-41B7-8C37-2C4EDBFF95D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{33F63EAE-1998-4667-B282-060B95F00B61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{74B11EB1-AFBF-4F61-91D0-DAAF1FB99336}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{8F073106-F0BE-4DC0-B954-F1927258D4B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{E3691E43-F0F3-46B6-B09E-92028E8940F6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 6]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FC60F6D0-B3ED-4312-ADDA-9DD6F01D740B}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{5D161BC9-4B80-4E09-94E3-B3D83418EDCF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{FED8503B-4D43-471E-B58B-C30216FD2CAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{5810F392-75C3-4102-9642-3E75EFAA8A37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{A62BA64E-C301-4DA5-8930-9CD9418E3CBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{8D551D5A-76A9-4E16-812A-8E560891C8DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{6962C111-0EBC-4C32-AD45-0C3C58A4768D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{C73F5C7C-C20F-4F3D-880B-0B1EF68C8A1F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{80843235-4FC1-4BC5-9DAB-243EC6283E9C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{A2DF25A0-1230-4C61-B5E2-B83A06860AF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{4669F39E-B82A-4169-86D5-D4B58DFB6F8F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 7]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9DC77748-DD66-413B-B986-3BD1066C1E09}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{F3BD733F-DC44-45FC-9D47-9161901696A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{796926BE-F060-44DF-BAF7-D3A9DAA7FD24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{03812E50-876D-4E06-9EFF-9FB69D9FF142}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{67F86C5D-BE6E-4D06-BFAD-0FEAB56CA6EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{E56EF7CB-A08F-4778-AFC3-6723E25A8819}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{39CFF6C8-8FAE-457B-B38E-218A16BAEF25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{244DAE78-75CA-4DA2-BA93-9BB14D224F44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{4C05AAA0-AF0C-4717-9864-6D6BE04FCEE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{AA9EA1A2-F948-455C-95E0-F18AD82F8D1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{46C9FBEC-D73D-4188-B317-58213B876AEA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 8]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1C349F75-D758-4563-ACC9-991A91804A4A}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 8">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{88682B4C-30B4-49D3-8C78-A50DD3B2065A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_NAME"
+              DTS:DTSID="{DFFABF69-4FD4-4472-BAEE-BB01E724081B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{AF7CC810-D233-4510-8470-15958D1DF637}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{F873B519-2776-4DC0-B84A-35C1D1F58E2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{73DAD7DF-96F9-4011-8332-D663F4C17811}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{0444DFB3-BF28-45D5-8BE0-E022DC850797}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{3086F7CA-6472-4215-95DB-B5F1FE1D8E6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{7A109A14-BFDE-434D-A72A-3F92A667496F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{1F3FAE72-47B9-4AD6-84AB-1AD457C43045}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{9BECD0FE-8F15-4A34-9934-56C695AFAB1A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats 9]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{58FDDEBA-AD25-4396-986F-43A6B5BBBB0F}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats 9">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrateur\Desktop\V_DEBT_EXT_CONVENTION.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE_REF"
+              DTS:DTSID="{A551D7DF-BEDC-4F21-93BB-C166F22E7CEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BLR_CODE"
+              DTS:DTSID="{8F129DAC-3AF4-4BE8-A45B-ACDFAC046A38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_AMNT_INI"
+              DTS:DTSID="{9BE6CE97-3D76-4136-AD23-B0C6D59C2E1A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_REPORT"
+              DTS:DTSID="{A1DCA38D-09F4-4D55-9638-7FF80AE098D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INT_RATE"
+              DTS:DTSID="{B8150398-A012-42BC-B199-825D5C3A45EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATURITY"
+              DTS:DTSID="{1B22FB83-55DD-48D3-87DC-585AF1F4FF20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BENEFICIARY"
+              DTS:DTSID="{6EA83EB8-7D70-49B4-A11A-C3EC487B7B2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INST_TYPE"
+              DTS:DTSID="{22F0EC9E-1BDD-497A-8DE1-D12F43D54F46}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CURRENCY"
+              DTS:DTSID="{CCEE96E4-2ED3-492F-A230-EA626F8A22A4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Oracle Connection Manager]"
+      DTS:CreationName="ORACLE"
+      DTS:DTSID="{61280D31-7C41-4329-B92C-0C6C873CF16B}"
+      DTS:ObjectName="Oracle Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager>
+          <OraConnectionString>SERVER=//localhost:1521/orcl;USERNAME=BI;WINAUTH=0;</OraConnectionString>
+          <OraPassword
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7v1QI6MJX0yxyV5bcK1t5wAAAAACAAAAAAAQZgAAAAEAACAAAAChzLhZ+3Ru9+xRRPj2eJ2kRVsjYv99Z/vKePgzJdSxqwAAAAAOgAAAAAIAACAAAAARfvWuewT5iT8p8FK9WMwdWQn+0EZLOBL7z04Z4T+hJSAAAABsqEDR+b2bwKW+8lJBAMa1BqDh/DpVm43q53rAzjQ1cUAAAAA7bFGpuaIL4dDxl6aQbWkVC1OOhk2fdLN79huirSWNfDIsczOJpp/mtUvPNy8VGR7lB6MOXPn7nigx430hiHvD</OraPassword>
+          <OraRetain>False</OraRetain>
+          <OraInitialCatalog></OraInitialCatalog>
+          <OraServerName>//localhost:1521/orcl</OraServerName>
+          <OraUserName>BI</OraUserName>
+          <OraOracleHome></OraOracleHome>
+          <OraOracleHome64></OraOracleHome64>
+          <OraWinAuthentication>False</OraWinAuthentication>
+          <OraEnableDetailedTracing>False</OraEnableDetailedTracing>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{382B93BC-BE5E-47E2-86BC-F74594BE4BFD}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{6E84539D-8F17-4086-A3F5-BAF2D81A86C3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{382B93BC-BE5E-47E2-86BC-F74594BE4BFD}"
+          SQLTask:SqlStatementSource="truncate table V_DEBT_EXT_CONVENTION_BI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{2F04EA61-322D-41AB-A782-E5B3E3AB5E44}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Source Oracle"
+              componentClassID="Microsoft.SSISOracleSrc"
+              description="Source Oracle"
+              name="Source Oracle"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table à extraire."
+                  expressionType="Notify"
+                  name="TableName">"BI"."V_DEBT_EXT_CONVENTION_BI"</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes extraites par lot."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Détermine l'allocation de taille de segment pour les colonnes LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Int32"
+                  description="Page de codes à utiliser quand les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de lignes préextraites."
+                  expressionType="Notify"
+                  name="PrefetchCount">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source Oracle.Connections[ORACLEConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Oracle Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Oracle Connection Manager]"
+                  description="Connexion ORACLE en cours d'exécution utilisée pour accéder à la base de données."
+                  name="ORACLEConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle]"
+                  errorRowDisposition="FailComponent"
+                  name="Sortie de la source Oracle"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_NAME]"
+                      length="300"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_NAME]"
+                      name="INST_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[BLR_CODE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[BLR_CODE]"
+                      name="BLR_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_AMNT_INI]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_AMNT_INI]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_AMNT_INI]"
+                      name="INST_AMNT_INI" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_REPORT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_REPORT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_REPORT]"
+                      name="INT_REPORT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_RATE]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_RATE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_RATE]"
+                      name="INT_RATE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[MATURITY]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[MATURITY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[MATURITY]"
+                      name="MATURITY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[BENEFICIARY]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[BENEFICIARY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[BENEFICIARY]"
+                      name="BENEFICIARY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_TYPE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_TYPE]"
+                      name="INST_TYPE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[CURRENCY]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="BLR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_AMNT_INI]"
+                      dataType="r8"
+                      name="INST_AMNT_INI" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_REPORT]"
+                      dataType="r8"
+                      name="INT_REPORT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_RATE]"
+                      dataType="r8"
+                      name="INT_RATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[MATURITY]"
+                      dataType="r8"
+                      name="MATURITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[BENEFICIARY]"
+                      dataType="r8"
+                      name="BENEFICIARY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CURRENCY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de la source Oracle">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_NAME]"
+                      length="300"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_NAME]"
+                      name="INST_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[BLR_CODE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[BLR_CODE]"
+                      name="BLR_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_AMNT_INI]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_AMNT_INI]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_AMNT_INI]"
+                      name="INST_AMNT_INI" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INT_REPORT]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_REPORT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INT_REPORT]"
+                      name="INT_REPORT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INT_RATE]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INT_RATE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INT_RATE]"
+                      name="INT_RATE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[MATURITY]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[MATURITY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[MATURITY]"
+                      name="MATURITY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[BENEFICIARY]"
+                      dataType="r8"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[BENEFICIARY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[BENEFICIARY]"
+                      name="BENEFICIARY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[INST_TYPE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[INST_TYPE]"
+                      name="INST_TYPE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].ExternalColumns[CURRENCY]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie d'erreur de la source Oracle].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="V_DEBT_EXT_CONVENTION_BI"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[V_DEBT_EXT_CONVENTION_BI]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[DATE_REF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_REF"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[DATE_REF]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[BLR_CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="BLR_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[BLR_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[INST_AMNT_INI]"
+                      cachedDataType="r8"
+                      cachedName="INST_AMNT_INI"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_INI]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_AMNT_INI]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[INT_REPORT]"
+                      cachedDataType="r8"
+                      cachedName="INT_REPORT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_REPORT]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_REPORT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[INT_RATE]"
+                      cachedDataType="r8"
+                      cachedName="INT_RATE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_RATE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INT_RATE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[MATURITY]"
+                      cachedDataType="r8"
+                      cachedName="MATURITY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[MATURITY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[MATURITY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[BENEFICIARY]"
+                      cachedDataType="r8"
+                      cachedName="BENEFICIARY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[BENEFICIARY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[BENEFICIARY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[INST_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="INST_TYPE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_TYPE]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_TYPE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[CURRENCY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].Columns[INST_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="INST_NAME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      lineageId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle].Columns[INST_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="BLR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_INI]"
+                      dataType="r8"
+                      name="INST_AMNT_INI" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_REPORT]"
+                      dataType="r8"
+                      name="INT_REPORT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_RATE]"
+                      dataType="r8"
+                      name="INT_RATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[MATURITY]"
+                      dataType="r8"
+                      name="MATURITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[BENEFICIARY]"
+                      dataType="r8"
+                      name="BENEFICIARY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="INST_NAME" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de la source Oracle]"
+              endId="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de la source Oracle"
+              startId="Package\Tâche de flux de données\Source Oracle.Outputs[Sortie de la source Oracle]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{D63A9359-6DB0-420B-92C5-53FA4FF7ECAF}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="223,121" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="95,29" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="222,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.5,50"
+              Start="0,0"
+              End="103.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="99.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.5,25"
+                    Point2="103.5,25"
+                    Point3="103.5,29" />
+                  <mssgle:LineSegment
+                    End="103.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI"
+          TopLeft="298,145" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Tâche de flux de données\Source Oracle"
+          TopLeft="87.1666750444302,46.3999984089533" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de la source Oracle]"
+          TopLeft="159.56667504443,87.9999984089533">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="260.83332495557,57.0000015910467"
+              Start="0,0"
+              End="260.83332495557,49.5000015910467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5000007955234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5000007955234"
+                    Point2="0,28.5000007955234"
+                    Point3="4,28.5000007955234" />
+                  <mssgle:LineSegment
+                    End="256.83332495557,28.5000007955234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="256.83332495557,28.5000007955234"
+                    Point2="260.83332495557,28.5000007955234"
+                    Point3="260.83332495557,32.5000007955234" />
+                  <mssgle:LineSegment
+                    End="260.83332495557,49.5000015910467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source Oracle">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\V_DEBT_EXT_CONVENTION_BI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,991 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/8/2022 5:47:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{F14CA849-6E96-4711-9834-51EFD578E94D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_BAILLEUR"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{CAEE8B73-D144-4D9B-83E7-E9701D51A16F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{986BDF39-6D76-4AB0-8ACD-E7163E2A78BE}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DIM_BAILLEUR-{986BDF39-6D76-4AB0-8ACD-E7163E2A78BE}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABFd16elB0/U4EZlYPRrBb6AAAAAASAAACgAAAAEAAAAEu0hSG+34eU1+v3HFOYTAAgAAAAzU10ofTZ4LDFIeqiGNmdtm0oWBWq1gXvHuu0x1NDlXEUAAAANjayYRUQ1SzmOJftskcr1EerO1A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{61F0E071-E01D-46D9-81DB-857F92DB86EE}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DIM_BAILLEUR-{61F0E071-E01D-46D9-81DB-857F92DB86EE}WIN-RJGOPBCJ87D.SOURCE_CAISEF1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABLRErTpi+NX0pYuG1hjTHEAAAAAASAAACgAAAAEAAAANxq57m1dgnk7nWjhvZ82E0gAAAAuE11Suf2g5jig1dsCiGUxrnQH8+ZSFwrz+OOH2f4EUkUAAAANt6mJF7aCU6WhVztJT66C+MhHHs</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{CF01CEEB-3950-4246-A858-BBF2538C3514}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DIM_BAILLEUR]
+set
+[BAILLEUR]=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[BAILLEUR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BAILLEUR"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\DIM_BAILLEUR"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DIM_BAILLEUR"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DIM_BAILLEUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\DIM_BAILLEUR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB].Columns[ID_BAILLEUR]"
+                      cachedDataType="i4"
+                      cachedName="ID_BAILLEUR"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_BAILLEUR]"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[ID_BAILLEUR]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB].Columns[BAILLEUR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BAILLEUR"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB].ExternalColumns[BAILLEUR]"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_BAILLEUR]"
+                      dataType="i4"
+                      name="ID_BAILLEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB].ExternalColumns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BAILLEUR" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DIM_BAILLEUR.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_BAILLEUR.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_BAILLEUR.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_BAILLEUR.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_BAILLEUR.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DIM_BAILLEUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DIM_BAILLEUR]) [refTable]
+where [refTable].[BAILLEUR] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_BAILLEUR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BAILLEUR" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche].Columns[BAILLEUR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BAILLEUR"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">BAILLEUR</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Recherche 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DIM_BAILLEUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DIM_BAILLEUR]) [refTable]
+where [refTable].[BAILLEUR] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_BAILLEUR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BAILLEUR" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Recherche 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche].Columns[BAILLEUR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BAILLEUR"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">BAILLEUR</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\STAGING_BAILLEUR"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING_BAILLEUR"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[STAGING_BAILLEUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[ID_BAILLEUR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].ExternalColumns[ID_BAILLEUR]"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[ID_BAILLEUR]"
+                      name="ID_BAILLEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].ExternalColumns[BAILLEUR]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]"
+                      name="BAILLEUR"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].ExternalColumns[ID_BAILLEUR]"
+                      dataType="i4"
+                      name="ID_BAILLEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB].ExternalColumns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BAILLEUR" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_BAILLEUR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_BAILLEUR]"
+                      name="ID_BAILLEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[BAILLEUR]"
+                      name="BAILLEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Tâche de flux de données\Recherche 1.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche sans correspondance]"
+              endId="Package\Tâche de flux de données\DIM_BAILLEUR.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\Tâche de flux de données\Recherche.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche sans correspondance1]"
+              endId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\Tâche de flux de données\Recherche 1.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\STAGING_BAILLEUR.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="271,81" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Tâche de flux de données\DIM_BAILLEUR"
+          TopLeft="537.49997864167,152.533334545559" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Tâche de flux de données\STAGING_BAILLEUR"
+          TopLeft="101.666662626797,29.4666669008467" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Tâche de flux de données\Recherche 1"
+          TopLeft="61.6666642162536,115.266667582724" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Tâche de flux de données\Recherche"
+          TopLeft="376.666651699279,32.0666669215097" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Tâche de flux de données\Commande OLE DB"
+          TopLeft="253.333323266772,188.066668161286" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="441.066651699279,73.6666669215097">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="173.233326942391,78.8666676240497"
+              Start="0,0"
+              End="173.233326942391,71.3666676240497">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4333338120249" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4333338120249"
+                    Point2="0,39.4333338120249"
+                    Point3="4,39.4333338120249" />
+                  <mssgle:LineSegment
+                    End="169.233326942391,39.4333338120249" />
+                  <mssgle:CubicBezierSegment
+                    Point1="169.233326942391,39.4333338120249"
+                    Point2="173.233326942391,39.4333338120249"
+                    Point3="173.233326942391,43.4333338120249" />
+                  <mssgle:LineSegment
+                    End="173.233326942391,71.3666676240497" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.88534824755443,44.4333338120249,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="420.933318365946,73.6666669215097">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-290.466654149692,41.6000006612142"
+              Start="0,0"
+              End="-290.466654149692,34.1000006612142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9462579380652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.9462579380652"
+                    Point2="0,16.9462579380652"
+                    Point3="-4,16.9462579380652" />
+                  <mssgle:LineSegment
+                    End="-286.466654149692,16.9462579380652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-286.466654149692,16.9462579380652"
+                    Point2="-290.466654149692,16.9462579380652"
+                    Point3="-290.466654149692,20.9462579380652" />
+                  <mssgle:LineSegment
+                    End="-290.466654149692,34.1000006612142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-236.910338793596,21.9462579380652,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="283.266662626797,51.5666669111782">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.3999890724824,0"
+              Start="0,0"
+              End="85.8999890724824,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="85.8999890724824,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche sans correspondance1]"
+          TopLeft="130.466664216254,156.866667582724">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209.266659050518,31.2000005785623"
+              Start="0,0"
+              End="209.266659050518,23.7000005785623">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.6000002892812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6000002892812"
+                    Point2="0,15.6000002892812"
+                    Point3="4,15.6000002892812" />
+                  <mssgle:LineSegment
+                    End="205.266659050518,15.6000002892812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="205.266659050518,15.6000002892812"
+                    Point2="209.266659050518,15.6000002892812"
+                    Point3="209.266659050518,19.6000002892812" />
+                  <mssgle:LineSegment
+                    End="209.266659050518,23.7000005785623" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.131317806509,20.6000002892812,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Recherche 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_BAILLEUR]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\STAGING_BAILLEUR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_BAILLEUR]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\DIM_BAILLEUR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/21/2023 10:46:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{A73B45AC-1FC7-4F08-942C-A927688AD1EA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="BP_V_LIQUIDATION_VISE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{121B01D8-71AF-4530-9BCE-11C0187D4D74}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{75FCA231-BB36-4432-8405-E7AEEB087FB3}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Application Name=SSIS-Package2-{75FCA231-BB36-4432-8405-E7AEEB087FB3}ARUI-02.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXnhJuFZkmUSZNZUi8uFWtwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABz57chakYpgPzKN4oZTiWhAAAAAASAAACgAAAAEAAAAJCgAP3CuIEi5wkwTOlVplsgAAAAvxPA4YeDhAWN4q6Klm7DcOVg6r4XDmn3jVUNw8f3doEUAAAA8Q/4vk5c3VYqLIaL+7ZfoX2sbSI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E0A7FE6C-B163-4BFC-9949-81369D0F5CC8}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package2-{E0A7FE6C-B163-4BFC-9949-81369D0F5CC8}ARUI-02.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXnhJuFZkmUSZNZUi8uFWtwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADXYFL+/B1bQdYEwYHD+FNqAAAAAASAAACgAAAAEAAAADA8ETjoqNKLo3GJ5MKIfjYgAAAADcA2aEXJqnDrWAVmcmRZju7mtB/YFYy3ino1916GZe4UAAAA/1eOgJFOt3MAE4cCHzQfN/UfckQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{140A1F3E-E2B7-4C04-A6BA-2B6B5FF16D68}"
+      DTS:ObjectName="DGB.mef_bi1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DGB;User ID=mef_bi;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAXnhJuFZkmUSZNZUi8uFWtwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAsLqjiDeKo1jMzVPJAAogiAAAAAASAAACgAAAAEAAAAOBW3VsFaqTw4G+XZszJfbsYAAAAjj1XCPrSnxOl0o0deHur/yThF+poDpl2FAAAAOuHs4Jeqq218UVjgaQYSdjrxgLp</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\BP_V_LIQUIDATION_VISE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{BFFF5500-737C-4BCF-B659-596863012F60}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="BP_V_LIQUIDATION_VISE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="BP_V_LIQUIDATION_VISE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from  BP_V_LIQUIDATION_VISE</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGB.mef_bi1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGB.mef_bi1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      length="6"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      name="NATURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[ANNEE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[ANNEE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[SECTION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[SECTION]"
+                      length="3"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[SECTION]"
+                      name="SECTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_ENTREE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_ENTREE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_ENTREE]"
+                      name="DATE_ENTREE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_VISA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_VISA]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_VISA]"
+                      name="DATE_VISA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_SORTIE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_SORTIE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_SORTIE]"
+                      name="DATE_SORTIE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_ENTREE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NBRE_ENTREE]"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_ENTREE]"
+                      name="NBRE_ENTREE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_VISE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NBRE_VISE]"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_VISE]"
+                      name="NBRE_VISE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[MONTANT_LIQUIDE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[MONTANT_LIQUIDE]"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[MONTANT_LIQUIDE]"
+                      name="MONTANT_LIQUIDE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_REJET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NBRE_REJET]"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_REJET]"
+                      name="NBRE_REJET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[MONTANT_REJET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[MONTANT_REJET]"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[MONTANT_REJET]"
+                      name="MONTANT_REJET"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="6"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[SECTION]"
+                      dataType="wstr"
+                      length="3"
+                      name="SECTION" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_ENTREE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_ENTREE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_VISA]"
+                      dataType="dbTimeStamp"
+                      name="DATE_VISA" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_SORTIE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_SORTIE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NBRE_ENTREE]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_ENTREE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NBRE_VISE]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_VISE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[MONTANT_LIQUIDE]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT_LIQUIDE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[NBRE_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_REJET" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].ExternalColumns[MONTANT_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT_REJET" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[ANNEE]"
+                      dataType="numeric"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[SECTION]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[SECTION]"
+                      name="SECTION" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      name="NATURE" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_ENTREE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_ENTREE]"
+                      name="DATE_ENTREE" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_VISA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_VISA]"
+                      name="DATE_VISA" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_SORTIE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_SORTIE]"
+                      name="DATE_SORTIE" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NBRE_ENTREE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NBRE_ENTREE]"
+                      name="NBRE_ENTREE" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NBRE_VISE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NBRE_VISE]"
+                      name="NBRE_VISE" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[MONTANT_LIQUIDE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[MONTANT_LIQUIDE]"
+                      name="MONTANT_LIQUIDE" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NBRE_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[NBRE_REJET]"
+                      name="NBRE_REJET" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[MONTANT_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[MONTANT_REJET]"
+                      name="MONTANT_REJET" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="FACT_LIQUIDATION"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"FACT_LIQUIDATION"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[NATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="NATURE"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NATURE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[ANNEE]"
+                      cachedDataType="numeric"
+                      cachedName="ANNEE"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[ANNEE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[SECTION]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="SECTION"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[SECTION]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[SECTION]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[DATE_ENTREE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_ENTREE"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_ENTREE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_ENTREE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[DATE_VISA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_VISA"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_VISA]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_VISA]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[DATE_SORTIE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_SORTIE"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_SORTIE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[DATE_SORTIE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[NBRE_ENTREE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="NBRE_ENTREE"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_ENTREE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_ENTREE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[NBRE_VISE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="NBRE_VISE"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_VISE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_VISE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[MONTANT_LIQUIDE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="MONTANT_LIQUIDE"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT_LIQUIDE]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[MONTANT_LIQUIDE]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[NBRE_REJET]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="NBRE_REJET"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_REJET]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[NBRE_REJET]" />
+                    <inputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].Columns[MONTANT_REJET]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="MONTANT_REJET"
+                      externalMetadataColumnId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT_REJET]"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB].Columns[MONTANT_REJET]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="6"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[SECTION]"
+                      dataType="wstr"
+                      length="3"
+                      name="SECTION" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_ENTREE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_ENTREE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_VISA]"
+                      dataType="dbTimeStamp"
+                      name="DATE_VISA" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_SORTIE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_SORTIE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_ENTREE]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_ENTREE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_VISE]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_VISE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT_LIQUIDE]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT_LIQUIDE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_REJET" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT_REJET" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\BP_V_LIQUIDATION_VISE.Paths[Sortie de source OLE DB]"
+              endId="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{C298FDA2-19BD-494B-BABF-2A7096FB1E39}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0A7FE6C-B163-4BFC-9949-81369D0F5CC8}"
+          SQLTask:SqlStatementSource="DELETE FROM FACT_LIQUIDATION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E2D6E341-3281-4936-AC81-E71B8C1CE608}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\BP_V_LIQUIDATION_VISE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\BP_V_LIQUIDATION_VISE"
+          TopLeft="84.5,118.5" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="154,41" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="276.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90,35.5"
+              Start="0,0"
+              End="-90,28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.75"
+                    Point2="0,17.75"
+                    Point3="-4,17.75" />
+                  <mssgle:LineSegment
+                    End="-86,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86,17.75"
+                    Point2="-90,17.75"
+                    Point3="-90,21.75" />
+                  <mssgle:LineSegment
+                    End="-90,28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\BP_V_LIQUIDATION_VISE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION"
+          TopLeft="490,109" />
+        <EdgeLayout
+          Id="Package\BP_V_LIQUIDATION_VISE.Paths[Sortie de source OLE DB]"
+          TopLeft="107.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="470.5,61.5"
+              Start="0,0"
+              End="470.5,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.75"
+                    Point2="0,30.75"
+                    Point3="4,30.75" />
+                  <mssgle:LineSegment
+                    End="466.5,30.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="466.5,30.75"
+                    Point2="470.5,30.75"
+                    Point3="470.5,34.75" />
+                  <mssgle:LineSegment
+                    End="470.5,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BP_V_LIQUIDATION_VISE\BP_V_LIQUIDATION_VISE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BP_V_LIQUIDATION_VISE\FACT_LIQUIDATION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

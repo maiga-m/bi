@@ -1,0 +1,576 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2022 10:49:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{7FD0D1DD-12FD-4C30-A3F4-CAFF84ECE514}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_BATIMENT_BAILLER"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{353FAD37-9961-4925-A6E1-C056A09DE4B4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{41E2ACF3-1C40-41C1-9CB6-63445110E252}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_BATIMENT_BAILLER-{41E2ACF3-1C40-41C1-9CB6-63445110E252}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACP88ZHbFFYRxSc6AWIV5F4AAAAAASAAACgAAAAEAAAALox9kdzx1/m+Dbn5K6shQMgAAAA3TrFxZPk4RDomvkTJAFCexbPNAvQKKhBiO/Ytk7T4A4UAAAA7aZ9SfCXMACQi/tt8DcPQDW9W10</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{580CA46D-0517-47E9-8C94-F0817FDD13D2}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_BATIMENT_BAILLER-{580CA46D-0517-47E9-8C94-F0817FDD13D2}WIN-RJGOPBCJ87D.SOURCE_CAISEF1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB59+dZQLOsTB/2USRz4ok6AAAAAASAAACgAAAAEAAAANlM6iDMaM09Z0tDi4csNRMgAAAAzlsDQLTnTYS3zuRTuDdF0NyA0lxPu3ZnJ3yLMp2dEWQUAAAA5AtGHSeu1YF0YeoNb3jlD/js1a4</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FACT_BATIMENT_BAILLER"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{4346D717-4BC4-416F-B31A-867EE229F606}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_BATIMENT_BAILLER"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_BATIMENT_BAILLER"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_BATIMENT_BAILLER]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].Columns[BAILLEUR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BAILLEUR"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[BAILLEUR]"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]" />
+                    <inputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].Columns[REFERENCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="REFERENCE"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[REFERENCE]"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[REFERENCE]" />
+                    <inputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateKey]"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].Columns[DateV]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="DateV"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateV]"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateV]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BAILLEUR" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DateV" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_BATIMENT_BAILLER\STAGING"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">use [SOURCE_CAISEF]
+  select a.[BAILLEUR],b.[REFERENCE],
+d.[DateKey],FORMAT(b.[FIN_VALIDITE],'dd/MM/yyyy') as DateV 
+
+from [dbo].[V_SUIV_BAT_BAUX] as k left join 
+ [dbo].[STAGING_BATIMENT_BAILLER] as b  on k.REFERENCE=b.REFERENCE left join
+
+[dbo].[STAGING_DATE] as d on  FORMAT(d.FullDateAlternateKey ,'dd/MM/yyyy') = b.[FIN_VALIDITE]
+left join [dbo].[STAGING_BAILLEUR] as a on k.BAILLEUR = a.[BAILLEUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_BATIMENT_BAILLER\STAGING.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[BAILLEUR]"
+                      length="50"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[BAILLEUR]"
+                      name="BAILLEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[REFERENCE]"
+                      length="50"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[REFERENCE]"
+                      name="REFERENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateKey]"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateV]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateV]"
+                      length="4000"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateV]"
+                      name="DateV"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BAILLEUR" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateV]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DateV" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[BAILLEUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[BAILLEUR]"
+                      name="BAILLEUR" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[REFERENCE]"
+                      name="REFERENCE" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateV]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateV]"
+                      name="DateV" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_BATIMENT_BAILLER.Paths[Sortie de source OLE DB]"
+              endId="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\FACT_BATIMENT_BAILLER\STAGING.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{F2B065AB-CFE7-48A6-92A5-40C0B3745DE2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{41E2ACF3-1C40-41C1-9CB6-63445110E252}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FACT_BATIMENT_BAILLER" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F73EE69-D3B1-47BD-B8EA-9DFF0D3B2949}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\FACT_BATIMENT_BAILLER" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\FACT_BATIMENT_BAILLER"
+          TopLeft="347.499986191591,148.200001177788" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="75.8333303199875,53.7333337603675" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="197.433330319988,95.3333337603675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="256.066655871604,52.8666674174203"
+              Start="0,0"
+              End="256.066655871604,45.3666674174203">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4333337087102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4333337087102"
+                    Point2="0,26.4333337087102"
+                    Point3="4,26.4333337087102" />
+                  <mssgle:LineSegment
+                    End="252.066655871604,26.4333337087102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="252.066655871604,26.4333337087102"
+                    Point2="256.066655871604,26.4333337087102"
+                    Point3="256.066655871604,30.4333337087102" />
+                  <mssgle:LineSegment
+                    End="256.066655871604,45.3666674174203" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FACT_BATIMENT_BAILLER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\FACT_BATIMENT_BAILLER\STAGING"
+          TopLeft="100.833329326577,52.8666670868132" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER"
+          TopLeft="332.499986787638,140.400001115799" />
+        <EdgeLayout
+          Id="Package\FACT_BATIMENT_BAILLER.Paths[Sortie de source OLE DB]"
+          TopLeft="163.833329326577,94.8666670868132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="271.666657461061,45.5333340289858"
+              Start="0,0"
+              End="271.666657461061,38.0333340289858">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7666670144929" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7666670144929"
+                    Point2="0,22.7666670144929"
+                    Point3="4,22.7666670144929" />
+                  <mssgle:LineSegment
+                    End="267.666657461061,22.7666670144929" />
+                  <mssgle:CubicBezierSegment
+                    Point1="267.666657461061,22.7666670144929"
+                    Point2="271.666657461061,22.7666670144929"
+                    Point3="271.666657461061,26.7666670144929" />
+                  <mssgle:LineSegment
+                    End="271.666657461061,38.0333340289858" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_BATIMENT_BAILLER\FACT_BATIMENT_BAILLER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_BATIMENT_BAILLER\STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

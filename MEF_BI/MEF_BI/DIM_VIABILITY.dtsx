@@ -1,0 +1,537 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2022 4:03:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{8A08437F-89BA-477B-899C-3B16A1A10025}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_VIABILITY"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{AB7A2F6E-B74D-4ED9-8884-78899BF8A54E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{46872A01-900D-4E47-B61D-0791E5C6EE3F}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DIM_VIABILITY-{46872A01-900D-4E47-B61D-0791E5C6EE3F}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAIayCVjudfnGkzIBlhRA/HAAAAAASAAACgAAAAEAAAAKFn4QXJi32MC/0YeC8JR5QgAAAAqhhbEomF0/vpdN0w6UJwitTNr7pD6RUKBKd2eOd2IUAUAAAAzx8CoSkUEFN0xU5d7w+mOG2SXYc</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2FAFCCD6-53DA-424E-84B5-A0973D1A8E8B}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DIM_VIABILITY-{2FAFCCD6-53DA-424E-84B5-A0973D1A8E8B}WIN-RJGOPBCJ87D.SOURCE_CAISEF1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB7g885KDOnXkSMp3VED1l7AAAAAASAAACgAAAAEAAAAGJIXvw+BgjTfeBNCfY4/QogAAAAw++CXQ2+hmz2oMfj/2jCRQxAe562Fjne6hBnIV8R5Z8UAAAAEZ92S5YkjB3PoLLBTj1MNRK+qzA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B57BE2F9-879F-4331-83E6-5944EBBBFA66}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\DIM_VIABILITY"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DIM_VIABILITY"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DIM_VIABILITY]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\DIM_VIABILITY.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].Columns[ID_VIABILITY]"
+                      cachedDataType="i4"
+                      cachedName="ID_VIABILITY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_VIABILITY]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[ID_VIABILITY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].Columns[INST_STOCK]"
+                      cachedDataType="r8"
+                      cachedName="INST_STOCK"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_STOCK]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[INST_STOCK]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].Columns[VAN]"
+                      cachedDataType="r8"
+                      cachedName="VAN"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[VAN]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[VAN]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].Columns[INT_AMNT]"
+                      cachedDataType="r8"
+                      cachedName="INT_AMNT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_AMNT]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[INT_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].Columns[SRV_AMNT]"
+                      cachedDataType="r8"
+                      cachedName="SRV_AMNT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[SRV_AMNT]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[SRV_AMNT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].Columns[EXPORT]"
+                      cachedDataType="r8"
+                      cachedName="EXPORT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[EXPORT]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[EXPORT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_VIABILITY]"
+                      dataType="i4"
+                      name="ID_VIABILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_STOCK]"
+                      dataType="r8"
+                      name="INST_STOCK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[VAN]"
+                      dataType="r8"
+                      name="VAN" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_AMNT]"
+                      dataType="r8"
+                      name="INT_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[SRV_AMNT]"
+                      dataType="r8"
+                      name="SRV_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB].ExternalColumns[EXPORT]"
+                      dataType="r8"
+                      name="EXPORT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DIM_VIABILITY.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_VIABILITY.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_VIABILITY.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_VIABILITY.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\STAGING_VIABILITY"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING_VIABILITY"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[STAGING_VIABILITY]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\STAGING_VIABILITY.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[ID_VIABILITY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[ID_VIABILITY]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[ID_VIABILITY]"
+                      name="ID_VIABILITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[INST_STOCK]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[INST_STOCK]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[INST_STOCK]"
+                      name="INST_STOCK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[VAN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[VAN]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[VAN]"
+                      name="VAN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[INT_AMNT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[INT_AMNT]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[INT_AMNT]"
+                      name="INT_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[SRV_AMNT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[SRV_AMNT]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[SRV_AMNT]"
+                      name="SRV_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[EXPORT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[EXPORT]"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].Columns[EXPORT]"
+                      name="EXPORT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[ID_VIABILITY]"
+                      dataType="i4"
+                      name="ID_VIABILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[INST_STOCK]"
+                      dataType="r8"
+                      name="INST_STOCK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[VAN]"
+                      dataType="r8"
+                      name="VAN" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[INT_AMNT]"
+                      dataType="r8"
+                      name="INT_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[SRV_AMNT]"
+                      dataType="r8"
+                      name="SRV_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB].ExternalColumns[EXPORT]"
+                      dataType="r8"
+                      name="EXPORT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_VIABILITY]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_VIABILITY]"
+                      name="ID_VIABILITY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_STOCK]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_STOCK]"
+                      name="INST_STOCK" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[VAN]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[VAN]"
+                      name="VAN" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[INT_AMNT]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[INT_AMNT]"
+                      name="INT_AMNT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[SRV_AMNT]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[SRV_AMNT]"
+                      name="SRV_AMNT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[EXPORT]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[EXPORT]"
+                      name="EXPORT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\DIM_VIABILITY.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\STAGING_VIABILITY.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="159,89" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Tâche de flux de données\STAGING_VIABILITY"
+          TopLeft="119,53" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Tâche de flux de données\DIM_VIABILITY"
+          TopLeft="225,165" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="212,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.5,70"
+              Start="0,0"
+              End="91.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="87.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.5,35"
+                    Point2="91.5,35"
+                    Point3="91.5,39" />
+                  <mssgle:LineSegment
+                    End="91.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\DIM_VIABILITY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\STAGING_VIABILITY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

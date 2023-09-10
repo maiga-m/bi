@@ -1,0 +1,485 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/10/2022 12:34:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{D70BC857-E2DE-4CD5-A51B-873477853D0F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_BUREAU"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{F154E2CA-6DE1-4593-AAA3-490F1C3DE504}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4771A099-F2AD-468D-9761-0B05600D36BD}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-DIM_BUREAU-{4771A099-F2AD-468D-9761-0B05600D36BD}WIN-RJGOPBCJ87D.BI1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{55DFA87D-725E-48DC-84A1-29F9362B9FA5}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-DIM_BUREAU-{55DFA87D-725E-48DC-84A1-29F9362B9FA5}WIN-RJGOPBCJ87D.SOURCE_CAISEF1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_BUREAU"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{0D0B049A-953D-4642-9A2C-F70A805B3B59}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_BUREAU"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_BUREAU\DIM_BUREAU"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DIM_BUREAU"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DIM_BUREAU]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_BUREAU\DIM_BUREAU.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB].Columns[NOM_BUREAU]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_BUREAU"
+                      externalMetadataColumnId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB].ExternalColumns[NOM_BUREAU]"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].Columns[NOM_BUREAU]" />
+                    <inputColumn
+                      refId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB].Columns[ID_BUREAU]"
+                      cachedDataType="i4"
+                      cachedName="ID_BUREAU"
+                      externalMetadataColumnId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_BUREAU]"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].Columns[ID_BUREAU]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB].ExternalColumns[NOM_BUREAU]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_BUREAU" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_BUREAU]"
+                      dataType="i4"
+                      name="ID_BUREAU" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BUREAU\DIM_BUREAU.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\DIM_BUREAU.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BUREAU\DIM_BUREAU.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\DIM_BUREAU.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BUREAU\DIM_BUREAU.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BUREAU\STAGING_BUREAU"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING_BUREAU"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[STAGING_BUREAU]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_BUREAU\STAGING_BUREAU.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].Columns[NOM_BUREAU]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].ExternalColumns[NOM_BUREAU]"
+                      length="255"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].Columns[NOM_BUREAU]"
+                      name="NOM_BUREAU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].Columns[ID_BUREAU]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].ExternalColumns[ID_BUREAU]"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].Columns[ID_BUREAU]"
+                      name="ID_BUREAU"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].ExternalColumns[NOM_BUREAU]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_BUREAU" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB].ExternalColumns[ID_BUREAU]"
+                      dataType="i4"
+                      name="ID_BUREAU" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_BUREAU]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_BUREAU]"
+                      name="ID_BUREAU" />
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[NOM_BUREAU]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[NOM_BUREAU]"
+                      name="NOM_BUREAU" />
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_BUREAU.Paths[Sortie de source OLE DB]"
+              endId="Package\DIM_BUREAU\DIM_BUREAU.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DIM_BUREAU\STAGING_BUREAU.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{EA1FEFCC-122D-4929-B490-64B6C1C3FE88}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4771A099-F2AD-468D-9761-0B05600D36BD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  DIM_BUREAU" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{947A0C22-DA43-4F58-BFB6-B72A6CA5B720}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DIM_BUREAU" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DIM_BUREAU"
+          TopLeft="255,130" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="83,45" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="210,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.5,43"
+              Start="0,0"
+              End="120.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="116.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.5,21.5"
+                    Point2="120.5,21.5"
+                    Point3="120.5,25.5" />
+                  <mssgle:LineSegment
+                    End="120.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_BUREAU">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DIM_BUREAU\STAGING_BUREAU"
+          TopLeft="101,59" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DIM_BUREAU\DIM_BUREAU"
+          TopLeft="325,155" />
+        <EdgeLayout
+          Id="Package\DIM_BUREAU.Paths[Sortie de source OLE DB]"
+          TopLeft="191,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209.5,54"
+              Start="0,0"
+              End="209.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="205.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="205.5,27"
+                    Point2="209.5,27"
+                    Point3="209.5,31" />
+                  <mssgle:LineSegment
+                    End="209.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_BUREAU\DIM_BUREAU">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_BUREAU\STAGING_BUREAU">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

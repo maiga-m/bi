@@ -1,0 +1,742 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2023 9:59:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{BEF771AC-D0A5-4D94-B7BB-B7C0EAF3AEBD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{6C0F722B-5107-42E0-9E5A-8EFB7F9CA07D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.BIMEF]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{391ACB60-0C26-418E-909C-2AEA0DC5241E}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.BIMEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=BIMEF;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAoMPyVfYULzNYoRc9n1GIiAAAAAASAAACgAAAAEAAAANJE7WXfx+MoP6kXdBqCaUkQAAAAYzQkI2TVOXH3Oh7WK34swRQAAAB9fKri+wM3klviVTTUZS90IlaGeQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.BIMEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E6E5012A-D293-4DE5-B535-AF468857A144}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.BIMEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=BIMEF;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADnf4W8Bq559Jd6CR+eBaLcAAAAAASAAACgAAAAEAAAAIDuq8xlxncPPqh6Wz50Q5MQAAAAbI/zP0j3Cw+04is72dLUPRQAAADNMA0ERnQ9fc4O0ZBS4V54AuLPCQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.bimef2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A094CF0D-B53A-42E3-BA54-0C0892857271}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.bimef2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=bimef;Provider=MSDAORA.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABtnQ7EApp3zeyWyhmFokY6AAAAAASAAACgAAAAEAAAABOIabB3V2mLDfxy6UzaR5gQAAAAM8yHdRYsJftSlVE2QTGbehQAAAArOk7AxLn8UJwJ0Lrs78K0cVds5g</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0ACD8DC2-7247-4D6D-9DFA-202F518479EC}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{0ACD8DC2-7247-4D6D-9DFA-202F518479EC}ARUI-02.SOURCE_CAISEF;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{F5DA018B-7BCC-427D-BF46-43FFA1A7E8A5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Connections[OleDbConnection]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="V_DEBT_EXT_DISBURSEMENT_BI"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[V_DEBT_EXT_DISBURSEMENT_BI]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[DATE_REF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_REF"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DATE_REF]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[INST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="INST_NAME"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_NAME]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[BLR_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BLR_CODE"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[BLR_CODE]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[INST_AMNT_LC]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INST_AMNT_LC"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_LC]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_AMNT_LC]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[INST_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INST_AMNT"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_AMNT]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[DIS_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DIS_AMNT"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_AMNT]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[DIS_AMNT_LC]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DIS_AMNT_LC"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT_LC]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_AMNT_LC]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].Columns[DIS_RATE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DIS_RATE"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_RATE]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_RATE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      dataType="wstr"
+                      length="20"
+                      name="BLR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB].ExternalColumns[DIS_RATE]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_RATE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from V_DEBT_EXT_DISBURMENT_BI</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.BIMEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.BIMEF]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DATE_REF]"
+                      name="DATE_REF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[INST_NAME]"
+                      length="512"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_NAME]"
+                      name="INST_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[BLR_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[BLR_CODE]"
+                      length="20"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[BLR_CODE]"
+                      name="BLR_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[INST_AMNT_LC]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_AMNT_LC]"
+                      name="INST_AMNT_LC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[INST_AMNT]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[INST_AMNT]"
+                      name="INST_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DIS_AMNT]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_AMNT]"
+                      name="DIS_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DIS_AMNT_LC]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_AMNT_LC]"
+                      name="DIS_AMNT_LC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_RATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DIS_RATE]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].Columns[DIS_RATE]"
+                      name="DIS_RATE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[INST_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[BLR_CODE]"
+                      dataType="wstr"
+                      length="20"
+                      name="BLR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[INST_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DIS_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_AMNT_LC" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB].ExternalColumns[DIS_RATE]"
+                      dataType="wstr"
+                      length="38"
+                      name="DIS_RATE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_NAME]"
+                      name="INST_NAME" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[BLR_CODE]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[BLR_CODE]"
+                      name="BLR_CODE" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_AMNT]"
+                      name="INST_AMNT" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_AMNT_LC]"
+                      name="INST_AMNT_LC" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DIS_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DIS_AMNT]"
+                      name="DIS_AMNT" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DIS_AMNT_LC]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DIS_AMNT_LC]"
+                      name="DIS_AMNT_LC" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DIS_RATE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[DIS_RATE]"
+                      name="DIS_RATE" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Paths[Sortie de source OLE DB]"
+              endId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="267.2,41.6"
+          Id="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+          TopLeft="135.500002213887,72.0294126977558" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="267.2,41.6"
+          Id="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW"
+          TopLeft="365.000006215913,71.8823539492994" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\Destination OLE DB"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI"
+          TopLeft="779.285727556871,77.2352952008429" />
+        <EdgeLayout
+          Id="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW.Paths[Sortie de source OLE DB]"
+          TopLeft="632.200006215913,95.3588245750711">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.085721340958,0"
+              Start="0,0"
+              End="139.585721340958,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.585721340958,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI_NEW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\V_DEBT_EXT_DISBURSEMENT_BI_NEW\V_DEBT_EXT_DISBURSEMENT_BI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

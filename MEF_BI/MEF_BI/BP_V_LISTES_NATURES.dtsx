@@ -1,0 +1,527 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/21/2023 10:46:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{45C1D197-05C1-42EA-B610-6E6B91EA5C3B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{34C310C3-75DB-470D-A1D3-A0FD005264E9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{1F4485A9-4F83-431E-BE8F-CC0773C2D41A}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-Package2-{1F4485A9-4F83-431E-BE8F-CC0773C2D41A}ARUI-02.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{384482C8-F4A7-41ED-A3BE-32226DF77E5E}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{384482C8-F4A7-41ED-A3BE-32226DF77E5E}ARUI-02.BI1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{16C427A1-E0A2-4C6A-805C-A25192876DE9}"
+      DTS:ObjectName="DGB.mef_bi1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DGB;User ID=mef_bi;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABY6yyXexlnCFrw4U54s0fPAAAAAASAAACgAAAAEAAAAMkykdCoSAzSvJ1KT2x+DHMYAAAAX+9EzjToSVaszYvio8FruoEHhsl+Rc5sFAAAAFrbhbGXn1KYsZC+WSYihx8Okbh9</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\BP_V_LISTES_NATURES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{CEFB51D8-B28E-4948-B950-B77F9EC017E5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="BP_V_LISTES_NATURES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="BP_V_LISTES_NATURES"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from BP_V_LISTES_NATURES</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGB.mef_bi1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGB.mef_bi1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      length="6"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      name="NATURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[LIBELLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].ExternalColumns[LIBELLE]"
+                      length="100"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[LIBELLE]"
+                      name="LIBELLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[TITRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].ExternalColumns[TITRE]"
+                      length="100"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[TITRE]"
+                      name="TITRE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="6"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].ExternalColumns[LIBELLE]"
+                      dataType="wstr"
+                      length="100"
+                      name="LIBELLE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].ExternalColumns[TITRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="TITRE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      name="NATURE" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBELLE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[LIBELLE]"
+                      name="LIBELLE" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[TITRE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[TITRE]"
+                      name="TITRE" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BP_V_LISTES_NATURES\DIM_NATURE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="DIM_NATURE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DIM_NATURE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].Columns[NATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="NATURE"
+                      externalMetadataColumnId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      lineageId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB].Columns[NATURE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[SECTION]"
+                      dataType="wstr"
+                      length="3"
+                      name="SECTION" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="6"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_ENTREE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_ENTREE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_VISA]"
+                      dataType="dbTimeStamp"
+                      name="DATE_VISA" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_SORTIE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_SORTIE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_ENTREE]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_ENTREE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_VISE]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_VISE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT_LIQUIDE]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT_LIQUIDE" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[NBRE_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      name="NBRE_REJET" />
+                    <externalMetadataColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET].ExternalColumns[MONTANT_REJET]"
+                      dataType="wstr"
+                      length="38"
+                      name="MONTANT_REJET" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\BP_V_LISTES_NATURES.Paths[Sortie de source OLE DB]"
+              endId="Package\BP_V_LISTES_NATURES\DIM_NATURE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{980FD817-5F48-44DA-9003-D16D38E90DBA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{384482C8-F4A7-41ED-A3BE-32226DF77E5E}"
+          SQLTask:SqlStatementSource="DELETE FROM DIM_NATURE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{250B69F7-BEEB-4708-B5CD-7C6AA64E42C6}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\BP_V_LISTES_NATURES" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\BP_V_LISTES_NATURES"
+          TopLeft="84.5,118.5" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="154,41" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="276.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95,35.5"
+              Start="0,0"
+              End="-95,28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.75"
+                    Point2="0,17.75"
+                    Point3="-4,17.75" />
+                  <mssgle:LineSegment
+                    End="-91,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-91,17.75"
+                    Point2="-95,17.75"
+                    Point3="-95,21.75" />
+                  <mssgle:LineSegment
+                    End="-95,28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\BP_V_LISTES_NATURES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\BP_V_LISTES_NATURES\DIM_NATURE"
+          TopLeft="490,109" />
+        <EdgeLayout
+          Id="Package\BP_V_LISTES_NATURES.Paths[Sortie de source OLE DB]"
+          TopLeft="102.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="459.5,61.5"
+              Start="0,0"
+              End="459.5,54">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.75"
+                    Point2="0,30.75"
+                    Point3="4,30.75" />
+                  <mssgle:LineSegment
+                    End="455.5,30.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="455.5,30.75"
+                    Point2="459.5,30.75"
+                    Point3="459.5,34.75" />
+                  <mssgle:LineSegment
+                    End="459.5,54" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BP_V_LISTES_NATURES\BP_V_LISTES_NATURES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BP_V_LISTES_NATURES\DIM_NATURE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,442 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2022 5:24:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{966491FA-86AA-4108-9D33-AB9F0C4D44F3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="STAGING_AUTORITE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{B02E300D-DA53-4534-9E37-0DB703E1F222}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0A4DC6E3-ED43-45AC-9309-80ABD6298BB8}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Administrateur\Desktop\marche.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D5231F44-3142-4DD3-B37A-60C7F4FE0935}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-DGMP-{D5231F44-3142-4DD3-B37A-60C7F4FE0935}WIN-RJGOPBCJ87D.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{1FB42CD8-391A-4ADF-98BE-BDFB33956D9D}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package-{1FB42CD8-391A-4ADF-98BE-BDFB33956D9D}WIN-RJGOPBCJ87D.SOURCE_CAISEF;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\STAGING_AUTORITE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{AB6FC23D-90A7-4291-A450-D35E58CFE06A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="STAGING_AUTORITE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\STAGING_AUTORITE\Liste"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Liste"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/****** Script de la commande SelectTopNRows à partir de SSMS  ******/
+SELECT DISTINCT 
+                 
+   CASE WHEN [Autorité] LIKE '%Finances%' THEN 'Ministère  de l Economie et des Finances' 
+   WHEN [Autorité] LIKE '%Communication%' THEN 'Ministère de la Communication et de l Economie Numérique' 
+   WHEN [Autorité] LIKE '%Jeuness%' THEN  'Ministère de la Jeunesse et des Sports' 
+   WHEN [Autorité] LIKE '%Justice%' THEN 'Ministère de la Justice' 
+   WHEN [Autorité] LIKE '%Ministère de la Réconciliation%' THEN 'Ministère de la Réconciliation Nationale' 
+   WHEN [Autorité] LIKE '%fondation de%'   THEN 'Ministère de la Réfondation de l Etat' 
+   WHEN [Autorité] LIKE '%Santé%' THEN 'Ministère de la Santé et de Développement Social' 
+   WHEN [Autorité] LIKE '%Agriculture%'  THEN 'Ministère de l Agriculture de l Elévage et de la Pêche' 
+   WHEN [Autorité] LIKE '%Durable%'   THEN 'Ministère de l Environnement de l Assainissement et du développement Durable' 
+   WHEN [Autorité] LIKE '%Industrie%'   THEN 'Ministère de l Industrie et du Commerce' 
+   WHEN [Autorité] LIKE '%Etrangères%'   THEN 'Ministère des Affaires Etrangères et de la Coopération Internationale' 
+   WHEN [Autorité] LIKE '%Transpor%'   THEN 'Ministère des Transport et  des Infrastructures' 
+   WHEN [Autorité] LIKE '%Rural%'   THEN 'Ministère du Développement Rural' 
+   WHEN [Autorité] LIKE '%sidence de la République%'     THEN 'Présidence de la République' 
+   WHEN [Autorité] LIKE '%Foncière%'  THEN 'Minsitère des Affaires Foncières de l Urbanisme et de l Habitat' 
+   WHEN [Autorité] LIKE '%Patrimoine%'   THEN 'Société Patrimoine Ferroviaire du mali' ELSE [Autorité] END AS Autorité_
+FROM     LISTE
+WHERE  (Autorité IS NOT NULL)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_AUTORITE\Liste.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorité_]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité_]"
+                      lineageId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorité_]"
+                      name="Autorité_"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET].ExternalColumns[Autorité_]"
+                      dataType="nText"
+                      name="Autorité_" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité_]"
+                      dataType="nText"
+                      lineageId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[Autorité_]"
+                      name="Autorité_" />
+                    <outputColumn
+                      refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\STAGING_AUTORITE\staging_autorité"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="staging_autorité"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\STAGING_AUTORITE\staging_autorité.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET].Columns[Autorité_]"
+                      cachedDataType="nText"
+                      cachedName="Autorité_"
+                      externalMetadataColumnId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité_]"
+                      lineageId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET].Columns[Autorité_]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_AUTO]"
+                      dataType="i4"
+                      name="ID_AUTO" />
+                    <externalMetadataColumn
+                      refId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET].ExternalColumns[Autorité_]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Autorité_" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\STAGING_AUTORITE\staging_autorité.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\STAGING_AUTORITE\staging_autorité.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_AUTORITE\staging_autorité.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\STAGING_AUTORITE\staging_autorité.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\STAGING_AUTORITE\staging_autorité.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\STAGING_AUTORITE.Paths[Sortie de source ADO NET]"
+              endId="Package\STAGING_AUTORITE\staging_autorité.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\STAGING_AUTORITE\Liste.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{79BF8FC4-BFE8-49F5-865A-B052342484B6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FB42CD8-391A-4ADF-98BE-BDFB33956D9D}"
+          SQLTask:SqlStatementSource="truncate table STAGING_AUTORITE;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{58B2B424-8A75-40B2-854C-9B220E8833E7}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\STAGING_AUTORITE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\STAGING_AUTORITE"
+          TopLeft="315.499987681707,88.7000006612142" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="35.5,35.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="278.5,56.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.999987681707,53.2000006612142"
+              Start="0,0"
+              End="29.499987681707,53.2000006612142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="14.4999938408535,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.4999938408535,0"
+                    Point2="18.4999938408535,0"
+                    Point3="18.4999938408535,4" />
+                  <mssgle:LineSegment
+                    End="18.4999938408535,49.2000006612142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.4999938408535,49.2000006612142"
+                    Point2="18.4999938408535,53.2000006612142"
+                    Point3="22.4999938408535,53.2000006612142" />
+                  <mssgle:LineSegment
+                    End="29.499987681707,53.2000006612142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\STAGING_AUTORITE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\STAGING_AUTORITE\staging_autorité"
+          TopLeft="570.833310650456,104.000000826518" />
+        <NodeLayout
+          Size="100.8,41.6"
+          Id="Package\STAGING_AUTORITE\Liste"
+          TopLeft="207.499991754691,80.6000006405513" />
+        <EdgeLayout
+          Id="Package\STAGING_AUTORITE.Paths[Sortie de source ADO NET]"
+          TopLeft="308.299991754691,101.400000640551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="262.533318895765,23.4000001859667"
+              Start="0,0"
+              End="255.033318895765,23.4000001859667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="127.266659447883,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="127.266659447883,0"
+                    Point2="131.266659447883,0"
+                    Point3="131.266659447883,4" />
+                  <mssgle:LineSegment
+                    End="131.266659447883,19.4000001859667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131.266659447883,19.4000001859667"
+                    Point2="131.266659447883,23.4000001859667"
+                    Point3="135.266659447883,23.4000001859667" />
+                  <mssgle:LineSegment
+                    End="255.033318895765,23.4000001859667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_AUTORITE\Liste">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\STAGING_AUTORITE\staging_autorité">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,782 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/17/2023 2:48:48 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{0A085F59-6A73-444C-8269-748EBF0201B8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{CBF2EA0F-56FB-44CC-8197-46CFB008B4D4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.222:1521/HMSDB.bimef1]"
+      DTS:CreationName="ADO.NET:System.Data.OracleClient.OracleConnection, System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{87D56F27-E325-40CB-AC19-2CEB2E48A6D2}"
+      DTS:ObjectName="10.10.6.222:1521/HMSDB.bimef1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.10.6.222:1521/HMSDB;User ID=bimef;Persist Security Info=True;Unicode=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADX/VNNc2G4n19NxDtnwIXaAAAAAASAAACgAAAAEAAAAIDhJm/k4WvCZd6EP1AsevMQAAAA0h4kNIzyDvVvdz3V+CZq3hQAAADiCcTM5MkYfA4p4bopLs4CKsMHog</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{47333A20-29A3-4D18-9F9E-BCF5C043534E}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package2-{47333A20-29A3-4D18-9F9E-BCF5C043534E}ARUI-02.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADhQvhbsfkwG6x17oNTSorJAAAAAASAAACgAAAAEAAAAPxCqCZn7/7KCVYuwngaMwcgAAAAQf3T6GrU/AqYaCa1D5BnuGl/L6jbEeSluShRf/EgKEIUAAAA7bhZa3j+NkwaLFXbzGhFw90VVRI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{7D0B4F96-8E53-4A58-8CDA-417E315B080C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{47333A20-29A3-4D18-9F9E-BCF5C043534E}"
+          SQLTask:SqlStatementSource="DELETE FROM FACT_BAT_BAILLER_ETAT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{D627F765-BEDD-404F-8371-CF8835E02119}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_BAT_BAILLER_ETAT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_BAT_BAILLER_ETAT]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[ID_BATIMENT]"
+                      cachedDataType="numeric"
+                      cachedName="ID_BATIMENT"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_BATIMENT]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[ID_BATIMENT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[N]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="N"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[N]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[N]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[REFERENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="272"
+                      cachedName="REFERENCE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[REFERENCE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[REFERENCE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[INFORMATIONS_COMPLEMENTAIRE]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="INFORMATIONS_COMPLEMENTAIRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[INFORMATIONS_COMPLEMENTAIRE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[INFORMATIONS_COMPLEMENTAIRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[STRUCTURE_BENEFICIAIRE]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="STRUCTURE_BENEFICIAIRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[STRUCTURE_BENEFICIAIRE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[STRUCTURE_BENEFICIAIRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[BAILLEUR]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="BAILLEUR"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[BAILLEUR]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[BAILLEUR]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[ANNEE]"
+                      cachedDataType="numeric"
+                      cachedName="ANNEE"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[ANNEE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[ANNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[MONTANT]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="MONTANT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[MONTANT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[CHARGES]"
+                      cachedDataType="numeric"
+                      cachedName="CHARGES"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[CHARGES]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[CHARGES]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[CPTE_BANCAIRE]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="CPTE_BANCAIRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[CPTE_BANCAIRE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[CPTE_BANCAIRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[DATE_APPROBATION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_APPROBATION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_APPROBATION]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[DATE_APPROBATION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].Columns[FIN_VALIDITE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FIN_VALIDITE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[FIN_VALIDITE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[FIN_VALIDITE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_BATIMENT]"
+                      dataType="numeric"
+                      name="ID_BATIMENT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[N]"
+                      dataType="wstr"
+                      length="64"
+                      name="N" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[REFERENCE]"
+                      dataType="wstr"
+                      length="272"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[INFORMATIONS_COMPLEMENTAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      name="INFORMATIONS_COMPLEMENTAIRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[STRUCTURE_BENEFICIAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      name="STRUCTURE_BENEFICIAIRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[BAILLEUR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="BAILLEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT]"
+                      dataType="wstr"
+                      length="40"
+                      name="MONTANT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[CHARGES]"
+                      dataType="numeric"
+                      name="CHARGES"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[CPTE_BANCAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      name="CPTE_BANCAIRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_APPROBATION]"
+                      dataType="dbTimeStamp"
+                      name="DATE_APPROBATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB].ExternalColumns[FIN_VALIDITE]"
+                      dataType="dbTimeStamp"
+                      name="FIN_VALIDITE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="V_SUIV_BAT_BAUX"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from v_suiv_bat_baux</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.10.6.222:1521/HMSDB.bimef1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.10.6.222:1521/HMSDB.bimef1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[ID_BATIMENT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[ID_BATIMENT]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[ID_BATIMENT]"
+                      name="ID_BATIMENT"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[N]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[N]"
+                      length="64"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[N]"
+                      name="N"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[REFERENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[REFERENCE]"
+                      length="272"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[REFERENCE]"
+                      name="REFERENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[INFORMATIONS_COMPLEMENTAIRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[INFORMATIONS_COMPLEMENTAIRE]"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[INFORMATIONS_COMPLEMENTAIRE]"
+                      name="INFORMATIONS_COMPLEMENTAIRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[STRUCTURE_BENEFICIAIRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[STRUCTURE_BENEFICIAIRE]"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[STRUCTURE_BENEFICIAIRE]"
+                      name="STRUCTURE_BENEFICIAIRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[BAILLEUR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[BAILLEUR]"
+                      length="4000"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[BAILLEUR]"
+                      name="BAILLEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[ANNEE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[ANNEE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[MONTANT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT]"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[MONTANT]"
+                      name="MONTANT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[CHARGES]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[CHARGES]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[CHARGES]"
+                      name="CHARGES"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[CPTE_BANCAIRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[CPTE_BANCAIRE]"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[CPTE_BANCAIRE]"
+                      name="CPTE_BANCAIRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[DATE_APPROBATION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[DATE_APPROBATION]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[DATE_APPROBATION]"
+                      name="DATE_APPROBATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[FIN_VALIDITE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[FIN_VALIDITE]"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].Columns[FIN_VALIDITE]"
+                      name="FIN_VALIDITE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[ID_BATIMENT]"
+                      dataType="numeric"
+                      name="ID_BATIMENT"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[N]"
+                      dataType="wstr"
+                      length="64"
+                      name="N" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[REFERENCE]"
+                      dataType="wstr"
+                      length="272"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[INFORMATIONS_COMPLEMENTAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      name="INFORMATIONS_COMPLEMENTAIRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[STRUCTURE_BENEFICIAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      name="STRUCTURE_BENEFICIAIRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[BAILLEUR]"
+                      dataType="wstr"
+                      length="4000"
+                      name="BAILLEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT]"
+                      dataType="numeric"
+                      name="MONTANT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[CHARGES]"
+                      dataType="numeric"
+                      name="CHARGES"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[CPTE_BANCAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      name="CPTE_BANCAIRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[DATE_APPROBATION]"
+                      dataType="dbTimeStamp"
+                      name="DATE_APPROBATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET].ExternalColumns[FIN_VALIDITE]"
+                      dataType="dbTimeStamp"
+                      name="FIN_VALIDITE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_BATIMENT]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_BATIMENT]"
+                      name="ID_BATIMENT"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[N]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[N]"
+                      name="N" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[REFERENCE]"
+                      dataType="wstr"
+                      length="272"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[REFERENCE]"
+                      name="REFERENCE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[INFORMATIONS_COMPLEMENTAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[INFORMATIONS_COMPLEMENTAIRE]"
+                      name="INFORMATIONS_COMPLEMENTAIRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[STRUCTURE_BENEFICIAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[STRUCTURE_BENEFICIAIRE]"
+                      name="STRUCTURE_BENEFICIAIRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[BAILLEUR]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[BAILLEUR]"
+                      name="BAILLEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ANNEE]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT]"
+                      name="MONTANT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[CHARGES]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[CHARGES]"
+                      name="CHARGES"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[CPTE_BANCAIRE]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[CPTE_BANCAIRE]"
+                      name="CPTE_BANCAIRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[DATE_APPROBATION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[DATE_APPROBATION]"
+                      name="DATE_APPROBATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[FIN_VALIDITE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[FIN_VALIDITE]"
+                      name="FIN_VALIDITE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+              endId="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\V_SUIV_BAT_BAUX.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E498AE8-E43D-4D52-994B-69206DF67BA7}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="414,162" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="389,46" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="512.75,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT"
+          TopLeft="848,187" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Tâche de flux de données\V_SUIV_BAT_BAUX"
+          TopLeft="313,191" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+          TopLeft="484,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="364,0"
+              Start="0,0"
+              End="356.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="356.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\FACT_BAT_BAILLER_ETAT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\V_SUIV_BAT_BAUX">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1648 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2022 11:54:41 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{255368AB-60A7-494F-9F08-1755F80990A9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_PAT_MOBILIER"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{3DED63BA-C7BA-4939-B5E6-94E0FB24F86F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3D8440A0-A32D-43B8-AADB-EBCFA6134CB1}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DIM_PAT_MOBILIER-{3D8440A0-A32D-43B8-AADB-EBCFA6134CB1}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAYTbhoFjsDyONBchFb28DSAAAAAASAAACgAAAAEAAAAHNIFQTCmldJJuzEriFRgf4gAAAAuvSDLRX/IT9FJMN7mduiJaJnXyVmELRrRR/dXZOF/OsUAAAAo9Xp0q+acrqQ6YYd8Z7RssE3uFs</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{75C24C97-8BAF-4BC5-A35F-4A8DD330C277}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DIM_PAT_MOBILIER-{75C24C97-8BAF-4BC5-A35F-4A8DD330C277}WIN-RJGOPBCJ87D.SOURCE_CAISEF1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC51PHzBRelkNj6aoE/z43gAAAAAASAAACgAAAAEAAAAJhg38wiiaAv22nYkCEeNKkgAAAAIF1xtKemTLCH4NPNR27FZhDXgsvfPmnJwwMNbcSqAKUUAAAAq5gZMejA6TRAHAcd8QjslpCDpLM</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_PAT_MOBILIER"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{02D34AB4-96BA-44B1-9368-D4AEC270243F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_PAT_MOBILIER"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_PAT_MOBILIER\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE  [dbo].[DIM_PAT_MOBILIER]
+
+SET
+[Service]=?
+      ,[Compte]=?
+      ,[Marque]=?
+      ,[Type]=?
+      ,[Imma_precedente]=?
+      ,[Imma_actuelle]=?
+      ,[Ref_affectation]=?
+      ,[Vehicule]=?
+      ,[Action]=?
+      ,[num_Serie]=?
+      ,[Date_M_Circulation]=?
+      ,[Etat]=?
+
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Service"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Service]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Compte]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Compte"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Compte]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Marque]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Marque"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Marque]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Imma_precedente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imma_precedente"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_precedente]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Imma_actuelle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imma_actuelle"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_actuelle]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Ref_affectation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ref_affectation"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Ref_affectation]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Vehicule]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Vehicule"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Vehicule]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Action"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[num_Serie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="num_Serie"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Date_M_Circulation]"
+                      cachedDataType="dbDate"
+                      cachedName="Date_M_Circulation"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_10]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Date_M_Circulation]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[Etat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Etat"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_11]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Etat]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_10]"
+                      dataType="dbDate"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DIM_PAT_MOBILIER"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DIM_PAT_MOBILIER]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[ID_PAT_MOBILIER]"
+                      cachedDataType="i4"
+                      cachedName="ID_PAT_MOBILIER"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_PAT_MOBILIER]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[ID_PAT_MOBILIER]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Service"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Service]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Service]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Compte]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Compte"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Compte]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Compte]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Marque]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Marque"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Marque]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Marque]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Type]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Imma_precedente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imma_precedente"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Imma_precedente]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_precedente]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Imma_actuelle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imma_actuelle"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Imma_actuelle]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_actuelle]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Ref_affectation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ref_affectation"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Ref_affectation]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Ref_affectation]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Vehicule]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Vehicule"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Vehicule]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Vehicule]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Action"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Action]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[num_Serie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="num_Serie"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[num_Serie]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Date_M_Circulation]"
+                      cachedDataType="dbDate"
+                      cachedName="Date_M_Circulation"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Date_M_Circulation]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Date_M_Circulation]" />
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[Etat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Etat"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Etat]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Etat]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[ID_PAT_MOBILIER]"
+                      dataType="i4"
+                      name="ID_PAT_MOBILIER" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Compte]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Compte" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Marque]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Marque" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Imma_precedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Imma_precedente" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Imma_actuelle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Imma_actuelle" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Ref_affectation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ref_affectation" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Vehicule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Vehicule" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="num_Serie" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Date_M_Circulation]"
+                      dataType="dbDate"
+                      name="Date_M_Circulation" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[Etat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Etat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_PAT_MOBILIER\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DIM_PAT_MOBILIER]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DIM_PAT_MOBILIER]) [refTable]
+where [refTable].[num_Serie] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PAT_MOBILIER" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Service" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Compte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Marque" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Imma_precedente" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Imma_actuelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Ref_affectation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Vehicule" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Action" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="num_Serie" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Date_M_Circulation" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Etat" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_PAT_MOBILIER\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_PAT_MOBILIER\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Recherche.Inputs[Entrée de recherche].Columns[num_Serie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="num_Serie"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">num_Serie</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_PAT_MOBILIER\Recherche 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DIM_PAT_MOBILIER]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DIM_PAT_MOBILIER]) [refTable]
+where [refTable].[num_Serie] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PAT_MOBILIER" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Service" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Compte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Marque" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Imma_precedente" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Imma_actuelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Ref_affectation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Vehicule" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Action" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="num_Serie" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Date_M_Circulation" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Etat" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_PAT_MOBILIER\Recherche 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_PAT_MOBILIER\Recherche 1.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Recherche 1.Inputs[Entrée de recherche].Columns[num_Serie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="num_Serie"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">num_Serie</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Recherche 1.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Recherche 1.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DIM_PAT_MOBILIER\Recherche 1.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_PAT_MOBILIER\STAGING"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[STAGING_PAT_MOBILIER]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_PAT_MOBILIER\STAGING.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[ID_PAT_MOBILIER]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[ID_PAT_MOBILIER]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[ID_PAT_MOBILIER]"
+                      name="ID_PAT_MOBILIER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Service]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Service]"
+                      name="Service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Compte]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Compte]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Compte]"
+                      name="Compte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Marque]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Marque]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Marque]"
+                      name="Marque"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Type]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_precedente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Imma_precedente]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_precedente]"
+                      name="Imma_precedente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_actuelle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Imma_actuelle]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Imma_actuelle]"
+                      name="Imma_actuelle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Ref_affectation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Ref_affectation]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Ref_affectation]"
+                      name="Ref_affectation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Vehicule]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Vehicule]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Vehicule]"
+                      name="Vehicule"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Action]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[num_Serie]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]"
+                      name="num_Serie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Date_M_Circulation]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Date_M_Circulation]"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Date_M_Circulation]"
+                      name="Date_M_Circulation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Etat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Etat]"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[Etat]"
+                      name="Etat"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[ID_PAT_MOBILIER]"
+                      dataType="i4"
+                      name="ID_PAT_MOBILIER" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Service" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Compte]"
+                      dataType="r8"
+                      name="Compte" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Marque]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Marque" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Imma_precedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Imma_precedente" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Imma_actuelle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Imma_actuelle" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Ref_affectation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ref_affectation" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Vehicule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Vehicule" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="num_Serie" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Date_M_Circulation]"
+                      dataType="dbDate"
+                      name="Date_M_Circulation" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[Etat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Etat" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_PAT_MOBILIER]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ID_PAT_MOBILIER]"
+                      name="ID_PAT_MOBILIER" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Service]"
+                      name="Service" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Compte]"
+                      dataType="r8"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Compte]"
+                      name="Compte" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Marque]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Marque]"
+                      name="Marque" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Imma_precedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Imma_precedente]"
+                      name="Imma_precedente" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Imma_actuelle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Imma_actuelle]"
+                      name="Imma_actuelle" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Ref_affectation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Ref_affectation]"
+                      name="Ref_affectation" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Vehicule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Vehicule]"
+                      name="Vehicule" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[num_Serie]"
+                      name="num_Serie" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Date_M_Circulation]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Date_M_Circulation]"
+                      name="Date_M_Circulation" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Etat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[Etat]"
+                      name="Etat" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_PAT_MOBILIER.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\DIM_PAT_MOBILIER\Recherche 1.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DIM_PAT_MOBILIER.Paths[Sortie de recherche sans correspondance]"
+              endId="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DIM_PAT_MOBILIER\Recherche.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DIM_PAT_MOBILIER.Paths[Sortie de recherche sans correspondance1]"
+              endId="Package\DIM_PAT_MOBILIER\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DIM_PAT_MOBILIER\Recherche 1.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DIM_PAT_MOBILIER.Paths[Sortie de source OLE DB]"
+              endId="Package\DIM_PAT_MOBILIER\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\DIM_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DIM_PAT_MOBILIER"
+          TopLeft="203.333325253593,71.0666672314538" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_PAT_MOBILIER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER"
+          TopLeft="589.033310054409,81.4666673141056" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\DIM_PAT_MOBILIER\Recherche 1"
+          TopLeft="78.1333304193286,119.600000950495" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\DIM_PAT_MOBILIER\Recherche"
+          TopLeft="345.633319789834,34.6666669421726" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DIM_PAT_MOBILIER\Commande OLE DB"
+          TopLeft="418.133316908943,163.800001301765" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM_PAT_MOBILIER\STAGING"
+          TopLeft="84.166663322184,26.0000002066294" />
+        <EdgeLayout
+          Id="Package\DIM_PAT_MOBILIER.Paths[Sortie de source OLE DB]"
+          TopLeft="209.766663322184,46.8000002066294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135.86665646765,8.66666673554315"
+              Start="0,0"
+              End="128.36665646765,8.66666673554315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.9333282338251,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.9333282338251,0"
+                    Point2="67.9333282338251,0"
+                    Point3="67.9333282338251,4" />
+                  <mssgle:LineSegment
+                    End="67.9333282338251,4.66666673554315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.9333282338251,4.66666673554315"
+                    Point2="67.9333282338251,8.66666673554315"
+                    Point3="71.9333282338251,8.66666673554315" />
+                  <mssgle:LineSegment
+                    End="128.36665646765,8.66666673554315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_PAT_MOBILIER.Paths[Sortie de recherche sans correspondance1]"
+          TopLeft="215.733330419329,140.400000950495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202.399986489614,44.2000003512701"
+              Start="0,0"
+              End="194.899986489614,44.2000003512701">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.1999932448072,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.1999932448072,0"
+                    Point2="101.199993244807,0"
+                    Point3="101.199993244807,4" />
+                  <mssgle:LineSegment
+                    End="101.199993244807,40.2000003512701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.199993244807,40.2000003512701"
+                    Point2="101.199993244807,44.2000003512701"
+                    Point3="105.199993244807,44.2000003512701" />
+                  <mssgle:LineSegment
+                    End="194.899986489614,44.2000003512701" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.69798152605718,-17.609375,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_PAT_MOBILIER.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="474.433319789834,55.4666669421726">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.599990264575,46.800000371933"
+              Start="0,0"
+              End="107.099990264575,46.800000371933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.2999951322875,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.2999951322875,0"
+                    Point2="57.2999951322875,0"
+                    Point3="57.2999951322875,4" />
+                  <mssgle:LineSegment
+                    End="57.2999951322875,42.800000371933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.2999951322875,42.800000371933"
+                    Point2="57.2999951322875,46.800000371933"
+                    Point3="61.2999951322875,46.800000371933" />
+                  <mssgle:LineSegment
+                    End="107.099990264575,46.800000371933" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.2020165864625,-17.609375,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_PAT_MOBILIER.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="410.033319789834,76.2666669421726">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-263.099989370505,43.3333340083228"
+              Start="0,0"
+              End="-263.099989370505,35.8333340083228">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6666670041614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6666670041614"
+                    Point2="0,21.6666670041614"
+                    Point3="-4,21.6666670041614" />
+                  <mssgle:LineSegment
+                    End="-259.099989370505,21.6666670041614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-259.099989370505,21.6666670041614"
+                    Point2="-263.099989370505,21.6666670041614"
+                    Point3="-263.099989370505,25.6666670041614" />
+                  <mssgle:LineSegment
+                    End="-263.099989370505,35.8333340083228" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-223.227006404003,26.6666670041614,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_PAT_MOBILIER\DIM_PAT_MOBILIER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_PAT_MOBILIER\STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_PAT_MOBILIER\Recherche 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_PAT_MOBILIER]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_PAT_MOBILIER\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_PAT_MOBILIER]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,698 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{75B2811E-8D0A-4517-A40F-36464027EE3D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_CONTENTIEUX"
+  DTS:PackageType="5"
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{DB5562F0-C0ED-493E-AA51-7ED8720AE119}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{900EA510-25CF-423E-BF61-DAE7FFAEF2D7}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_RETRO-{900EA510-25CF-423E-BF61-DAE7FFAEF2D7}ARUI-02.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABx78+qK+sQA+LDKofTOWF/AAAAAASAAACgAAAAEAAAAHBiF8uekua6YMK1oR1KDJcgAAAATdRAAn0wQt+Q171Z42ZKwPV8Iac4h42NSO/4dB+wBmgUAAAAm0GTdyUFZxwEM1aZsiZlzWC3b+o</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGI.user_bi]"
+      DTS:CreationName="ADO.NET:System.Data.OracleClient.OracleConnection, System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{B3611316-AE11-4ADB-B9E8-A631444B0BCF}"
+      DTS:ObjectName="DGI.user_bi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.30.1.52/pdb01;User ID=user_bi;Persist Security Info=True;Unicode=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADGo4j6U/OjsUtcjZ+TAUcCAAAAAASAAACgAAAAEAAAADA0xhXXEpMl+DTNG3FxXlgYAAAAawhR8kXx3DxtIzZ9wYF1nNJwIe8FdgRdFAAAAITuXr5gWyR+WAjx+bvZkMD26EhL</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{34008D9E-F2CC-45E0-91AD-F55BCFF87F83}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-Package1-{34008D9E-F2CC-45E0-91AD-F55BCFF87F83}WIN-RJGOPBCJ87D.BI;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACngcT0JY+jBAQzYzdJAhizAAAAAASAAACgAAAAEAAAAI8JnezJUhkUjwTEKtOoqbAgAAAAdQmYTiPb92IZ0u2yEP4TDPGoF43oK4fr83HYDhYQHicUAAAAu6x0HddNvokZ1mhTQBFf5n4ImMY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5F1F8EB4-C05B-4B36-9FE0-3D1501DF57EB}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_CONTENTIEUX-{5F1F8EB4-C05B-4B36-9FE0-3D1501DF57EB}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC9w4KtytHgL/TcSAFH0p5IAAAAAASAAACgAAAAEAAAAF4WrDbq599QmSZWbfjDaacgAAAAWxgY1EPVTkAwnsTgnu8UMv2O1EDKcEPSMBc5bRYMK50UAAAAlPj0hHnI/1zYR2GRQsrOONInEDw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{8D2E9526-9CB5-4719-AEBD-6F28245C45F5}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Persist Security Info=True;Application Name=SSIS-Package1-{8D2E9526-9CB5-4719-AEBD-6F28245C45F5}WIN-RJGOPBCJ87D.SOURCE_CAISEF;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC0Q+W+zx1Sj5dA7yp9/qeGAAAAAASAAACgAAAAEAAAACeYEzl44a9Qp9B64Vvy0iAgAAAAppXrvT/a7f9w25C0ZtwLRzitG844hhDQsrGnDxiP8yIUAAAAzD1yqZVWDGREkJC5OzSSOFOVDSc</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tache de flux de donnees"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{03732E79-C1D2-468C-9BD1-F5C387F57716}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tache de flux de donnees"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="DGI_SOURCE_CONTENTIEUX"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * from EXTERNE.mv_contentieux</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGI.user_bi]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGI.user_bi]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[ANNEE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[ANNEE]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[NATURE]"
+                      length="300"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NATURE]"
+                      name="NATURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[STRUCTUR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[STRUCTUR]"
+                      length="300"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[STRUCTUR]"
+                      name="STRUCTUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NBRE_DE_PERS_MORALES]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_DE_PERS_MORALES]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NBRE_DE_PERS_MORALES]"
+                      name="NBRE_DE_PERS_MORALES"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NBRE_DE_PERS_PHYSIQUES]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_DE_PERS_PHYSIQUES]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NBRE_DE_PERS_PHYSIQUES]"
+                      name="NBRE_DE_PERS_PHYSIQUES"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[MONTANT_TOTAL_PM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT_TOTAL_PM]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[MONTANT_TOTAL_PM]"
+                      name="MONTANT_TOTAL_PM"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[MONTANT_TOTAL_PP]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT_TOTAL_PP]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[MONTANT_TOTAL_PP]"
+                      name="MONTANT_TOTAL_PP"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="300"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[STRUCTUR]"
+                      dataType="wstr"
+                      length="300"
+                      name="STRUCTUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_DE_PERS_MORALES]"
+                      dataType="numeric"
+                      name="NBRE_DE_PERS_MORALES"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_DE_PERS_PHYSIQUES]"
+                      dataType="numeric"
+                      name="NBRE_DE_PERS_PHYSIQUES"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT_TOTAL_PM]"
+                      dataType="numeric"
+                      name="MONTANT_TOTAL_PM"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT_TOTAL_PP]"
+                      dataType="numeric"
+                      name="MONTANT_TOTAL_PP"
+                      precision="38"
+                      scale="4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ANNEE]"
+                      dataType="numeric"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[NATURE]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[NATURE]"
+                      name="NATURE" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[STRUCTUR]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[STRUCTUR]"
+                      name="STRUCTUR" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_DE_PERS_MORALES]"
+                      dataType="numeric"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_DE_PERS_MORALES]"
+                      name="NBRE_DE_PERS_MORALES"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_DE_PERS_PHYSIQUES]"
+                      dataType="numeric"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_DE_PERS_PHYSIQUES]"
+                      name="NBRE_DE_PERS_PHYSIQUES"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT_TOTAL_PM]"
+                      dataType="numeric"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT_TOTAL_PM]"
+                      name="MONTANT_TOTAL_PM"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT_TOTAL_PP]"
+                      dataType="numeric"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT_TOTAL_PP]"
+                      name="MONTANT_TOTAL_PP"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_CONTENTIEUX"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_CONTENTIEUX]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[ANNEE]"
+                      cachedDataType="numeric"
+                      cachedName="ANNEE"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[ANNEE]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[ANNEE]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[NATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="NATURE"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[NATURE]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NATURE]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[STRUCTUR]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="STRUCTUR"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[STRUCTUR]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[STRUCTUR]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[NBRE_DE_PERS_MORALES]"
+                      cachedDataType="numeric"
+                      cachedName="NBRE_DE_PERS_MORALES"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[NBRE_DE_PERS_MORALES]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NBRE_DE_PERS_MORALES]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[NBRE_DE_PERS_PHYSIQUES]"
+                      cachedDataType="numeric"
+                      cachedName="NBRE_DE_PERS_PHYSIQUES"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[NBRE_DE_PERS_PHYSIQUES]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[NBRE_DE_PERS_PHYSIQUES]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[MONTANT_TOTAL_PM]"
+                      cachedDataType="numeric"
+                      cachedName="MONTANT_TOTAL_PM"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT_TOTAL_PM]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[MONTANT_TOTAL_PM]" />
+                    <inputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].Columns[MONTANT_TOTAL_PP]"
+                      cachedDataType="numeric"
+                      cachedName="MONTANT_TOTAL_PP"
+                      cachedPrecision="38"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT_TOTAL_PP]"
+                      lineageId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET].Columns[MONTANT_TOTAL_PP]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[ANNEE]"
+                      dataType="r8"
+                      name="ANNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="150"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[STRUCTUR]"
+                      dataType="wstr"
+                      length="150"
+                      name="STRUCTUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[NBRE_DE_PERS_MORALES]"
+                      dataType="r8"
+                      name="NBRE_DE_PERS_MORALES" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[NBRE_DE_PERS_PHYSIQUES]"
+                      dataType="r8"
+                      name="NBRE_DE_PERS_PHYSIQUES" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT_TOTAL_PM]"
+                      dataType="r8"
+                      name="MONTANT_TOTAL_PM" />
+                    <externalMetadataColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT_TOTAL_PP]"
+                      dataType="r8"
+                      name="MONTANT_TOTAL_PP" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tache de flux de donnees.Paths[Sortie de source ADO NET]"
+              endId="Package\Tache de flux de donnees\FACT_CONTENTIEUX.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{46697317-A796-4177-BA54-D0557BB460DF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{900EA510-25CF-423E-BF61-DAE7FFAEF2D7}"
+          SQLTask:SqlStatementSource="DELETE FROM  FACT_CONTENTIEUX" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{95848857-6905-4482-B1D6-B88AC90987A5}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Tache de flux de donnees" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tache de flux de donnees"
+          TopLeft="315.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.666657560402,129.533334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.166663222843,25.6000005372362"
+              Start="0,0"
+              End="65.166663222843,18.1000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.80000026861811" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.80000026861811"
+                    Point2="0,12.8000002686181"
+                    Point3="4,12.8000002686181" />
+                  <mssgle:LineSegment
+                    End="61.166663222843,12.8000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.166663222843,12.8000002686181"
+                    Point2="65.166663222843,12.8000002686181"
+                    Point3="65.166663222843,16.8000002686181" />
+                  <mssgle:LineSegment
+                    End="65.166663222843,18.1000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tache de flux de donnees">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX"
+          TopLeft="69.8333348896768,62.1999992148081" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tache de flux de donnees\FACT_CONTENTIEUX"
+          TopLeft="533.500000496705,56.666666425599" />
+        <EdgeLayout
+          Id="Package\Tache de flux de donnees.Paths[Sortie de source ADO NET]"
+          TopLeft="287.833334889677,80.4333328202036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="245.666665607028,0"
+              Start="0,0"
+              End="238.166665607028,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="238.166665607028,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tache de flux de donnees\DGI_SOURCE_CONTENTIEUX">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tache de flux de donnees\FACT_CONTENTIEUX">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

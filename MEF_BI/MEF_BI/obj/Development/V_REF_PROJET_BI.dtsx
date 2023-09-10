@@ -1,0 +1,628 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/8/2023 1:00:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{8A1EE5AA-BA11-4B6A-9DE5-593B7D0D3E46}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_REF_PROJET_BI"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{80CE279F-6A97-4F75-B012-709C162BD7E5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BBF30A1B-EDA7-47F3-B95B-6B33A62AECAD}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{BBF30A1B-EDA7-47F3-B95B-6B33A62AECAD}ARUI-02.SOURCE_CAISEF;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{5145368E-BB2C-4335-A763-D635019960EF}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package2-{5145368E-BB2C-4335-A763-D635019960EF}ARUI-02.SOURCE_CAISEF1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{AAA4BFD4-3F80-4A98-888C-82C6649F2C9F}"
+      DTS:ObjectName="DGB.mef_bi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=mef_bi;Dsn=DGB;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAxLqQG5LG1W+lZ9WdEb7loAAAAAASAAACgAAAAEAAAAPNgRWDAaBVi2u2vY42vPZcYAAAABx0nWz1ZEej9wzgG4OUwHAUqIXEZuXIDFAAAABYhzVsESZsuMlxI/yC6YjRSpxqM</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D692DB02-FDD1-4D98-8954-AF607E93692C}"
+      DTS:ObjectName="DGB.mef_bi1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DGB;User ID=mef_bi;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABaZ6Ag8wS5mjQTjeoZPN+cAAAAAASAAACgAAAAEAAAAPn09yTDNADc9m/W4ZapeBQYAAAAVneOGo4qg6BYY7Hr/lqyPJbP+ydtsRu0FAAAAAmuiqOd36EGV4Z3N24QKav1cT9K</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DNPD.bimef]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D3C074CF-86EB-4C00-AF94-E18D1CA0FCBF}"
+      DTS:ObjectName="DNPD.bimef">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DNPD;User ID=bimef;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADnVCCzfRgm4s2NjhVq+bjhAAAAAASAAACgAAAAEAAAAADrXdPdJW7yvzUzOsj4oZIQAAAAC83zhDD6NON4S91wIEfH+RQAAAApdFn1zayUS2MkMfdLLykv6o9OhQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{77081C09-52A7-4417-8F44-364342957726}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF30A1B-EDA7-47F3-B95B-6B33A62AECAD}"
+          SQLTask:SqlStatementSource="delete from  V_REF_PROJET_BI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{8B1E4DDE-6FD9-4417-8FEA-642174C4EEAD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"V_REF_PROJET_BI"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[PRJ_NR]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="PRJ_NR"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PRJ_NR]"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].Columns[PRJ_NR]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[PRJ_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="PRJ_NAME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PRJ_NAME]"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].Columns[PRJ_NAME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PRJ_NR]"
+                      dataType="wstr"
+                      length="20"
+                      name="PRJ_NR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PRJ_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      name="PRJ_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_AN_ANNEE]"
+                      dataType="numeric"
+                      name="DB_AN_ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SEC_CODE_COMPTABLE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SEC_CODE_COMPTABLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_SEC_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_SCH_SEC_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_PRG_TP_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SCA_AC_PRG_TP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_PRG_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_AC_PRG_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SCA_AC_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_TS_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SCA_SCH_CH_TS_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_AJ_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SCA_SCH_CH_AJ_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      dataType="numeric"
+                      name="DB_SCA_SCH_CH_AN_ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_SCH_CH_NUMERO_ORDRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_CG_CODE]"
+                      dataType="wstr"
+                      length="6"
+                      name="DB_SCA_SCH_CH_CG_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CHAPITRE]"
+                      dataType="wstr"
+                      length="61"
+                      name="CHAPITRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="9"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PAR_ART_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_CE_PAR_ART_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PAR_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_PAR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PCE_RUBRIQUE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_PCE_RUBRIQUE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_LIGNE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_CE_LIGNE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_TIT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[FONCTION]"
+                      dataType="wstr"
+                      length="2"
+                      name="FONCTION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SF_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SF_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[SOURCE_FINANCEMENT]"
+                      dataType="wstr"
+                      length="1"
+                      name="SOURCE_FINANCEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DOTATION_REVISE]"
+                      dataType="wstr"
+                      length="38"
+                      name="DOTATION_REVISE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[OUVERT]"
+                      dataType="wstr"
+                      length="38"
+                      name="OUVERT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ENGAGEMENT]"
+                      dataType="wstr"
+                      length="38"
+                      name="ENGAGEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIQUIDATION]"
+                      dataType="wstr"
+                      length="38"
+                      name="LIQUIDATION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\V_REF_PROJET_BI"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="V_REF_PROJET_BI"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from v_ref_projet_bi</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DNPD.bimef]"
+                  connectionManagerRefId="Package.ConnectionManagers[DNPD.bimef]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].Columns[PRJ_NR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].ExternalColumns[PRJ_NR]"
+                      length="20"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].Columns[PRJ_NR]"
+                      name="PRJ_NR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].Columns[PRJ_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].ExternalColumns[PRJ_NAME]"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].Columns[PRJ_NAME]"
+                      name="PRJ_NAME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].ExternalColumns[PRJ_NR]"
+                      dataType="wstr"
+                      length="20"
+                      name="PRJ_NR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB].ExternalColumns[PRJ_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      name="PRJ_NAME" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[PRJ_NR]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[PRJ_NR]"
+                      name="PRJ_NR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[PRJ_NAME]"
+                      dataType="wstr"
+                      length="512"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[PRJ_NAME]"
+                      name="PRJ_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\V_REF_PROJET_BI.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{45C0305B-F89E-4A68-B97E-6C8228123C1E}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="88.3571442681916,147.735296112443" />
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="88.571430079791,31.3529416161838" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="210.971430079791,72.9529416161838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.6142858115994,74.7823544962596"
+              Start="0,0"
+              End="-22.6142858115994,67.2823544962596">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3911772481298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.3911772481298"
+                    Point2="0,37.3911772481298"
+                    Point3="-4,37.3911772481298" />
+                  <mssgle:LineSegment
+                    End="-18.6142858115994,37.3911772481298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.6142858115994,37.3911772481298"
+                    Point2="-22.6142858115994,37.3911772481298"
+                    Point3="-22.6142858115994,41.3911772481298" />
+                  <mssgle:LineSegment
+                    End="-22.6142858115994,67.2823544962596" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="550.714295092894,106.294119137794" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Tâche de flux de données\V_REF_PROJET_BI"
+          TopLeft="142.142859563536,68.0588244839111" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="309.342859563536,88.8588244839111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="241.371435529358,38.2352946538829"
+              Start="0,0"
+              End="233.871435529358,38.2352946538829">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="116.685717764679,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.685717764679,0"
+                    Point2="120.685717764679,0"
+                    Point3="120.685717764679,4" />
+                  <mssgle:LineSegment
+                    End="120.685717764679,34.2352946538829" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.685717764679,34.2352946538829"
+                    Point2="120.685717764679,38.2352946538829"
+                    Point3="124.685717764679,38.2352946538829" />
+                  <mssgle:LineSegment
+                    End="233.871435529358,38.2352946538829" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\V_REF_PROJET_BI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

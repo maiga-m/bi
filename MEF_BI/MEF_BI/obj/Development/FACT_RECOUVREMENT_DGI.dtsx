@@ -1,0 +1,598 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2022 11:34:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{47AC7B5A-9937-42A3-95B4-0765EF135E1E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_CONTENTIEUX"
+  DTS:PackageType="5"
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{C08C03C9-ADAB-4A26-9DCF-1F18CB4B1D41}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{135F0EA7-A4E6-451D-AB18-2696A7FA2642}"
+      DTS:ObjectName="ARUI-02.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_CONTENTIEUX-{135F0EA7-A4E6-451D-AB18-2696A7FA2642}ARUI-02.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAQ02FaciD5YkIDxY42un3oAAAAAASAAACgAAAAEAAAAN3/DIfeBtM0zN1j3epGWhggAAAA7SDutzAUHs59djvEet+IPZJslG9F9xdBgOzrBTr6bvIUAAAAGujtwoBlm/mmp/I+tqPdPayZl7o</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGI.user_bi]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{A11AB98E-BC3C-4FD4-89C7-1A49851CFACC}"
+      DTS:ObjectName="DGI.user_bi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=user_bi;Dsn=DGI;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADs/kAkHBNoXGvsvLceuf46AAAAAASAAACgAAAAEAAAAGP4L1VUU3pV1sxh5kPAr2IYAAAAYXLi0JUw1rfWPzEs360/MkOKJOF9lpD9FAAAAH1M7jKv6qC3dUaNQcCCaHxpWr0y</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FACT_RECOUVREMENT_DGI"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{DF8204FA-7BD0-4B0A-B2B7-602CF1B0CCBC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_RECOUVREMENT_DGI"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_RECOUVREMENT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_RECOUVREMENT_DGI]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.sa]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].Columns[PERIODE_IMPOSITION]"
+                      cachedDataType="numeric"
+                      cachedName="PERIODE_IMPOSITION"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[PERIODE_IMPOSITION]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[PERIODE_IMPOSITION]" />
+                    <inputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].Columns[TYPE_IMPOT]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="TYPE_IMPOT"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE_IMPOT]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[TYPE_IMPOT]" />
+                    <inputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].Columns[BUDGET]"
+                      cachedDataType="wstr"
+                      cachedLength="90"
+                      cachedName="BUDGET"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[BUDGET]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[BUDGET]" />
+                    <inputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].Columns[MONTANT]"
+                      cachedDataType="r8"
+                      cachedName="MONTANT"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[MONTANT]" />
+                    <inputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].Columns[STRUCTUR]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="STRUCTUR"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[STRUCTUR]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[STRUCTUR]" />
+                    <inputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].Columns[ACTIVITE]"
+                      cachedDataType="wstr"
+                      cachedLength="285"
+                      cachedName="ACTIVITE"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTIVITE]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[ACTIVITE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      name="PERIODE_IMPOSITION"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      length="150"
+                      name="TYPE_IMPOT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[BUDGET]"
+                      dataType="wstr"
+                      length="90"
+                      name="BUDGET" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[MONTANT]"
+                      dataType="r8"
+                      name="MONTANT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[STRUCTUR]"
+                      dataType="wstr"
+                      length="150"
+                      name="STRUCTUR" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTIVITE]"
+                      dataType="wstr"
+                      length="285"
+                      name="ACTIVITE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="MV_ENCAISSEMENT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * from mv_encaissement</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."STAGING_AUTORITE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGI.user_bi]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGI.user_bi]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[STRUCTUR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[STRUCTUR]"
+                      length="150"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[STRUCTUR]"
+                      name="STRUCTUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[PERIODE_IMPOSITION]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[PERIODE_IMPOSITION]"
+                      name="PERIODE_IMPOSITION"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_IMPOT]"
+                      length="150"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[TYPE_IMPOT]"
+                      name="TYPE_IMPOT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[BUDGET]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[BUDGET]"
+                      length="90"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[BUDGET]"
+                      name="BUDGET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[ACTIVITE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIVITE]"
+                      length="285"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[ACTIVITE]"
+                      name="ACTIVITE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[MONTANT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT]"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].Columns[MONTANT]"
+                      name="MONTANT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[STRUCTUR]"
+                      dataType="wstr"
+                      length="150"
+                      name="STRUCTUR" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      name="PERIODE_IMPOSITION"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      length="150"
+                      name="TYPE_IMPOT" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[BUDGET]"
+                      dataType="wstr"
+                      length="90"
+                      name="BUDGET" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIVITE]"
+                      dataType="wstr"
+                      length="285"
+                      name="ACTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET].ExternalColumns[MONTANT]"
+                      dataType="r8"
+                      name="MONTANT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[STRUCTUR]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[STRUCTUR]"
+                      name="STRUCTUR" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[PERIODE_IMPOSITION]"
+                      dataType="numeric"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[PERIODE_IMPOSITION]"
+                      name="PERIODE_IMPOSITION"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_IMPOT]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_IMPOT]"
+                      name="TYPE_IMPOT" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[BUDGET]"
+                      dataType="wstr"
+                      length="90"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[BUDGET]"
+                      name="BUDGET" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIVITE]"
+                      dataType="wstr"
+                      length="285"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIVITE]"
+                      name="ACTIVITE" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT]"
+                      dataType="r8"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[MONTANT]"
+                      name="MONTANT" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_RECOUVREMENT_DGI.Paths[Sortie de source ADO NET]"
+              endId="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source ADO NET"
+              startId="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{60FA58A1-ABBF-4288-92C0-E173D4482E33}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{135F0EA7-A4E6-451D-AB18-2696A7FA2642}"
+          SQLTask:SqlStatementSource="DELETE FROM  FACT_RECOUVREMENT_DGI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{058207E8-8FDB-4C45-AC48-64047F1468E1}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\FACT_RECOUVREMENT_DGI" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="214,42"
+          Id="Package\FACT_RECOUVREMENT_DGI"
+          TopLeft="315.833320783245,155.133334566222" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="229.166657560402,87.5333340289858" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="350.666657560402,129.533334028986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.166663222843,25.6000005372362"
+              Start="0,0"
+              End="72.166663222843,18.1000005372362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.80000026861811" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.80000026861811"
+                    Point2="0,12.8000002686181"
+                    Point3="4,12.8000002686181" />
+                  <mssgle:LineSegment
+                    End="68.166663222843,12.8000002686181" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.166663222843,12.8000002686181"
+                    Point2="72.166663222843,12.8000002686181"
+                    Point3="72.166663222843,16.8000002686181" />
+                  <mssgle:LineSegment
+                    End="72.166663222843,18.1000005372362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FACT_RECOUVREMENT_DGI">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT"
+          TopLeft="69.8333348896768,62.1999992148081" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT"
+          TopLeft="533.500000496705,56.666666425599" />
+        <EdgeLayout
+          Id="Package\FACT_RECOUVREMENT_DGI.Paths[Sortie de source ADO NET]"
+          TopLeft="244.833334889677,80.4333328202036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="288.666665607028,0"
+              Start="0,0"
+              End="281.166665607028,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="281.166665607028,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_RECOUVREMENT_DGI\FACT_RECOUVREMENT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_RECOUVREMENT_DGI\MV_ENCAISSEMENT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

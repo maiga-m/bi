@@ -1,0 +1,476 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/8/2023 1:00:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{A59FF3AF-0D70-44C4-9705-38A86B8685D7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DIM_TITRE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{C7F08591-93D5-41FF-B305-A18559953E3C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{8995498C-D24A-4586-99F7-BB4FEA51632D}"
+      DTS:ObjectName="ARUI-02.BI.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Persist Security Info=True;Application Name=SSIS-DIM_TITRE-{8995498C-D24A-4586-99F7-BB4FEA51632D}ARUI-02.BI.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD188s3eHqkqAM+Q/ovroUdAAAAAASAAACgAAAAEAAAAFosv1QNNhtkmrXSPf4oDt8gAAAAHuZY51uuH+XzLBtC2x6Z+krPSHXS61xle3ItO8h/MOgUAAAAox6j08gLJFN25nXGBn4IHPuDC2U</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D11BD503-C722-488D-9D8C-60DCC07BEF21}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DIM_TITRE-{D11BD503-C722-488D-9D8C-60DCC07BEF21}ARUI-02.BI1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{95709BAC-6ED4-4815-A0B0-446E541E1C33}"
+      DTS:ObjectName="DGB.mef_bi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DGB;User ID=mef_bi;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACkWZ9Cj629h/xRDLn0789nAAAAAASAAACgAAAAEAAAAPxzB0zSBYj//Ph+H8MDMwAYAAAAUEjmdnneEdcPi3eDRt8w99sH1V5L9iJwFAAAANSq2FHNkLh0ovwAmKcKC2HdP3eR</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_TITRE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{4AA68BCC-77C6-46D4-B418-B33EC769648E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_TITRE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D11BD503-C722-488D-9D8C-60DCC07BEF21}"
+          SQLTask:SqlStatementSource="delete from  DIM_TITRE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{72C0C739-8BCD-492F-83EE-7B1D47165E8E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\DIM_TITRE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="DIM_TITRE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_TITRE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\DIM_TITRE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI.sa]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET].Columns[TIT_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="TIT_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET].ExternalColumns[TIT_CODE]"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].Columns[TIT_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET].Columns[TIT_LIBELLE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="TIT_LIBELLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET].ExternalColumns[TIT_LIBELLE]"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].Columns[TIT_LIBELLE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET].ExternalColumns[TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="TIT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET].ExternalColumns[TIT_LIBELLE]"
+                      dataType="wstr"
+                      length="100"
+                      name="TIT_LIBELLE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DIM_TITRE.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\DIM_TITRE_"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="DIM_TITRE_"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from BP_TITRES</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\DIM_TITRE_.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGB.mef_bi]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGB.mef_bi]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].Columns[TIT_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].ExternalColumns[TIT_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].Columns[TIT_CODE]"
+                      name="TIT_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].Columns[TIT_LIBELLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].ExternalColumns[TIT_LIBELLE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].Columns[TIT_LIBELLE]"
+                      name="TIT_LIBELLE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].ExternalColumns[TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="TIT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB].ExternalColumns[TIT_LIBELLE]"
+                      dataType="wstr"
+                      length="100"
+                      name="TIT_LIBELLE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[TIT_CODE]"
+                      name="TIT_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[TIT_LIBELLE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[TIT_LIBELLE]"
+                      name="TIT_LIBELLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\DIM_TITRE.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\DIM_TITRE_.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D74073F9-B854-4C5E-AD08-C1AC548E954F}"
+      DTS:From="Package\DIM_TITRE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\DIM_TITRE"
+          TopLeft="88.571430079791,31.3529416161838" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="88.3571442681916,147.735296112443" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="154.971430079791,72.9529416161838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.3857141884006,74.7823544962592"
+              Start="0,0"
+              End="33.3857141884006,67.2823544962592">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3911772481296" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.3911772481296"
+                    Point2="0,37.3911772481296"
+                    Point3="4,37.3911772481296" />
+                  <mssgle:LineSegment
+                    End="29.3857141884006,37.3911772481296" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.3857141884006,37.3911772481296"
+                    Point2="33.3857141884006,37.3911772481296"
+                    Point3="33.3857141884006,41.3911772481296" />
+                  <mssgle:LineSegment
+                    End="33.3857141884006,67.2823544962592" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Tâche de flux de données\DIM_TITRE_"
+          TopLeft="142.142859563536,68.0588244839111" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Tâche de flux de données\DIM_TITRE"
+          TopLeft="550.714295092894,106.294119137794" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="280.542859563536,88.8588244839111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="270.171435529358,38.2352946538829"
+              Start="0,0"
+              End="262.671435529358,38.2352946538829">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="131.085717764679,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131.085717764679,0"
+                    Point2="135.085717764679,0"
+                    Point3="135.085717764679,4" />
+                  <mssgle:LineSegment
+                    End="135.085717764679,34.2352946538829" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.085717764679,34.2352946538829"
+                    Point2="135.085717764679,38.2352946538829"
+                    Point3="139.085717764679,38.2352946538829" />
+                  <mssgle:LineSegment
+                    End="262.671435529358,38.2352946538829" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\DIM_TITRE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\DIM_TITRE_">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

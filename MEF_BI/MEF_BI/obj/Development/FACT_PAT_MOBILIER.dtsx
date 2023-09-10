@@ -1,0 +1,582 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2022 12:42:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{EB2F7604-1EB7-4956-8C68-2478405C3166}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_PAT_MOBILIER"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{F06A0434-057E-4D49-800D-C3C75713E454}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CC6D08EE-0930-4335-A09B-DDADBC82E9B4}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_PAT_MOBILIER-{CC6D08EE-0930-4335-A09B-DDADBC82E9B4}ARUI-02.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACrqmp2iLShMQgdu9zFhEkjAAAAAASAAACgAAAAEAAAAPzQXEDupN5sp95x9KuCVHEgAAAAxIFFTUmToePiTHqRSooDdY6YYW1kAaeoXDeQxIIkq+4UAAAAlc7hjVVxymvqJwqV+6umFxu8O24</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4D6E1194-0965-4F15-ADFC-0300D3513F9F}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=BI;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_PAT_MOBILIER-{4D6E1194-0965-4F15-ADFC-0300D3513F9F}WIN-RJGOPBCJ87D.BI1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAglFX8HVzaj49LUIO4zQ/3AAAAAASAAACgAAAAEAAAAPi+MSqJj4DoIKzYd/4GRo8gAAAAVjKTFca1s6OljP6F9yOZZnNIc++QdmGK3VCpLnRSpxwUAAAA4D60TZ5Xlp3XQ0iBRxruGvvpuKs</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6C2E71FF-7680-4928-8E9F-70A9124EAFB0}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;User ID=sa;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-FACT_PAT_MOBILIER-{6C2E71FF-7680-4928-8E9F-70A9124EAFB0}WIN-RJGOPBCJ87D.SOURCE_CAISEF1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADwRQFXaenRfYkjPhP1rvZKAAAAAASAAACgAAAAEAAAAOd2r2gNuJlYkkzjiMa2etMgAAAA+EPTnwIxyrcBoXabC4EH4pMxwwz5rPtRiUkhgHhmz2UUAAAAaS1TZCwV++1N8Pqr/5rzQfSghsM</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FACT_PAT_MOBILIER"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{57B891DF-6A2D-4A6C-A421-B85D13035E93}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_PAT_MOBILIER"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_PAT_MOBILIER"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_PAT_MOBILIER]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[MT_MB]"
+                      cachedDataType="r8"
+                      cachedName="MT_MB"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[MT_MB]"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[MT_MB]" />
+                    <inputColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateKey]"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[DateEM]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="DateEM"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateEM]"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateEM]" />
+                    <inputColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].Columns[num_Serie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="num_Serie"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[num_Serie]"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[MT_MB]"
+                      dataType="r8"
+                      name="MT_MB" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[DateEM]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DateEM" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB].ExternalColumns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="num_Serie" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_PAT_MOBILIER\STAGING"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select sum(ISNULL(k.[Compte],0)) as MT_MB,  
+d.[DateKey],FORMAT(a.[Date_M_Circulation],'dd/MM/yyyy') as DateEM ,k.[num_Serie]
+
+from    [dbo].[V_SUIVI_PATRI_AUTO] as a
+
+left join [STAGING_DATE]             as d   
+on    FORMAT(d.FullDateAlternateKey ,'dd/MM/yyyy') = a.[Date_M_Circulation]
+left join [dbo].[STAGING_PAT_MOBILIER] as k on k.[num_Serie]= a.num_Serie
+
+
+       group by d.[DateKey],FORMAT(a.[Date_M_Circulation],'dd/MM/yyyy') ,k.[num_Serie]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_PAT_MOBILIER\STAGING.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[MT_MB]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[MT_MB]"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[MT_MB]"
+                      name="MT_MB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateKey]"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateEM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateEM]"
+                      length="4000"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[DateEM]"
+                      name="DateEM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[num_Serie]"
+                      length="50"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].Columns[num_Serie]"
+                      name="num_Serie"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[MT_MB]"
+                      dataType="r8"
+                      name="MT_MB" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateEM]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DateEM" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="num_Serie" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[MT_MB]"
+                      dataType="r8"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[MT_MB]"
+                      name="MT_MB" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateEM]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateEM]"
+                      name="DateEM" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[num_Serie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[num_Serie]"
+                      name="num_Serie" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_PAT_MOBILIER.Paths[Sortie de source OLE DB]"
+              endId="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\FACT_PAT_MOBILIER\STAGING.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{E0CCE63D-483F-41C8-8A15-81F0CA48AFE7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CC6D08EE-0930-4335-A09B-DDADBC82E9B4}"
+          SQLTask:SqlStatementSource="DELETE FROM FACT_PAT_MOBILIER" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{A5741798-1C95-455F-B3A0-FB8FA92AE412}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\FACT_PAT_MOBILIER" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\FACT_PAT_MOBILIER"
+          TopLeft="332.666654282147,206.46666741742" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="230,46" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="352.5,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.166654282147,118.46666741742"
+              Start="0,0"
+              End="71.166654282147,110.96666741742">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.2333337087101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.2333337087101"
+                    Point2="0,59.2333337087101"
+                    Point3="4,59.2333337087101" />
+                  <mssgle:LineSegment
+                    End="67.166654282147,59.2333337087101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.166654282147,59.2333337087101"
+                    Point2="71.166654282147,59.2333337087101"
+                    Point3="71.166654282147,63.2333337087101" />
+                  <mssgle:LineSegment
+                    End="71.166654282147,110.96666741742" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FACT_PAT_MOBILIER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\FACT_PAT_MOBILIER\STAGING"
+          TopLeft="199.999992052714,31.2000002479553" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER"
+          TopLeft="394.166651003891,117.866667603387" />
+        <EdgeLayout
+          Id="Package\FACT_PAT_MOBILIER.Paths[Sortie de source OLE DB]"
+          TopLeft="262.799992052714,72.8000002479553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="224.966658951177,45.0666673554315"
+              Start="0,0"
+              End="224.966658951177,37.5666673554315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5333336777157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5333336777157"
+                    Point2="0,22.5333336777157"
+                    Point3="4,22.5333336777157" />
+                  <mssgle:LineSegment
+                    End="220.966658951177,22.5333336777157" />
+                  <mssgle:CubicBezierSegment
+                    Point1="220.966658951177,22.5333336777157"
+                    Point2="224.966658951177,22.5333336777157"
+                    Point3="224.966658951177,26.5333336777157" />
+                  <mssgle:LineSegment
+                    End="224.966658951177,37.5666673554315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_PAT_MOBILIER\FACT_PAT_MOBILIER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_PAT_MOBILIER\STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1356 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/8/2023 1:00:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{FD092AF1-8881-4A0D-BAA2-52D3BD4FF128}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_RESSOURCES_TRANSFEREES_BI_NEW"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{2AECDAA0-3D39-40BF-B7B9-DC40656F29BF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{19D12BED-1AB7-4A24-B297-166F0D2985C7}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-V_RESSOURCES_TRANSFEREES_BI_NEW-{19D12BED-1AB7-4A24-B297-166F0D2985C7}ARUI-02.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{83EADDCB-BB21-4FCA-AB38-2D8AA530E534}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{83EADDCB-BB21-4FCA-AB38-2D8AA530E534}ARUI-02.SOURCE_CAISEF;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{83671B99-D392-4EEB-A090-92ADCAD71529}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Integrated Security=True;Application Name=SSIS-Package2-{83671B99-D392-4EEB-A090-92ADCAD71529}ARUI-02.SOURCE_CAISEF1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{D3CF56B1-822E-4E47-858F-81AB02232A2C}"
+      DTS:ObjectName="DGB.mef_bi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=mef_bi;Dsn=DGB;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAQwCZmgHET7zwbZbBy95tzAAAAAASAAACgAAAAEAAAALghEY/Mw3KeEDSWqAuqnd8YAAAAtSqCzC2XTcrW8/zjBA92+G4aCo178dlMFAAAAGlQep4vDhZOdypofw2VgF0SgGOj</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DGB.mef_bi1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{23E99254-7F7E-4BBB-9D9A-ACAEFC44ACF2}"
+      DTS:ObjectName="DGB.mef_bi1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DGB;User ID=mef_bi;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADtcoiQ2Poyg8r9MzD6WT5EAAAAAASAAACgAAAAEAAAACM/PbzD+iz79xUTTunoUG0YAAAAe4aCz8d0rN2Zu/mXEblPBqGuOBP+qjH/FAAAAID0BgGPwuwMoIGS237WK5KXGx3A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{F1C7DAA1-36D7-4896-A1EA-59A12111F716}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{83EADDCB-BB21-4FCA-AB38-2D8AA530E534}"
+          SQLTask:SqlStatementSource="delete from   V_RESSOURCES_TRANSFEREES_BI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B0C90DBE-0B63-4AE4-81F4-F98768848AD4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"FACT_RESSOURSES_TRANSFEREES"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_AN_ANNEE]"
+                      cachedDataType="numeric"
+                      cachedName="DB_AN_ANNEE"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_AN_ANNEE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_AN_ANNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SEC_CODE_COMPTABLE]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="DB_SEC_CODE_COMPTABLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SEC_CODE_COMPTABLE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SEC_CODE_COMPTABLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_SEC_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="DB_SCA_SCH_SEC_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_SEC_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_SEC_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_AC_PRG_TP_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_SCA_AC_PRG_TP_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_PRG_TP_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_PRG_TP_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_AC_PRG_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="DB_SCA_AC_PRG_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_PRG_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_PRG_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_AC_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DB_SCA_AC_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_CH_TS_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DB_SCA_SCH_CH_TS_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_TS_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_TS_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_CH_AJ_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_SCA_SCH_CH_AJ_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_AJ_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_AJ_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      cachedDataType="numeric"
+                      cachedName="DB_SCA_SCH_CH_AN_ANNEE"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_AN_ANNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="DB_SCA_SCH_CH_NUMERO_ORDRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ORDRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_CH_CG_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="DB_SCA_SCH_CH_CG_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_CG_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_CG_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CHAPITRE]"
+                      cachedDataType="wstr"
+                      cachedLength="61"
+                      cachedName="CHAPITRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CHAPITRE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[CHAPITRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[NATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="NATURE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[NATURE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_CE_PAR_ART_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DB_CE_PAR_ART_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PAR_ART_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PAR_ART_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_CE_PAR_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_CE_PAR_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PAR_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PAR_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_CE_PCE_RUBRIQUE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_CE_PCE_RUBRIQUE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PCE_RUBRIQUE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PCE_RUBRIQUE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_CE_LIGNE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DB_CE_LIGNE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_LIGNE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_LIGNE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_CE_TIT_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_CE_TIT_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_TIT_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_TIT_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[FONCTION]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="FONCTION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[FONCTION]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[FONCTION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_NIV_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_NIV_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_NIV_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_NIV_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SNIV_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DB_SNIV_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SNIV_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SNIV_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="DB_SCA_SCH_CH_NUMERO_ACTE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ACTE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[DB_SF_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DB_SF_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SF_CODE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SF_CODE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[INITIAUX]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INITIAUX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[INITIAUX]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[INITIAUX]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[ENCOURS]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ENCOURS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ENCOURS]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[ENCOURS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[NOTIFIES]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="NOTIFIES"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOTIFIES]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[NOTIFIES]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[ENGAGES]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ENGAGES"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ENGAGES]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[ENGAGES]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[LIQUIDES]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="LIQUIDES"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIQUIDES]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[LIQUIDES]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_AN_ANNEE]"
+                      dataType="numeric"
+                      name="DB_AN_ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SEC_CODE_COMPTABLE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SEC_CODE_COMPTABLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_SEC_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_SCH_SEC_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_PRG_TP_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SCA_AC_PRG_TP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_PRG_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_AC_PRG_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_AC_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SCA_AC_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_TS_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SCA_SCH_CH_TS_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_AJ_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SCA_SCH_CH_AJ_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      dataType="numeric"
+                      name="DB_SCA_SCH_CH_AN_ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_SCH_CH_NUMERO_ORDRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_CG_CODE]"
+                      dataType="wstr"
+                      length="6"
+                      name="DB_SCA_SCH_CH_CG_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CHAPITRE]"
+                      dataType="wstr"
+                      length="61"
+                      name="CHAPITRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="9"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PAR_ART_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_CE_PAR_ART_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PAR_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_PAR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_PCE_RUBRIQUE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_PCE_RUBRIQUE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_LIGNE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_CE_LIGNE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_CE_TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_TIT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[FONCTION]"
+                      dataType="wstr"
+                      length="2"
+                      name="FONCTION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_NIV_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_NIV_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SNIV_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SNIV_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      dataType="wstr"
+                      length="4"
+                      name="DB_SCA_SCH_CH_NUMERO_ACTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[DB_SF_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SF_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[INITIAUX]"
+                      dataType="wstr"
+                      length="38"
+                      name="INITIAUX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ENCOURS]"
+                      dataType="wstr"
+                      length="38"
+                      name="ENCOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOTIFIES]"
+                      dataType="wstr"
+                      length="38"
+                      name="NOTIFIES" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ENGAGES]"
+                      dataType="wstr"
+                      length="38"
+                      name="ENGAGES" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIQUIDES]"
+                      dataType="wstr"
+                      length="38"
+                      name="LIQUIDES" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\V_BSI_BI"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="V_BSI_BI"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from V_RESSOURCES_TRANSFEREES_BI</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\V_BSI_BI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DGB.mef_bi1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DGB.mef_bi1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_AN_ANNEE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_AN_ANNEE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_AN_ANNEE]"
+                      name="DB_AN_ANNEE"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SEC_CODE_COMPTABLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SEC_CODE_COMPTABLE]"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SEC_CODE_COMPTABLE]"
+                      name="DB_SEC_CODE_COMPTABLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_SEC_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_SEC_CODE]"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_SEC_CODE]"
+                      name="DB_SCA_SCH_SEC_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_PRG_TP_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_AC_PRG_TP_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_PRG_TP_CODE]"
+                      name="DB_SCA_AC_PRG_TP_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_PRG_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_AC_PRG_CODE]"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_PRG_CODE]"
+                      name="DB_SCA_AC_PRG_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_AC_CODE]"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_AC_CODE]"
+                      name="DB_SCA_AC_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_TS_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_TS_CODE]"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_TS_CODE]"
+                      name="DB_SCA_SCH_CH_TS_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_AJ_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_AJ_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_AJ_CODE]"
+                      name="DB_SCA_SCH_CH_AJ_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      name="DB_SCA_SCH_CH_AN_ANNEE"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      name="DB_SCA_SCH_CH_NUMERO_ORDRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_CG_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_CG_CODE]"
+                      length="6"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_CG_CODE]"
+                      name="DB_SCA_SCH_CH_CG_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[CHAPITRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[CHAPITRE]"
+                      length="61"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[CHAPITRE]"
+                      name="CHAPITRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      length="9"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      name="NATURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PAR_ART_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_PAR_ART_CODE]"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PAR_ART_CODE]"
+                      name="DB_CE_PAR_ART_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PAR_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_PAR_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PAR_CODE]"
+                      name="DB_CE_PAR_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PCE_RUBRIQUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_PCE_RUBRIQUE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_PCE_RUBRIQUE]"
+                      name="DB_CE_PCE_RUBRIQUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_LIGNE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_LIGNE]"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_LIGNE]"
+                      name="DB_CE_LIGNE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_TIT_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_TIT_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_CE_TIT_CODE]"
+                      name="DB_CE_TIT_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[FONCTION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[FONCTION]"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[FONCTION]"
+                      name="FONCTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_NIV_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_NIV_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_NIV_CODE]"
+                      name="DB_NIV_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SNIV_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SNIV_CODE]"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SNIV_CODE]"
+                      name="DB_SNIV_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      length="4"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      name="DB_SCA_SCH_CH_NUMERO_ACTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SF_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SF_CODE]"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[DB_SF_CODE]"
+                      name="DB_SF_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[INITIAUX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[INITIAUX]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[INITIAUX]"
+                      name="INITIAUX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[ENCOURS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[ENCOURS]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[ENCOURS]"
+                      name="ENCOURS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[NOTIFIES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[NOTIFIES]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[NOTIFIES]"
+                      name="NOTIFIES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[ENGAGES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[ENGAGES]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[ENGAGES]"
+                      name="ENGAGES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[LIQUIDES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[LIQUIDES]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].Columns[LIQUIDES]"
+                      name="LIQUIDES"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_AN_ANNEE]"
+                      dataType="numeric"
+                      name="DB_AN_ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SEC_CODE_COMPTABLE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SEC_CODE_COMPTABLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_SEC_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_SCH_SEC_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_AC_PRG_TP_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SCA_AC_PRG_TP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_AC_PRG_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_AC_PRG_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_AC_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SCA_AC_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_TS_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SCA_SCH_CH_TS_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_AJ_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SCA_SCH_CH_AJ_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      dataType="numeric"
+                      name="DB_SCA_SCH_CH_AN_ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      dataType="wstr"
+                      length="3"
+                      name="DB_SCA_SCH_CH_NUMERO_ORDRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_CG_CODE]"
+                      dataType="wstr"
+                      length="6"
+                      name="DB_SCA_SCH_CH_CG_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[CHAPITRE]"
+                      dataType="wstr"
+                      length="61"
+                      name="CHAPITRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="9"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_PAR_ART_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_CE_PAR_ART_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_PAR_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_PAR_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_PCE_RUBRIQUE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_PCE_RUBRIQUE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_LIGNE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_CE_LIGNE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_CE_TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_CE_TIT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[FONCTION]"
+                      dataType="wstr"
+                      length="2"
+                      name="FONCTION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_NIV_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_NIV_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SNIV_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      name="DB_SNIV_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      dataType="wstr"
+                      length="4"
+                      name="DB_SCA_SCH_CH_NUMERO_ACTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[DB_SF_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      name="DB_SF_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[INITIAUX]"
+                      dataType="wstr"
+                      length="38"
+                      name="INITIAUX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[ENCOURS]"
+                      dataType="wstr"
+                      length="38"
+                      name="ENCOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[NOTIFIES]"
+                      dataType="wstr"
+                      length="38"
+                      name="NOTIFIES" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[ENGAGES]"
+                      dataType="wstr"
+                      length="38"
+                      name="ENGAGES" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB].ExternalColumns[LIQUIDES]"
+                      dataType="wstr"
+                      length="38"
+                      name="LIQUIDES" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_AN_ANNEE]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_AN_ANNEE]"
+                      name="DB_AN_ANNEE"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SEC_CODE_COMPTABLE]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SEC_CODE_COMPTABLE]"
+                      name="DB_SEC_CODE_COMPTABLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_SEC_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_SEC_CODE]"
+                      name="DB_SCA_SCH_SEC_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_AC_PRG_TP_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_AC_PRG_TP_CODE]"
+                      name="DB_SCA_AC_PRG_TP_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_AC_PRG_CODE]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_AC_PRG_CODE]"
+                      name="DB_SCA_AC_PRG_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_AC_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_AC_CODE]"
+                      name="DB_SCA_AC_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_TS_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_TS_CODE]"
+                      name="DB_SCA_SCH_CH_TS_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_AJ_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_AJ_CODE]"
+                      name="DB_SCA_SCH_CH_AJ_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_AN_ANNEE]"
+                      name="DB_SCA_SCH_CH_AN_ANNEE"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ACTE]"
+                      name="DB_SCA_SCH_CH_NUMERO_ACTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_NUMERO_ORDRE]"
+                      name="DB_SCA_SCH_CH_NUMERO_ORDRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_CG_CODE]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SCA_SCH_CH_CG_CODE]"
+                      name="DB_SCA_SCH_CH_CG_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[CHAPITRE]"
+                      dataType="wstr"
+                      length="61"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[CHAPITRE]"
+                      name="CHAPITRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      name="NATURE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_PAR_ART_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_PAR_ART_CODE]"
+                      name="DB_CE_PAR_ART_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_PAR_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_PAR_CODE]"
+                      name="DB_CE_PAR_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_PCE_RUBRIQUE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_PCE_RUBRIQUE]"
+                      name="DB_CE_PCE_RUBRIQUE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_LIGNE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_LIGNE]"
+                      name="DB_CE_LIGNE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_TIT_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_CE_TIT_CODE]"
+                      name="DB_CE_TIT_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[FONCTION]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[FONCTION]"
+                      name="FONCTION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_NIV_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_NIV_CODE]"
+                      name="DB_NIV_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SNIV_CODE]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SNIV_CODE]"
+                      name="DB_SNIV_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SF_CODE]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[DB_SF_CODE]"
+                      name="DB_SF_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[INITIAUX]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[INITIAUX]"
+                      name="INITIAUX" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ENCOURS]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ENCOURS]"
+                      name="ENCOURS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[NOTIFIES]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[NOTIFIES]"
+                      name="NOTIFIES" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ENGAGES]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ENGAGES]"
+                      name="ENGAGES" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[LIQUIDES]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[LIQUIDES]"
+                      name="LIQUIDES" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\V_BSI_BI.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{51D1CDCA-C624-4B5F-90BC-DB45E8839350}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="128.357144949388,151.558825577831" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="88.571430079791,31.3529416161838" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="210.971430079791,72.9529416161838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.3857148695966,78.6058839616475"
+              Start="0,0"
+              End="17.3857148695966,71.1058839616475">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3029419808238" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.3029419808238"
+                    Point2="0,39.3029419808238"
+                    Point3="4,39.3029419808238" />
+                  <mssgle:LineSegment
+                    End="13.3857148695966,39.3029419808238" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.3857148695966,39.3029419808238"
+                    Point2="17.3857148695966,39.3029419808238"
+                    Point3="17.3857148695966,43.3029419808238" />
+                  <mssgle:LineSegment
+                    End="17.3857148695966,71.1058839616475" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Tâche de flux de données\V_BSI_BI"
+          TopLeft="142.142859563536,68.0588244839111" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="550.714295092894,106.294119137794" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="265.342859563536,88.8588244839111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="285.371435529359,38.2352946538826"
+              Start="0,0"
+              End="277.871435529359,38.2352946538826">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="138.685717764679,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="138.685717764679,0"
+                    Point2="142.685717764679,0"
+                    Point3="142.685717764679,4" />
+                  <mssgle:LineSegment
+                    End="142.685717764679,34.2352946538826" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142.685717764679,34.2352946538826"
+                    Point2="142.685717764679,38.2352946538826"
+                    Point3="146.685717764679,38.2352946538826" />
+                  <mssgle:LineSegment
+                    End="277.871435529359,38.2352946538826" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="124.982124014679,-17.6630859375,35.4071875,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\V_BSI_BI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

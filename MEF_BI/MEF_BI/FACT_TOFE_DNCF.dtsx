@@ -1,0 +1,652 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/28/2023 2:36:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{9C3F394B-0BD7-4753-85EE-4AB477DD392D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{C8AFB5AC-E017-4E39-9392-040140CC48EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.82:1559/SIGD.mef_bi]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BF42E5F2-B25C-4E46-B041-84E881409E6F}"
+      DTS:ObjectName="10.10.6.82:1559/SIGD.mef_bi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.82:1559/SIGD;User ID=mef_bi;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAC7rQfX1Qhese4vCw1U6z4AAAAAASAAACgAAAAEAAAANsFCBO2mzfp6emWpNZIQeAYAAAA84Uazn++HgbMyaq0ZHCmux40a2W6imbxFAAAAG3PVKyE/zgbqTOMKZE+6NdQb1Yb</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{E1833690-142E-461D-A5D0-02B432E4B56E}"
+      DTS:ObjectName="ARUI-02.BI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Integrated Security=True;Application Name=SSIS-Package2-{E1833690-142E-461D-A5D0-02B432E4B56E}ARUI-02.BI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{133B16A1-4B55-4DB5-847B-8F8D8342325B}"
+      DTS:ObjectName="ARUI-02.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{133B16A1-4B55-4DB5-847B-8F8D8342325B}ARUI-02.BI1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{3757DC46-65C7-438F-8670-F8672ED1FBD6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{133B16A1-4B55-4DB5-847B-8F8D8342325B}"
+          SQLTask:SqlStatementSource="DELETE FROM FACT_TOFE_DNCF" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{0DE69FE2-C3E3-48D6-9045-F1EA5C712E8F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="BP_V_TOFE_DNCF"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from bp_v_tofe_dncf</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.10.6.82:1559/SIGD.mef_bi]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.10.6.82:1559/SIGD.mef_bi]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[ANNEE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[ANNEE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[DATE_SAISIE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_SAISIE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[DATE_SAISIE]"
+                      name="DATE_SAISIE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[NATURE]"
+                      name="NATURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[SOUS_NATURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[SOUS_NATURE]"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[SOUS_NATURE]"
+                      name="SOUS_NATURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[DOTATION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[DOTATION]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[DOTATION]"
+                      name="DOTATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[OUVERTURE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[OUVERTURE]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[OUVERTURE]"
+                      name="OUVERTURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[ENGAGE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[ENGAGE]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[ENGAGE]"
+                      name="ENGAGE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[LIQUIDE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[LIQUIDE]"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[LIQUIDE]"
+                      name="LIQUIDE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_SAISIE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_SAISIE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="100"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[SOUS_NATURE]"
+                      dataType="wstr"
+                      length="100"
+                      name="SOUS_NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[DOTATION]"
+                      dataType="wstr"
+                      length="38"
+                      name="DOTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[OUVERTURE]"
+                      dataType="wstr"
+                      length="38"
+                      name="OUVERTURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[ENGAGE]"
+                      dataType="wstr"
+                      length="38"
+                      name="ENGAGE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].ExternalColumns[LIQUIDE]"
+                      dataType="wstr"
+                      length="38"
+                      name="LIQUIDE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ANNEE]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ANNEE]"
+                      name="ANNEE"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_SAISIE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_SAISIE]"
+                      name="DATE_SAISIE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[NATURE]"
+                      name="NATURE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[SOUS_NATURE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[SOUS_NATURE]"
+                      name="SOUS_NATURE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[DOTATION]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[DOTATION]"
+                      name="DOTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[OUVERTURE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[OUVERTURE]"
+                      name="OUVERTURE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ENGAGE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ENGAGE]"
+                      name="ENGAGE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[LIQUIDE]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[LIQUIDE]"
+                      name="LIQUIDE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\FACT_TOFE_DNCF"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="FACT_TOFE_DNCF"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"FACT_TOFE_DNCF"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.BI]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.BI]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[ANNEE]"
+                      cachedDataType="numeric"
+                      cachedName="ANNEE"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[ANNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[DATE_SAISIE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_SAISIE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_SAISIE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[DATE_SAISIE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[NATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="NATURE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[NATURE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[SOUS_NATURE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SOUS_NATURE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[SOUS_NATURE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[SOUS_NATURE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[DOTATION]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="DOTATION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[DOTATION]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[DOTATION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[OUVERTURE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="OUVERTURE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[OUVERTURE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[OUVERTURE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[ENGAGE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="ENGAGE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[ENGAGE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[ENGAGE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].Columns[LIQUIDE]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="LIQUIDE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[LIQUIDE]"
+                      lineageId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB].Columns[LIQUIDE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[ANNEE]"
+                      dataType="numeric"
+                      name="ANNEE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[DATE_SAISIE]"
+                      dataType="dbTimeStamp"
+                      name="DATE_SAISIE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[NATURE]"
+                      dataType="wstr"
+                      length="100"
+                      name="NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[SOUS_NATURE]"
+                      dataType="wstr"
+                      length="100"
+                      name="SOUS_NATURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[DOTATION]"
+                      dataType="numeric"
+                      name="DOTATION"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[OUVERTURE]"
+                      dataType="numeric"
+                      name="OUVERTURE"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[ENGAGE]"
+                      dataType="numeric"
+                      name="ENGAGE"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET].ExternalColumns[LIQUIDE]"
+                      dataType="numeric"
+                      name="LIQUIDE"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\FACT_TOFE_DNCF.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\BP_V_TOFE_DNCF.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{40F0D107-2544-4B18-925D-BDEC74EFEEEE}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Tâche de flux de données" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="217,72" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="364,183" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="339.5,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.5,69"
+              Start="0,0"
+              End="124.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="120.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.5,34.5"
+                    Point2="124.5,34.5"
+                    Point3="124.5,38.5" />
+                  <mssgle:LineSegment
+                    End="124.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Tâche de flux de données\FACT_TOFE_DNCF"
+          TopLeft="589,145" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Tâche de flux de données\BP_V_TOFE_DNCF"
+          TopLeft="214,139" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="381,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="208,0"
+              Start="0,0"
+              End="200.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="200.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\FACT_TOFE_DNCF">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\BP_V_TOFE_DNCF">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

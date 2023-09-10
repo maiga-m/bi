@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2023 9:59:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ARUI-02"
+  DTS:CreatorName="FINANCE\consultant"
+  DTS:DTSID="{D949FDAA-C5F1-4A7F-8DD6-015F5BA491F9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="V_DEBT_EXT_RETRO_BI_NEW"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{09FA0FAC-83FC-4909-98DE-57C47125EBFF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.BIMEF]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0D5B53CE-A3EC-4FFD-8F28-CFC625BB0935}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.BIMEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=BIMEF;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADr2eyRoqLkkvgSx6hdjSAMAAAAAASAAACgAAAAEAAAAElyzr+6dhMKEfteknXNOqIQAAAA8G/SfmNNlMLvqoXWYn1BnxQAAAA5/TibBc+VRZOACSw7mAmeLun5OQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.BIMEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E716B5FC-70E9-4C99-88BA-4F8FA9842CFE}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.BIMEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=BIMEF;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABvOT0t79nblTQ+kwaf0g2BAAAAAASAAACgAAAAEAAAAPNbGLLmyWZaBjG7G71Nz/4QAAAA5B3BSJlPB/+4+9PxV9MXlBQAAAAj9CXnlHjMtLcIqlGyHPFx0kxzug</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.bimef2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9483B625-F85C-47EC-8D80-47CCADA92686}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.bimef2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=bimef;Provider=MSDAORA.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACoh5WciOyxHreK0lKLufz/AAAAAASAAACgAAAAEAAAAJU4UGY4mWvCP9nFvmDmpckQAAAAxgeJX7ytpDo+95aztjp1BBQAAADXRTuaQUza0jR7qRnZv/w1batuNQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.SDP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{30029465-722A-4E2E-9B47-77D1F25D1FFF}"
+      DTS:ObjectName="10.10.6.51:1521/SIGEDB.SDP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.10.6.51:1521/SIGEDB;User ID=SDP;Provider=OraOLEDB.Oracle.1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSRuOSyjdk2jNnIeYety7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAByZEvyL05vYsr2Hk8K6f2IAAAAAASAAACgAAAAEAAAAG0mTzYRCrm+ceKAcrbgsrQgAAAAqWM5GcQOeLPLq3IZfUFgCdulvRdVZTqbcOmGFeEhqR8UAAAARuSXX4tEXUCb/qH18B+eQMF+zVc</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3C5A5715-329F-4C7A-AD0B-6AEDB37F2868}"
+      DTS:ObjectName="ARUI-02.SOURCE_CAISEF">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ARUI-02;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{3C5A5715-329F-4C7A-AD0B-6AEDB37F2868}ARUI-02.SOURCE_CAISEF;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche d'exécution de requêtes SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{DAC6AEEE-60D7-4F16-98BF-D71CE4E62637}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3C5A5715-329F-4C7A-AD0B-6AEDB37F2868}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM V_DEBT_EXT_RETRO_BI" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\V_DEBT_EXT_RETRO_BI"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{7F70777F-818D-4D00-8EC9-0273A9D4C191}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="V_DEBT_EXT_RETRO_BI"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BENEFICIARY,DATE_REF,INST_RTCD_AMNT,INST_RTCD_RECOVER,cast(RATE_RECOVER as int)
+
+FROM     V_DEBT_EXT_RETRO_BI</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.SDP]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.10.6.51:1521/SIGEDB.SDP]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BENEFICIARY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BENEFICIARY]"
+                      length="20"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BENEFICIARY]"
+                      name="BENEFICIARY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[DATE_REF]"
+                      name="DATE_REF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[INST_RTCD_AMNT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[INST_RTCD_AMNT]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[INST_RTCD_AMNT]"
+                      name="INST_RTCD_AMNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[INST_RTCD_RECOVER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[INST_RTCD_RECOVER]"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[INST_RTCD_RECOVER]"
+                      name="INST_RTCD_RECOVER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[CAST(RATE_RECOVERASINT)]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[CAST(RATE_RECOVERASINT)]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[CAST(RATE_RECOVERASINT)]"
+                      name="CAST(RATE_RECOVERASINT)"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BENEFICIARY]"
+                      dataType="wstr"
+                      length="20"
+                      name="BENEFICIARY" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[INST_RTCD_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_RTCD_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[INST_RTCD_RECOVER]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_RTCD_RECOVER" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[CAST(RATE_RECOVERASINT)]"
+                      dataType="numeric"
+                      name="CAST(RATE_RECOVERASINT)"
+                      precision="38" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BENEFICIARY]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BENEFICIARY]"
+                      name="BENEFICIARY" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[DATE_REF]"
+                      name="DATE_REF" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_RTCD_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_RTCD_AMNT]"
+                      name="INST_RTCD_AMNT" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_RTCD_RECOVER]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_RTCD_RECOVER]"
+                      name="INST_RTCD_RECOVER" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[CAST(RATE_RECOVERASINT)]"
+                      dataType="numeric"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[CAST(RATE_RECOVERASINT)]"
+                      name="CAST(RATE_RECOVERASINT)"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="V_DEBT_EXT_RETRO_BI_"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[V_DEBT_EXT_RETRO_BI]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+                  connectionManagerRefId="Package.ConnectionManagers[ARUI-02.SOURCE_CAISEF]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].Columns[DATE_REF]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE_REF"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[DATE_REF]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].Columns[BENEFICIARY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BENEFICIARY"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[BENEFICIARY]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BENEFICIARY]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].Columns[INST_RTCD_AMNT]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INST_RTCD_AMNT"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_RTCD_AMNT]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[INST_RTCD_AMNT]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].Columns[INST_RTCD_RECOVER]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="INST_RTCD_RECOVER"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_RTCD_RECOVER]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[INST_RTCD_RECOVER]" />
+                    <inputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].Columns[CAST(RATE_RECOVERASINT)]"
+                      cachedDataType="numeric"
+                      cachedName="CAST(RATE_RECOVERASINT)"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[RATE_RECOVER]"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[CAST(RATE_RECOVERASINT)]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[DATE_REF]"
+                      dataType="dbTimeStamp"
+                      name="DATE_REF" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[BENEFICIARY]"
+                      dataType="wstr"
+                      length="20"
+                      name="BENEFICIARY" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_RTCD_AMNT]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_RTCD_AMNT" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_RTCD_RECOVER]"
+                      dataType="wstr"
+                      length="38"
+                      name="INST_RTCD_RECOVER" />
+                    <externalMetadataColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB].ExternalColumns[RATE_RECOVER]"
+                      dataType="wstr"
+                      length="38"
+                      name="RATE_RECOVER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\V_DEBT_EXT_RETRO_BI.Paths[Sortie de source OLE DB]"
+              endId="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BA6BA957-5E96-45F3-B809-5D0B02D7D3F7}"
+      DTS:From="Package\Tâche d'exécution de requêtes SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\V_DEBT_EXT_RETRO_BI" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\Tâche d'exécution de requêtes SQL"
+          TopLeft="227.642860925927,54.4411771569698" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\V_DEBT_EXT_RETRO_BI"
+          TopLeft="294.071433485771,182.147061300938" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="350.042860925927,96.0411771569698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.6285725598439,86.1058841439679"
+              Start="0,0"
+              End="41.6285725598439,78.6058841439679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.0529420719839" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.0529420719839"
+                    Point2="0,43.0529420719839"
+                    Point3="4,43.0529420719839" />
+                  <mssgle:LineSegment
+                    End="37.6285725598439,43.0529420719839" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.6285725598439,43.0529420719839"
+                    Point2="41.6285725598439,43.0529420719839"
+                    Point3="41.6285725598439,47.0529420719839" />
+                  <mssgle:LineSegment
+                    End="41.6285725598439,78.6058841439679" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\V_DEBT_EXT_RETRO_BI">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_"
+          TopLeft="256.428575795525,181.235296659404" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB"
+          TopLeft="115.714287684888,67.2941185908334" />
+        <EdgeLayout
+          Id="Package\V_DEBT_EXT_RETRO_BI.Paths[Sortie de source OLE DB]"
+          TopLeft="190.514287684888,108.894118590833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.714288110637,72.3411780685703"
+              Start="0,0"
+              End="166.714288110637,64.8411780685703">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1705890342852" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1705890342852"
+                    Point2="0,36.1705890342852"
+                    Point3="4,36.1705890342852" />
+                  <mssgle:LineSegment
+                    End="162.714288110637,36.1705890342852" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.714288110637,36.1705890342852"
+                    Point2="166.714288110637,36.1705890342852"
+                    Point3="166.714288110637,40.1705890342852" />
+                  <mssgle:LineSegment
+                    End="166.714288110637,64.8411780685703" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\V_DEBT_EXT_RETRO_BI\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\V_DEBT_EXT_RETRO_BI\V_DEBT_EXT_RETRO_BI_">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

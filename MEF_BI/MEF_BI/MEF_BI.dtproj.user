@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTransformationsUserConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <AssessmentRuleSuppressionSetting />
+        <UseWinAuth>false</UseWinAuth>
+        <WinAuthUserName />
+        <WinAuthDomain />
+        <ServerName>ARUI-02</ServerName>
+        <PathOnServer>/SSISDB/fmb/CAISSEF_2607</PathOnServer>
+        <Run64BitRuntime>false</Run64BitRuntime>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>{F9D6CBF4-8A98-4971-8F7B-AD97FF9CA140}</Id>
+            <Name>{F9D6CBF4-8A98-4971-8F7B-AD97FF9CA140}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAABOAAAAewBGADkARAA2AEMAQgBGADQALQA4AEEAOQA4AC0ANAA5ADcAMQAtADgARgA3AEIALQBBAEQAOQA3AEYARgA5AEMAQQAxADQAMAB9AAAAA2YAAMAAAAAQAAAA1HERcV7BMOzB2D2MROthNQAAAAAEgAAAoAAAABAAAAAId5yFoYBiaDD9kZU6CxgEEAAAAJItX19s+3r+Mymg4tx9KHIUAAAAx9Ku+CbPbTyNk69/lpKIcYZVlH4=</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>{F9D6CBF4-8A98-4971-8F7B-AD97FF9CA140}</Id>
+            <Name>{F9D6CBF4-8A98-4971-8F7B-AD97FF9CA140}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ3dDVZE/QU684p4SCX+suAAAAABOAAAAewBGADkARAA2AEMAQgBGADQALQA4AEEAOQA4AC0ANAA5ADcAMQAtADgARgA3AEIALQBBAEQAOQA3AEYARgA5AEMAQQAxADQAMAB9AAAAA2YAAMAAAAAQAAAA3Mgcfib056KTZABNmFF3agAAAAAEgAAAoAAAABAAAABllbF4G7OJMPED59aWWLZhGAAAAB3C1ddWBu1SH+mz/Mi5x0zTcFaHLRbsrxQAAACXbBreDk8z3zVUKYdA5nPzhfVIlQ==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <OfflineMode>false</OfflineMode>
+        <ProgressReporting>true</ProgressReporting>
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2023-03-06T14:41:19.5186234Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
+      </Options>
+    </Configuration>
+  </Configurations>
+</DataTransformationsUserConfiguration>

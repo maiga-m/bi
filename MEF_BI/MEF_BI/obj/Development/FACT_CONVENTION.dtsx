@@ -1,0 +1,770 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/27/2022 4:57:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-RJGOPBCJ87D"
+  DTS:CreatorName="WIN-RJGOPBCJ87D\Administrateur"
+  DTS:DTSID="{DC8E41E9-D443-4D99-ABB0-D682868F76F0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="FACT_CONVENTION"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{9DE0C2DA-19EA-4FEC-985D-78A4912E8826}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{605B4505-A4A7-49CD-A729-CA6E0BAB8315}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.BI1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=BI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{22D86BE8-6825-41E1-8B4C-4780D06CEF0E}"
+      DTS:ObjectName="WIN-RJGOPBCJ87D.SOURCE_CAISEF1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-RJGOPBCJ87D;Initial Catalog=SOURCE_CAISEF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{171372A0-B9C4-4BFB-AEE7-34646A018D0C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\FACT_CONVENTION"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FACT_CONVENTION"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FACT_CONVENTION]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\FACT_CONVENTION.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.BI1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[INST_AMNT_INI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="INST_AMNT_INI"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_INI]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_AMNT_INI]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[INT_RATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="INT_RATE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_RATE]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INT_RATE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[DateKey]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[DateREF]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="DateREF"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[DateREF]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[DateREF]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[INT_REPORT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="INT_REPORT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_REPORT]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INT_REPORT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[MATURITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MATURITY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[MATURITY]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[MATURITY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[BENEFICIARY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BENEFICIARY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[BENEFICIARY]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[BENEFICIARY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[INST_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="INST_TYPE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_TYPE]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_TYPE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[CURRENCY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CURRENCY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[CURRENCY]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[CURRENCY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[INST_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="INST_NAME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_NAME]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].Columns[BLR_CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BLR_CODE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[BLR_CODE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_AMNT_INI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_AMNT_INI" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_RATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INT_RATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[DateREF]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DateREF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INT_REPORT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INT_REPORT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[MATURITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MATURITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[BENEFICIARY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BENEFICIARY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB].ExternalColumns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BLR_CODE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\FACT_CONVENTION.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FACT_CONVENTION.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FACT_CONVENTION.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FACT_CONVENTION.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\STAGING"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="STAGING"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">use [SOURCE_CAISEF]
+  select a.[INST_AMNT_INI]  ,a.[INT_RATE] 
+  ,d.[DateKey],FORMAT(a.[DATE_REF],'dd/MM/yyyy') as DateREF,a.[INT_REPORT],a.[MATURITY],c.[BENEFICIARY]
+  ,m.[INST_TYPE],a.[CURRENCY],a.[INST_NAME],b.[BLR_CODE]
+
+  from [dbo].[V_DEBT_EXT_CONVENTION_BI]  as a 
+  left join   [dbo].[STAGING_DATE] as d on   FORMAT(d.FullDateAlternateKey ,'dd/MM/yyyy') = a.[DATE_REF]
+
+    left join [dbo].[STAGING_CERANCIER] as b 
+  on a.[BLR_CODE]= b.[BLR_CODE]
+
+  left join [dbo].[STAGING_BENEFICIARY] as c on a.[BENEFICIARY]=c.[BENEFICIARY]
+  left join  [dbo].[STAGING_TYPE_CONVENTION] as m on 
+ a.INST_TYPE= m.[INST_TYPE]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\STAGING.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-RJGOPBCJ87D.SOURCE_CAISEF1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_AMNT_INI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INST_AMNT_INI]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_AMNT_INI]"
+                      name="INST_AMNT_INI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INT_RATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INT_RATE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INT_RATE]"
+                      name="INT_RATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateKey]"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[DateREF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateREF]"
+                      length="4000"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[DateREF]"
+                      name="DateREF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INT_REPORT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INT_REPORT]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INT_REPORT]"
+                      name="INT_REPORT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[MATURITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[MATURITY]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[MATURITY]"
+                      name="MATURITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[BENEFICIARY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[BENEFICIARY]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[BENEFICIARY]"
+                      name="BENEFICIARY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INST_TYPE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_TYPE]"
+                      name="INST_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[CURRENCY]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[CURRENCY]"
+                      name="CURRENCY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INST_NAME]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[INST_NAME]"
+                      name="INST_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[BLR_CODE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].Columns[BLR_CODE]"
+                      name="BLR_CODE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INST_AMNT_INI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_AMNT_INI" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INT_RATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INT_RATE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[DateREF]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DateREF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INT_REPORT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INT_REPORT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[MATURITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MATURITY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[BENEFICIARY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BENEFICIARY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CURRENCY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB].ExternalColumns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BLR_CODE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_AMNT_INI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_AMNT_INI]"
+                      name="INST_AMNT_INI" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INT_RATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INT_RATE]"
+                      name="INT_RATE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateREF]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[DateREF]"
+                      name="DateREF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INT_REPORT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INT_REPORT]"
+                      name="INT_REPORT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[MATURITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[MATURITY]"
+                      name="MATURITY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[BENEFICIARY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[BENEFICIARY]"
+                      name="BENEFICIARY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_TYPE]"
+                      name="INST_TYPE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[CURRENCY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[CURRENCY]"
+                      name="CURRENCY" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[INST_NAME]"
+                      name="INST_NAME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[BLR_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[BLR_CODE]"
+                      name="BLR_CODE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\STAGING.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\FACT_CONVENTION.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\STAGING.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="90,58" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Tâche de flux de données\STAGING"
+          TopLeft="81,41" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Tâche de flux de données\FACT_CONVENTION"
+          TopLeft="243,115" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="145.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191,32"
+              Start="0,0"
+              End="191,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="187,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187,16"
+                    Point2="191,16"
+                    Point3="191,20" />
+                  <mssgle:LineSegment
+                    End="191,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\FACT_CONVENTION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
